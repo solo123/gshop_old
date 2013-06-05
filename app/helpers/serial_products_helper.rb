@@ -1,0 +1,2 @@
+module SerialProductsHelper
+end

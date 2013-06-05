@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  serial_number: MyString
+  product_name: MyString
+  product_model: MyString
+  title_photo_id: 1
+  production_batch_id: 1
+  product_data_type: MyString
+  product_data_id: 1
+
+two:
+  serial_number: MyString
+  product_name: MyString
+  product_model: MyString
+  title_photo_id: 1
+  production_batch_id: 1
+  product_data_type: MyString
+  product_data_id: 1

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brand:</b>
+  <%= @guitar.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @guitar.model %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @guitar.price %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @guitar.info %>
+</p>
+
+<p>
+  <b>Title photo:</b>
+  <%= @guitar.title_photo_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_guitar_path(@guitar) %> |
+<%= link_to 'Back', guitars_path %>
