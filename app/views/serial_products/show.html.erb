@@ -2,39 +2,46 @@
 
 <p>
   <b>Serial number:</b>
-  <%= @serial_product.serial_number %>
+  <%= @object.serial_number %>
 </p>
-
+<% if @object.product_data %>
+  <% g = @object.product_data %>
+  <p>
+    <b>Product data:</b>
+    <%= g.guitar_type %> <%= g.brand %> <%= g.model %>
+    <%= link_to 'Change', serial_product_guitars_path(@object) %>
+  </p>
+<% else %>
+  <%= link_to 'Select', serial_product_guitars_path(@object) %>
+<% end %>
 <p>
   <b>Product name:</b>
-  <%= @serial_product.product_name %>
+  <%= @object.product_name %>
 </p>
 
 <p>
   <b>Product model:</b>
-  <%= @serial_product.product_model %>
+  <%= @object.product_model %>
 </p>
 
 <p>
   <b>Title photo:</b>
-  <%= @serial_product.title_photo_id %>
+  <%= @object.title_photo_id %>
 </p>
-
+<div>
+  <% @object.photos.each do |photo| %>
+    <% if photo.pic %>
+      <%= image_tag photo.pic.url(:thumb) %>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to 'Add Photo', new_serial_product_photo_path(@object) %>
 <p>
   <b>Production batch:</b>
-  <%= @serial_product.production_batch_id %>
-</p>
-
-<p>
-  <b>Product data type:</b>
-  <%= @serial_product.product_data_type %>
-</p>
-
-<p>
-  <b>Product data:</b>
-  <%= @serial_product.product_data_id %>
+  <%= @object.production_batch_id %>
 </p>
 
 
-<%= link_to 'Edit', edit_serial_product_path(@serial_product) %> |
+
+<%= link_to 'Edit', edit_serial_product_path(@object) %> |
 <%= link_to 'Back', serial_products_path %>

@@ -1,28 +1,57 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Gshop</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<html lang='en'>
+  <head>
+    <title>Gshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-  <%= javascript_include_tag "application" %>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="/css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/css/bootstrap/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="/css/responsive-nav/responsive-nav.css">
-  <script src="/css/responsive-nav/responsive-nav.js"></script>
+    <link href="/css/Metro-UI/public/css/modern.css" rel="stylesheet">
+    <link href="/css/Metro-UI/public/css/modern-responsive.css" rel="stylesheet">
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class='container'>
-    <a href='/'>Home</a>
-  </div>
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
 
-  <div class='container'>
-    <%= yield %>
-  </div>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class='metrouicss'>
 
-</body>
+    <div class='page'>
+      <div class='nav-bar'>
+        <div class='nav-bar-inner padding10'>
+          <span class='pull-menu'></span>
+          <a href='/'>
+            <span class='element brand'>
+              <%= image_tag  'mw_logo_32.png', :class => 'place-left', :style => 'height:20px;' %>
+              MW吉他-管理系统
+              <small>0.01.1.01</small>
+            </span>
+          </a>
+          <div class='divider'></div>
+          <ul class='menu'>
+            <li>
+              <a href='/'>首页</a>
+            </li>
+            <li><a href="/serial_products">Serial Products</a></li>
+            <li><a href="/guitars">Guitars</a></li>
+            <li><a href="/photos">Photos</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <%= form_tag(quick_gos_path) do %>
+      <div class='input-control text'>
+      <%= text_field_tag :serial_number %>
+      <button class='btn-search'></button>
+    <% end %>
+    </div>
+    </div>
+
+    <div class="page">
+      <%= yield %>
+    </div>
+
+  </body>
 </html>

@@ -39,5 +39,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+gem 'meta_search'
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 3.0'

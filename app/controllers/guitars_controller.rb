@@ -1,83 +1,48 @@
-class GuitarsController < ApplicationController
-  # GET /guitars
-  # GET /guitars.json
-  def index
-    @guitars = Guitar.all
+class GuitarsController < ResourcesController
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @guitars }
-    end
-  end
-
-  # GET /guitars/1
-  # GET /guitars/1.json
   def show
-    @guitar = Guitar.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @guitar }
+    load_object
+    if @parent
+      @parent.product_data = @object
+      @parent.product_name = "#{@object.brand} #{@object.model}"
+      @parent.product_model = @object.guitar_type
+      @parent.save!
+      redirect_to @parent
+      return
     end
   end
-
-  # GET /guitars/new
-  # GET /guitars/new.json
-  def new
-    @guitar = Guitar.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @guitar }
+    def new
+      load_parent
+      @object = Guitar.new
     end
-  end
-
-  # GET /guitars/1/edit
-  def edit
-    @guitar = Guitar.find(params[:id])
-  end
-
-  # POST /guitars
-  # POST /guitars.json
-  def create
-    @guitar = Guitar.new(params[:guitar])
-
-    respond_to do |format|
-      if @guitar.save
-        format.html { redirect_to @guitar, notice: 'Guitar was successfully created.' }
-        format.json { render json: @guitar, status: :created, location: @guitar }
+    def create
+      load_parent
+      @object = Guitar.new(params[:guitar])
+      if @object.save
+        if @parent
+          @parent.product_data = @object
+          @parent.save
+          redirect_to @parent
+          return
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @guitar.errors, status: :unprocessable_entity }
+        flash[:error] = @object.errors.full_messages.to_sentence
+        @no_log = 1
       end
     end
-  end
 
-  # PUT /guitars/1
-  # PUT /guitars/1.json
-  def update
-    @guitar = Guitar.find(params[:id])
-
-    respond_to do |format|
-      if @guitar.update_attributes(params[:guitar])
-        format.html { redirect_to @guitar, notice: 'Guitar was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @guitar.errors, status: :unprocessable_entity }
+      def load_collection
+        load_parent
+        params[:search] ||= {}
+        @search = Guitar.metasearch(params[:search])
+        pages = 20
+        @collection = @search.paginate(:page => params[:page], :per_page => pages)
+      end 
+      def load_object
+        load_parent
+        @object = Guitar.find_by_id(params[:id])
       end
-    end
-  end
-
-  # DELETE /guitars/1
-  # DELETE /guitars/1.json
-  def destroy
-    @guitar = Guitar.find(params[:id])
-    @guitar.destroy
-
-    respond_to do |format|
-      format.html { redirect_to guitars_url }
-      format.json { head :no_content }
-    end
-  end
+      def load_parent
+        @parent = SerialProduct.find(params[:serial_product_id]) if params[:serial_product_id]
+      end
 end

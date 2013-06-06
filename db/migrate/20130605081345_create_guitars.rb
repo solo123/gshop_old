@@ -7,6 +7,7 @@ class CreateGuitars < ActiveRecord::Migration
       t.decimal :price
       t.string :info
       t.integer :title_photo_id
+      t.integer :status, :default => 0
 
       t.timestamps
     end

@@ -8,6 +8,7 @@ class CreateSerialProducts < ActiveRecord::Migration
       t.integer :production_batch_id
       t.string :product_data_type
       t.integer :product_data_id
+      t.integer :status, :default => 0
 
       t.timestamps
     end
