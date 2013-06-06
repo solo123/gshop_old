@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
+
+gem 'json', '1.7.7'
 
 gem 'rails', '3.2.13'
 
