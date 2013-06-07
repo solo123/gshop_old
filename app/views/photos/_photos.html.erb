@@ -1,0 +1,8 @@
+<div>
+  <% photos.photos.each do |photo| %>
+    <% if photo.pic %>
+      <%= image_tag photo.pic.url(:thumb) %>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to 'Add Photo', url_for(@object) + '/photos/new' %>

@@ -9,7 +9,7 @@
     <th></th>
   </tr>
 
-<% @photos.each do |photo| %>
+<% @collection.each do |photo| %>
   <tr>
     <td><%= photo.photo_data_type %></td>
     <td><%= photo.photo_data_id %></td>
@@ -23,7 +23,7 @@
 <br />
 
 <% if @parent %>
-<%= link_to 'Add Photo', new_serial_product_photo_path(@parent) %>
+<%= link_to 'Add Photo', url_for(@parent) + '/photos/new' %>
 <% else %>
 <%= link_to 'New Photo', new_photo_path %>
 <% end %>

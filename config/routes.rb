@@ -1,6 +1,10 @@
 Gshop::Application.routes.draw do
-  resources :guitars, :homes, :quick_gos
+  resources :homes, :quick_gos
   resources :photos
+
+  resources :guitars do
+  	resources :photos
+  end
   resources :serial_products do
     post :batch_add, :on => :collection
     resources :photos

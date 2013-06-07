@@ -17,6 +17,7 @@ class PhotosController < ResourcesController
         flash[:error] = @object.errors.full_messages.to_sentence
         @no_log = 1
       end
+      redirect_to :action => :new
     end
 
       def load_collection
@@ -28,6 +29,10 @@ class PhotosController < ResourcesController
         @object = Photo.find_by_id(params[:id])
       end
       def load_parent
-        @parent = SerialProduct.find(params[:serial_product_id]) if params[:serial_product_id]
+        @parent = if params[:serial_product_id]
+                    SerialProduct.find(params[:serial_product_id]) 
+                  elsif params[:guitar_id]
+                    Guitar.find(params[:guitar_id])
+                  end
       end
 end

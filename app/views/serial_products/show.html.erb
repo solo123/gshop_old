@@ -11,6 +11,7 @@
     <%= g.guitar_type %> <%= g.brand %> <%= g.model %>
     <%= link_to 'Change', serial_product_guitars_path(@object) %>
   </p>
+  <%= render :partial => 'photos/photos', :object => @object.product_data %>
 <% else %>
   <%= link_to 'Select', serial_product_guitars_path(@object) %>
 <% end %>
@@ -28,14 +29,7 @@
   <b>Title photo:</b>
   <%= @object.title_photo_id %>
 </p>
-<div>
-  <% @object.photos.each do |photo| %>
-    <% if photo.pic %>
-      <%= image_tag photo.pic.url(:thumb) %>
-    <% end %>
-  <% end %>
-</div>
-<%= link_to 'Add Photo', new_serial_product_photo_path(@object) %>
+<%= render :partial => 'photos/photos', :object => @object %>
 <p>
   <b>Production batch:</b>
   <%= @object.production_batch_id %>

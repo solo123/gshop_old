@@ -2,29 +2,31 @@
 
 <p>
   <b>Brand:</b>
-  <%= @guitar.brand %>
+  <%= @object.brand %>
 </p>
 
 <p>
   <b>Model:</b>
-  <%= @guitar.model %>
+  <%= @object.model %>
 </p>
 
 <p>
   <b>Price:</b>
-  <%= @guitar.price %>
+  <%= @object.price %>
 </p>
 
 <p>
   <b>Info:</b>
-  <%= @guitar.info %>
+  <%= @object.info %>
 </p>
 
 <p>
   <b>Title photo:</b>
-  <%= @guitar.title_photo_id %>
+  <%= @object.title_photo_id %>
 </p>
 
+<%= render :partial => 'photos/photos', :object => @object %>
 
-<%= link_to 'Edit', edit_guitar_path(@guitar) %> |
+
+<%= link_to 'Edit', edit_guitar_path(@object) %> |
 <%= link_to 'Back', guitars_path %>
