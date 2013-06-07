@@ -7,7 +7,7 @@ class QuickGosController < ApplicationController
         return
       end
     end
-    render :text => 'create'
+    redirect_to :controller => :serial_products, :action => :index
 	end
 end
 
