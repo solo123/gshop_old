@@ -18,12 +18,17 @@
       load_object
       @object.attributes = params[object_name.singularize.parameterize('_')]
       if @object.changed_for_autosave?
-        @changes = @object.all_changes
+        #@changes = @object.all_changes
         if @object.save
         else
           flash[:error] = @object.errors.full_messages.to_sentence
           @no_log = 1
         end
+      end
+      respond_to do |format|
+       format.html { redirect_to :action => :show }
+       #format.json { render json: @board } # avoid this output
+       format.js
       end
     end
     def create

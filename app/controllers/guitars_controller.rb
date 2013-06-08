@@ -5,7 +5,7 @@ class GuitarsController < ResourcesController
     if @parent
       @parent.product_data = @object
       @parent.product_name = "#{@object.brand} #{@object.model}"
-      @parent.product_model = @object.guitar_type
+      #@parent.product_model = @object.guitar_type
       @parent.save!
       redirect_to @parent
       return
