@@ -45,15 +45,19 @@
           </ul>
         </div>
       </div>
+    </div>
+
+    <div class="page">
+<div class="page-region">
+  <div class="page-region-content">
       <%= form_tag(quick_gos_path) do %>
         <div class='input-control text'>
           <%= text_field_tag :serial_number %>
           <button class='btn-search'></button>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="page">
+        </div>
+      <% end %>
+  </div>
+</div>
       <%= yield %>
     </div>
 
