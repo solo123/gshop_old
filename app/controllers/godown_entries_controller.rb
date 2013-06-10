@@ -1,0 +1,2 @@
+class GodownEntriesController < ResourcesController
+end

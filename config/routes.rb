@@ -1,4 +1,10 @@
 Gshop::Application.routes.draw do
+  resources :godown_entries do
+    resources :godown_items
+  end
+  resources :godown_items
+  resources :stocks
+  resources :warehouses
   resources :homes, :quick_gos
   resources :photos
 

@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605081345) do
+ActiveRecord::Schema.define(:version => 20130610021610) do
+
+  create_table "godown_entries", :force => true do |t|
+    t.date     "godown_date"
+    t.integer  "manufactory_id"
+    t.integer  "from_warehouse_id"
+    t.integer  "to_warehouse_id"
+    t.string   "info"
+    t.integer  "total_quantity",    :default => 0
+    t.integer  "operator"
+    t.integer  "status",            :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "godown_items", :force => true do |t|
+    t.integer  "godown_entry_id"
+    t.string   "product_data_type"
+    t.integer  "product_data_id"
+    t.integer  "quantity",          :default => 0
+    t.integer  "status",            :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
 
   create_table "guitars", :force => true do |t|
     t.string   "brand"
@@ -47,6 +70,26 @@ ActiveRecord::Schema.define(:version => 20130605081345) do
     t.integer  "status",              :default => 0
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "stocks", :force => true do |t|
+    t.string   "product_data_type"
+    t.integer  "product_data_id"
+    t.integer  "on_hand",           :default => 0
+    t.string   "info"
+    t.integer  "title_photo_id"
+    t.date     "last_buy_date"
+    t.date     "sold_out_date"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "warehouses", :force => true do |t|
+    t.string   "name"
+    t.string   "pre_code"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

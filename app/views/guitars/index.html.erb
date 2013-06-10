@@ -1,5 +1,6 @@
 <h1>Listing guitars</h1>
 
+    <%= will_paginate @collection %>
 <table>
   <tr>
     <th>Brand</th>
@@ -32,6 +33,7 @@
 <% end %>
 </table>
 
+    <%= will_paginate @collection %>
 <br />
 
 <% if @parent %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Godown date:</b>
+  <%= @object.godown_date %>
+</p>
+
+<p>
+  <b>Manufactory:</b>
+  <%= @object.manufactory_id %>
+</p>
+
+<p>
+  <b>From warehouse:</b>
+  <%= @object.from_warehouse_id %>
+</p>
+
+<p>
+  <b>To warehouse:</b>
+  <%= @object.to_warehouse_id %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @object.info %>
+</p>
+
+<p>
+  <b>Total items:</b>
+  <%= @object.total_quantity %>
+</p>
+
+<p>
+  <b>Operator:</b>
+  <%= @object.operator %>
+</p>
+
+
+<%= link_to 'Edit', edit_godown_entry_path(@object) %> |
+<%= link_to 'Back', godown_entries_path %>
+
+<br />
+
+<%= link_to 'New Godown item', new_godown_entry_godown_item_path(@object) %>
+<%= render :partial => '/godown_items/items', :object => @object.godown_items %>

@@ -1,0 +1,2 @@
+class GodownItemsController < NestedResourcesController
+end

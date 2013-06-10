@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Godown entry:</b>
+  <%= @godown_item.godown_entry_id %>
+</p>
+
+<p>
+  <b>Product data type:</b>
+  <%= @godown_item.product_data_type %>
+</p>
+
+<p>
+  <b>Product data:</b>
+  <%= @godown_item.product_data_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @godown_item.quantity %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @godown_item.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_godown_item_path(@godown_item) %> |
+<%= link_to 'Back', godown_items_path %>

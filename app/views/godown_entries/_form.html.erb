@@ -1,0 +1,45 @@
+<%= form_for(@object) do |f| %>
+  <% if @object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@object.errors.count, "error") %> prohibited this godown_entry from being saved:</h2>
+
+      <ul>
+      <% @object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :godown_date %><br />
+    <%= f.date_select :godown_date %>
+  </div>
+  <div class="field">
+    <%= f.label :manufactory_id %><br />
+    <%= f.number_field :manufactory_id %>
+  </div>
+  <div class="field">
+    <%= f.label :from_warehouse_id %><br />
+    <%= f.number_field :from_warehouse_id %>
+  </div>
+  <div class="field">
+    <%= f.label :to_warehouse_id %><br />
+    <%= f.number_field :to_warehouse_id %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_field :info %>
+  </div>
+  <div class="field">
+    <%= f.label :total_quantity %><br />
+    <%= f.number_field :total_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :operator %><br />
+    <%= f.number_field :operator %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

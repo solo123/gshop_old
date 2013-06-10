@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product data type:</b>
+  <%= @stock.product_data_type %>
+</p>
+
+<p>
+  <b>Product data:</b>
+  <%= @stock.product_data_id %>
+</p>
+
+<p>
+  <b>On hand:</b>
+  <%= @stock.on_hand %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @stock.info %>
+</p>
+
+<p>
+  <b>Title photo:</b>
+  <%= @stock.title_photo_id %>
+</p>
+
+<p>
+  <b>Last buy date:</b>
+  <%= @stock.last_buy_date %>
+</p>
+
+<p>
+  <b>Sold out date:</b>
+  <%= @stock.sold_out_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

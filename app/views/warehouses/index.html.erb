@@ -1,0 +1,29 @@
+<h1>Listing warehouses</h1>
+
+<%= link_to 'New Warehouse', new_warehouse_path %>
+    <%= will_paginate @collection %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Pre code</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |warehouse| %>
+  <tr>
+    <td><%= warehouse.name %></td>
+    <td><%= warehouse.pre_code %></td>
+    <td><%= warehouse.status %></td>
+    <td><%= link_to 'Show', warehouse %></td>
+    <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
+    <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+    <%= will_paginate @collection %>
+<br />
+

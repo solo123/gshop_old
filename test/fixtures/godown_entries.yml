@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  godown_date: 2013-06-10
+  manufactory_id: 1
+  from_warehouse_id: 1
+  to_warehouse_id: 1
+  info: MyString
+  total_items: 1
+  operator: 1
+
+two:
+  godown_date: 2013-06-10
+  manufactory_id: 1
+  from_warehouse_id: 1
+  to_warehouse_id: 1
+  info: MyString
+  total_items: 1
+  operator: 1

@@ -60,7 +60,7 @@
         @object = object_name.classify.constantize.find_by_id(params[:id])
       end
       def object_name
-        controller_name #.singularize
+        controller_name.singularize
       end
 
       def flash_message_for(object, event_sym)
