@@ -1,5 +1,8 @@
 class GuitarsController < ResourcesController
 
+  def select
+    load_collection
+  end
   def show
     load_object
     if @parent

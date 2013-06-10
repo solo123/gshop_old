@@ -10,6 +10,7 @@ Gshop::Application.routes.draw do
 
   resources :guitars do
   	resources :photos
+    get :select, :on => :collection
   end
   resources :serial_products do
     post :batch_add, :on => :collection

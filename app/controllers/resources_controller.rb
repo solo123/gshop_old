@@ -34,10 +34,13 @@
     def create
       @object = object_name.classify.constantize.new(params[object_name.singularize.parameterize('_')])
       if @object.save
+        redirect_to @object
+        return
       else
         flash[:error] = @object.errors.full_messages.to_sentence
         @no_log = 1
       end
+      redirect_to :action => :new
     end
     def destroy
       load_object

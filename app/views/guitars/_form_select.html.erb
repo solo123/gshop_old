@@ -1,0 +1,41 @@
+	<%= form_for( @search, :url => guitars_path ) do |f| %>
+      <%= f.text_field :model_contains %>
+      <%= button_tag 'Search' %>
+    <% end %>
+<br />
+
+
+    <%= will_paginate @collection %>
+<table>
+  <tr>
+    <th>Brand</th>
+    <th>Type</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Info</th>
+    <th>Title photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collection.each do |guitar| %>
+  <tr>
+    <td><%= guitar.brand %></td>
+    <td><%= guitar.guitar_type %></td>
+    <td><%= guitar.model %></td>
+    <td><%= guitar.price %></td>
+    <td><%= guitar.info %></td>
+    <td><%= guitar.title_photo_id %></td>
+    <% if @parent %>
+      <td><%= link_to 'Select', serial_product_guitar_path(@parent, guitar) %></td>
+    <% else %>
+    <td><%= link_to 'Show', guitar %></td>
+    <td><%= link_to 'Edit', edit_guitar_path(guitar) %></td>
+    <td><%= link_to 'Destroy', guitar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+    <%= will_paginate @collection %>
