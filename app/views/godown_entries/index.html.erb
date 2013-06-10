@@ -12,6 +12,7 @@
     <th>Info</th>
     <th>Total items</th>
     <th>Operator</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,6 +27,7 @@
     <td><%= godown_entry.info %></td>
     <td><%= godown_entry.total_quantity %></td>
     <td><%= godown_entry.operator %></td>
+    <td><%= godown_entry.status %></td>
     <td><%= link_to 'Show', godown_entry %></td>
     <td><%= link_to 'Edit', edit_godown_entry_path(godown_entry) %></td>
     <td><%= link_to 'Destroy', godown_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>

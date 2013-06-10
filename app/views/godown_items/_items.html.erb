@@ -1,31 +1,30 @@
-<h1>Listing godown_items</h1>
-
+<div class='bg-color-blueLight border-color-blue'>
 <table>
+  <thead>
   <tr>
-    <th>Godown entry</th>
-    <th>Product data type</th>
-    <th>Product data</th>
-    <th>Quantity</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
+    <th>产品</th>
+    <th>价格</th>
+    <th>数量</th>
+    <th>状态</th>
     <th></th>
   </tr>
-
+</thead>
+<tbody>
 <% items.each do |godown_item| %>
   <tr>
-    <td><%= godown_item.godown_entry_id %></td>
-    <td><%= godown_item.product_data_type %></td>
-    <td><%= godown_item.product_data_id %></td>
+    <td><%= godown_item.product_data.full_name if godown_item.product_data %></td>
+    <td><%= godown_item.product_data.price if godown_item.product_data %></td>
     <td><%= godown_item.quantity %></td>
     <td><%= godown_item.status %></td>
-    <td><%= link_to 'Show', godown_item %></td>
-    <td><%= link_to 'Edit', edit_godown_item_path(godown_item) %></td>
-    <td><%= link_to 'Destroy', godown_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to 'Edit', edit_godown_item_path(godown_item) %>
+      <%= link_to 'Destroy', godown_entry_godown_item_path(godown_item.godown_entry, godown_item), method: :delete, :confirm => '确认要删除吗？' %>
+    </td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
+</div>
 <br />
 
 

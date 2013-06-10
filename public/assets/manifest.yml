@@ -1,9 +1,0 @@
----
-mw_logo_32.png: mw_logo_32-aecbfd1cfc1984a4b9ea73bf45392299.png
-mw_logo_32/index.png: mw_logo_32-aecbfd1cfc1984a4b9ea73bf45392299.png
-application.js: application-c7a19f59a42bf8122b3a239b3afef255.js
-application/index.js: application-c7a19f59a42bf8122b3a239b3afef255.js
-application.css: application-54722abc3ae5331a3f25f24364a457aa.css
-application/index.css: application-54722abc3ae5331a3f25f24364a457aa.css
-jquery.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map
-jquery/index.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map

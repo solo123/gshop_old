@@ -1,6 +1,10 @@
+/*
+function show_image(image_url) {
+	window.open(image_url);
+	
 	$.Dialog({ 
-		'title':   'Serial Guitar', 
-  'content': '<%= j render :partial => 'form_select' %>', 
+		'title':   'Serial product', 
+		'content': '<img src="' + image_url + '">', 
 		'draggable'   : true,
         'overlay'     : true,
         'closeButton' : true,
@@ -14,4 +18,5 @@
 		} 
 	});
 
-find_guitar();
+}
+*/

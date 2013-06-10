@@ -1,45 +1,59 @@
 <p id="notice"><%= notice %></p>
+<% if flash[:error] %>
+<div class="notices">
+        <div class="bg-color-red">
+            <a href="#" class="close"></a>
+            <div class="notice-icon"><i class='icon-cancel'></i></div>
+            <div class="notice-image"><h1 class='icon-sunrise' style='font-size:48px;color:yellow;'></h1></div>
+            <div class="notice-header"> 错误信息 </div>
+            <div class="notice-text"> <%= flash[:error] %> </div>
+        </div>
+      </div>
+    <% end %>
 
 <p>
-  <b>Godown date:</b>
+  <b>录入日期:</b>
   <%= @object.godown_date %>
 </p>
 
 <p>
-  <b>Manufactory:</b>
+  <b>生产厂家:</b>
   <%= @object.manufactory_id %>
 </p>
 
 <p>
-  <b>From warehouse:</b>
-  <%= @object.from_warehouse_id %>
+  <b>发出仓库:</b>
+  <%= @object.from_warehouse.name if @object.from_warehouse %>
 </p>
 
 <p>
-  <b>To warehouse:</b>
-  <%= @object.to_warehouse_id %>
+  <b>入库仓库:</b>
+  <%= @object.to_warehouse.name if @object.to_warehouse %>
 </p>
 
 <p>
-  <b>Info:</b>
+  <b>说明信息:</b>
   <%= @object.info %>
 </p>
 
 <p>
-  <b>Total items:</b>
+  <b>入库件数:</b>
   <%= @object.total_quantity %>
 </p>
 
 <p>
-  <b>Operator:</b>
+  <b>操作人员:</b>
   <%= @object.operator %>
+</p>
+<p>
+  <b>状态:</b>
+  <%= @object.status %>
 </p>
 
 
-<%= link_to 'Edit', edit_godown_entry_path(@object) %> |
-<%= link_to 'Back', godown_entries_path %>
-
+<%= link_to '修改', edit_godown_entry_path(@object) %> |
+<%= link_to '返回', godown_entries_path %> |
+<%= link_to '新增入库项目', new_godown_entry_godown_item_path(@object) %> |
+<%= link_to '入库！', entering_godown_entry_path(@object) %>
 <br />
-
-<%= link_to 'New Godown item', new_godown_entry_godown_item_path(@object) %>
 <%= render :partial => '/godown_items/items', :object => @object.godown_items %>

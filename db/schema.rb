@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610021610) do
+ActiveRecord::Schema.define(:version => 20130610174841) do
 
   create_table "godown_entries", :force => true do |t|
     t.date     "godown_date"
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(:version => 20130610021610) do
     t.datetime "updated_at",                         :null => false
   end
 
+  create_table "stock_journals", :force => true do |t|
+    t.integer  "stock_id"
+    t.integer  "stock_before"
+    t.integer  "stock_godown"
+    t.integer  "stock_after"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "stocks", :force => true do |t|
     t.string   "product_data_type"
     t.integer  "product_data_id"
@@ -82,14 +91,15 @@ ActiveRecord::Schema.define(:version => 20130610021610) do
     t.date     "sold_out_date"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "warehouse_id"
   end
 
   create_table "warehouses", :force => true do |t|
     t.string   "name"
     t.string   "pre_code"
-    t.integer  "status",     :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
