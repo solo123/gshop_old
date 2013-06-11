@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @object.customer_id %>
+</p>
+
+<p>
+  <b>Warehouse:</b>
+  <%= @object.warehouse_id %>
+</p>
+
+<p>
+  <b>Operator:</b>
+  <%= @object.operator_id %>
+</p>
+
+<p>
+  <b>Total items:</b>
+  <%= @object.total_items %>
+</p>
+
+<p>
+  <b>Total amount:</b>
+  <%= @object.total_amount %>
+</p>
+
+<p>
+  <b>Additional fee:</b>
+  <%= @object.additional_fee %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @object.discount %>
+</p>
+
+<p>
+  <b>Actual amount:</b>
+  <%= @object.actual_amount %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @object.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_sales_sheet_path(@object) %> |
+<%= link_to 'Back', sales_sheets_path %> |
+<%= link_to '新增项目', new_sales_sheet_sales_sheet_item_path(@object) %> |
+<%= link_to '计算', calculate_sales_sheet_path(@object) %> |
+<%= link_to '完成！', entering_sales_sheet_path(@object) %> |
+<%= link_to '打印', print_sales_sheet_path(@object), :target => 'print_win' %>
+<br />
+<%= render :partial => '/sales_sheet_items/items', :object => @object.sales_sheet_items %>

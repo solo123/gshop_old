@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sales_sheet_id: 1
+  product_data_type: MyString
+  product_data_id: 1
+  quantity: 1
+  price: 9.99
+  amount: 9.99
+
+two:
+  sales_sheet_id: 1
+  product_data_type: MyString
+  product_data_id: 1
+  quantity: 1
+  price: 9.99
+  amount: 9.99

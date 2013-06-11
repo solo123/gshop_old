@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <th>Sales sheet</th>
+    <th>Product data type</th>
+    <th>Product data</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Amount</th>
+    <th></th>
+  </tr>
+
+<% items.each do |sales_sheet_item| %>
+  <tr>
+    <td><%= sales_sheet_item.sales_sheet_id %></td>
+    <td><%= sales_sheet_item.product_data_type %></td>
+    <td><%= sales_sheet_item.product_data_id %></td>
+    <td><%= sales_sheet_item.quantity %></td>
+    <td><%= sales_sheet_item.price %></td>
+    <td><%= sales_sheet_item.amount %></td>
+    <td>
+      <%= link_to 'Edit', edit_sales_sheet_item_path(sales_sheet_item) %> |
+      <%= link_to 'Destroy', sales_sheet_item, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

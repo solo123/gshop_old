@@ -19,8 +19,8 @@ function search_guitar(){
 function guitar_selected(node){
   var guitar = $(node).closest('tr').attr('id');
   $.Dialog.close();
-  $('#godown_item_product_data_type').val('Guitar');
-  $('#godown_item_product_data_id').val(guitar.slice(7));
+  $('#product_data_type').val('Guitar');
+  $('#product_data_id').val(guitar.slice(7));
 }
 function goto_find_user(){
   var user_name = $('#order_order_detail_attributes_full_name').val();

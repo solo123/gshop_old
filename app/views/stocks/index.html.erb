@@ -2,34 +2,29 @@
 
 <table>
   <tr>
-    <th>Product data type</th>
-    <th>Product data</th>
+    <th>Product</th>
     <th>On hand</th>
     <th>Info</th>
     <th>Title photo</th>
     <th>Last buy date</th>
     <th>Sold out date</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
-<% @stocks.each do |stock| %>
+<% @collection.each do |stock| %>
   <tr>
-    <td><%= stock.product_data_type %></td>
-    <td><%= stock.product_data_id %></td>
+    <td><%= stock.product_data.full_name if stock.product_data %></td>
     <td><%= stock.on_hand %></td>
     <td><%= stock.info %></td>
     <td><%= stock.title_photo_id %></td>
     <td><%= stock.last_buy_date %></td>
     <td><%= stock.sold_out_date %></td>
-    <td><%= link_to 'Show', stock %></td>
-    <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-    <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to '编号产品', serials_stock_path(stock), :remote => true %> |
+      <%= link_to '刷新', add_serials_stock_path(stock), :remote => true %>
+    </td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Stock', new_stock_path %>
+<%= link_to '返回', url_for(@parent)  if @parent%>

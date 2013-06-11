@@ -1,0 +1,77 @@
+<div class='noprint'>
+  <%= link_to '打印', '#', :onclick => 'window.print()' %>
+</div>
+
+<%= image_tag  'invoice_title.jpg' %>
+<div id='invoice_number'>
+  Date: <%= @object.updated_at %><br />
+  Invoice # <%= "#{'%02d' % @object.created_at.month}#{'%03d' % @object.id}#{@object.created_at.year.to_s[2..4]}8" %>
+</div>
+<% if @object.customer %>
+  <div class='info-block'>
+   <h3>Sold to:</h3>
+   <p>
+    <%= @object.customer.name %> <%= @object.customer.title %><br />
+    Tel(电话): <%= @object.customer.mobile %> <%= @object.customer.phone %><br />
+    Email: <%= @object.customer.email %>
+   </p>
+ </div>
+<% end %>
+<br />
+<table class='items'>
+  <thead>
+  <tr>
+    <th>
+      Product #<br />
+      <span class='cn'>产品编号</span>
+    </th>
+    <th>
+      Description<br />
+      产品描述
+    </th>
+    <th>Quantity<br />
+      <span class='cn'>数量</span>
+    </th>
+    <th>Unit Price<br />
+      单价
+    </th>
+    <th>Line Total<br />
+      金额
+    </th>
+  </tr>
+</thead>
+<tbody>
+
+
+<% @object.sales_sheet_items.each do |sales_sheet_item| %>
+  <tr>
+    <td class='center'><%= sales_sheet_item.sales_sheet_id %></td>
+    <td><%= sales_sheet_item.product_data.full_name if sales_sheet_item.product_data %></td>
+    <td class='center'><%= sales_sheet_item.quantity %></td>
+    <td class='right'><%= sales_sheet_item.price %></td>
+    <td class='right'><%= sales_sheet_item.amount %></td>
+  </tr>
+<% end %>
+</tbody>
+<tfoot>
+  <tr>
+    <td colspan='2' class='sum'>Total(合计):</td>
+    <td class='center'><%= @object.total_items %></td>
+    <td></td>
+    <td class='right'><%= @object.total_amount %></td>
+  </tr>
+  <tr>
+    <td colspan='4' class='sum'>+ Additional(其他费用):</td>
+    <td class='right'><%= @object.additional_fee %></td>
+  </tr>
+  <tr>
+    <td colspan='4' class='sum'>- Invoice discount(特殊折扣):</td>
+    <td class='right'><%= @object.discount %></td>
+  </tr>
+  <tr>
+    <td colspan='4' class='sum'>= Actual amount(实际金额):</td>
+    <td class='right'><%= @object.actual_amount %></td>
+  </tr>
+</tfoot>
+</table>
+

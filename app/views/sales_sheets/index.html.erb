@@ -1,0 +1,39 @@
+<h1>Listing sales_sheets</h1>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th>Warehouse</th>
+    <th>Operator</th>
+    <th>Total items</th>
+    <th>Total amount</th>
+    <th>Additional fee</th>
+    <th>Discount</th>
+    <th>Actual amount</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= will_paginate @collection %>
+<% @collection.each do |sales_sheet| %>
+  <tr>
+    <td><%= sales_sheet.customer_id %></td>
+    <td><%= sales_sheet.warehouse_id %></td>
+    <td><%= sales_sheet.operator_id %></td>
+    <td><%= sales_sheet.total_items %></td>
+    <td><%= sales_sheet.total_amount %></td>
+    <td><%= sales_sheet.additional_fee %></td>
+    <td><%= sales_sheet.discount %></td>
+    <td><%= sales_sheet.actual_amount %></td>
+    <td><%= sales_sheet.status %></td>
+    <td><%= link_to 'Show', sales_sheet %></td>
+    <td><%= link_to 'Edit', edit_sales_sheet_path(sales_sheet) %></td>
+    <td><%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sales sheet', new_sales_sheet_path %>

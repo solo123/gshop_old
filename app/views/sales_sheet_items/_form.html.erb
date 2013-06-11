@@ -1,7 +1,7 @@
 <%= form_for([@parent, @object]) do |f| %>
   <% if @object.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@object.errors.count, "error") %> prohibited this godown_item from being saved:</h2>
+      <h2><%= pluralize(@object.errors.count, "error") %> prohibited this sales_sheet_item from being saved:</h2>
 
       <ul>
       <% @object.errors.full_messages.each do |msg| %>
@@ -17,11 +17,19 @@
   </div>
   <div class="field">
     <%= f.label :product_data_id %><br />
-    <%= f.text_field :product_data_id, :id => 'product_data_id' %>
+    <%= f.number_field :product_data_id, :id => 'product_data_id' %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br />
-    <%= f.text_field :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
   </div>
   <div class="actions">
     <%= f.submit %>

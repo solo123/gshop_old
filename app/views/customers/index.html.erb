@@ -1,0 +1,43 @@
+<h1>Listing customers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Mobile</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Qq</th>
+    <th>Address</th>
+    <th>Level</th>
+    <th>Info</th>
+    <th>Reason</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= will_paginate @collection %>
+<% @collection.each do |customer| %>
+
+  <tr>
+    <td><%= customer.name %></td>
+    <td><%= customer.title %></td>
+    <td><%= customer.mobile %></td>
+    <td><%= customer.phone %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.qq %></td>
+    <td><%= customer.address %></td>
+    <td><%= customer.level %></td>
+    <td><%= customer.info %></td>
+    <td><%= customer.reason %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+  <%= will_paginate @collection %>
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>

@@ -1,14 +1,25 @@
 Gshop::Application.routes.draw do
+  resources :sales_sheets do
+    resources :sales_sheet_items
+    get :calculate, :on => :member
+    get :entering, :on => :member
+    get :print, :on => :member
+  end
+  resources :sales_sheet_items
+  resources :customers
   resources :stock_journals
-
-
   resources :godown_entries do
     resources :godown_items
     get :entering, :on => :member
   end
   resources :godown_items
-  resources :stocks
-  resources :warehouses
+  resources :stocks do
+    get :serials, :on => :member
+    get :add_serials, :on => :member
+  end
+  resources :warehouses do
+    resources :stocks
+  end
   resources :homes, :quick_gos
   resources :photos
 

@@ -1,2 +1,2 @@
-class StocksController < ResourcesController
+class StocksController < NestedResourcesController
 end

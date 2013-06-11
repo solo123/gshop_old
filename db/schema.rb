@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610174841) do
+ActiveRecord::Schema.define(:version => 20130611030956) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "mobile"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "qq"
+    t.string   "address"
+    t.integer  "level",      :default => 0
+    t.string   "info"
+    t.string   "reason"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "godown_entries", :force => true do |t|
     t.date     "godown_date"
@@ -59,6 +74,31 @@ ActiveRecord::Schema.define(:version => 20130610174841) do
     t.datetime "pic_updated_at"
   end
 
+  create_table "sales_sheet_items", :force => true do |t|
+    t.integer  "sales_sheet_id"
+    t.string   "product_data_type"
+    t.integer  "product_data_id"
+    t.integer  "quantity",                                        :default => 0
+    t.decimal  "price",             :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "amount",            :precision => 8, :scale => 2, :default => 0.0
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
+  end
+
+  create_table "sales_sheets", :force => true do |t|
+    t.integer  "customer_id"
+    t.integer  "warehouse_id"
+    t.integer  "operator_id"
+    t.integer  "total_items",                                  :default => 0
+    t.decimal  "total_amount",   :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "additional_fee", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "discount",       :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "actual_amount",  :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "status",                                       :default => 0
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+  end
+
   create_table "serial_products", :force => true do |t|
     t.string   "serial_number"
     t.string   "product_name"
@@ -70,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20130610174841) do
     t.integer  "status",              :default => 0
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.integer  "stock_id"
   end
 
   create_table "stock_journals", :force => true do |t|
