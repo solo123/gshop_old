@@ -3,6 +3,7 @@
     <%= will_paginate @collection %>
 <table>
   <tr>
+    <th>code</th>
     <th>Brand</th>
     <th>Type</th>
     <th>Model</th>
@@ -16,6 +17,7 @@
 
 <% @collection.each do |guitar| %>
   <tr>
+    <td><%= guitar.short_code %></td>
     <td><%= guitar.brand %></td>
     <td><%= guitar.guitar_type %></td>
     <td><%= guitar.model %></td>

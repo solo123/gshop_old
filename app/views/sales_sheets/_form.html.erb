@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :customer_id %><br />
-    <%= f.number_field :customer_id %>
+    <%= f.text_field :customer_id %>
   </div>
   <div class="field">
     <%= f.label :warehouse_id %><br />
-    <%= f.number_field :warehouse_id %>
+    <%= f.text_field :warehouse_id %>
   </div>
   <div class="field">
     <%= f.label :operator_id %><br />
-    <%= f.number_field :operator_id %>
+    <%= f.text_field :operator_id %>
   </div>
   <div class="field">
     <%= f.label :total_items %><br />
-    <%= f.number_field :total_items %>
+    <%= f.text_field :total_items %>
   </div>
   <div class="field">
     <%= f.label :total_amount %><br />
@@ -43,9 +43,13 @@
     <%= f.label :actual_amount %><br />
     <%= f.text_field :actual_amount %>
   </div>
+  <div class='field'>
+    paid<br />
+    <%= text_field_tag :paid %>
+  </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
+    <%= f.label :info %><br />
+    <%= f.text_field :info %>
   </div>
   <div class="actions">
     <%= f.submit %>
