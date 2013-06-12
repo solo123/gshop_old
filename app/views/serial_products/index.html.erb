@@ -21,7 +21,7 @@
         <th>Product model</th>
         <th>Title photo</th>
         <th>Production batch</th>
-        <th>Product data</th>
+        <th>stock</th>
         <th></th>
         <th></th>
         <th></th>
@@ -34,6 +34,7 @@
           <td><%= serial_product.product_model %></td>
           <td><%= serial_product.title_photo_id %></td>
           <td><%= serial_product.production_batch_id %></td>
+          <td><%= serial_product.stock_id %></td>
           <td>
             <% if serial_product.product_data %>
               <% g = serial_product.product_data %>
