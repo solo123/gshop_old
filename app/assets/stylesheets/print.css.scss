@@ -28,18 +28,12 @@ table.items{
 
 #invoice_number{
   position: absolute;
-  top: 160px;
-  left: 620px;
+  top: 110px;
+  left: 630px;
 }
 
-.info-block{
-  margin-left: 20px;
-  width: 400px;
-  line-height: 1.6;
+p.info { 
+  margin-left:20px;
   font-size: 14px;
-  h3 {
-    font-weight:bold;
-    font-size: 14px;
-    border-bottom: solid 1px #aaa;
-  }
+  .prompt: {text-decoration: underline;}
 }

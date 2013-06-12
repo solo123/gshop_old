@@ -1,4 +1,11 @@
 Gshop::Application.routes.draw do
+  resources :accessories do
+  	resources :photos
+    get :select, :on => :collection
+    get :search, :on => :collection
+  end
+
+
   resources :sales_sheets do
     resources :sales_sheet_items
     get :calculate, :on => :member

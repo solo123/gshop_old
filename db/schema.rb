@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611030956) do
+ActiveRecord::Schema.define(:version => 20130611182551) do
+
+  create_table "accessories", :force => true do |t|
+    t.string   "short_code"
+    t.string   "brand"
+    t.string   "name"
+    t.string   "catalog"
+    t.string   "info"
+    t.decimal  "price"
+    t.integer  "title_photo_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "name"
@@ -61,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130611030956) do
     t.integer  "status",         :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "short_code"
   end
 
   create_table "photos", :force => true do |t|
@@ -83,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20130611030956) do
     t.decimal  "amount",            :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at",                                                       :null => false
     t.datetime "updated_at",                                                       :null => false
+    t.string   "description"
+    t.integer  "serial_product_id"
+    t.string   "serial_number"
   end
 
   create_table "sales_sheets", :force => true do |t|
@@ -97,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20130611030956) do
     t.integer  "status",                                       :default => 0
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
+    t.string   "info"
   end
 
   create_table "serial_products", :force => true do |t|

@@ -1,8 +1,8 @@
 <table>
   <tr>
-    <th>Sales sheet</th>
-    <th>Product data type</th>
-    <th>Product data</th>
+    <th>Serial</th>
+    <th>Product</th>
+    <th>Description</th>
     <th>Quantity</th>
     <th>Price</th>
     <th>Amount</th>
@@ -11,9 +11,9 @@
 
 <% items.each do |sales_sheet_item| %>
   <tr>
-    <td><%= sales_sheet_item.sales_sheet_id %></td>
-    <td><%= sales_sheet_item.product_data_type %></td>
-    <td><%= sales_sheet_item.product_data_id %></td>
+    <td><%= sales_sheet_item.serial_product.serial_number if sales_sheet_item.serial_product %> <%= sales_sheet_item.serial_number %></td>
+    <td><%= sales_sheet_item.product_data_type %>-<%= sales_sheet_item.product_data_id %></td>
+    <td><%= sales_sheet_item.description %></td>
     <td><%= sales_sheet_item.quantity %></td>
     <td><%= sales_sheet_item.price %></td>
     <td><%= sales_sheet_item.amount %></td>

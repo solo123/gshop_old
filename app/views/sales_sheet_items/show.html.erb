@@ -2,32 +2,32 @@
 
 <p>
   <b>Sales sheet:</b>
-  <%= @sales_sheet_item.sales_sheet_id %>
+  <%= @object.sales_sheet_id %>
 </p>
 
 <p>
   <b>Product data type:</b>
-  <%= @sales_sheet_item.product_data_type %>
+  <%= @object.product_data_type %>
 </p>
 
 <p>
   <b>Product data:</b>
-  <%= @sales_sheet_item.product_data_id %>
+  <%= @object.product_data_id %>
 </p>
 
 <p>
   <b>Quantity:</b>
-  <%= @sales_sheet_item.quantity %>
+  <%= @object.quantity %>
 </p>
 
 <p>
   <b>Price:</b>
-  <%= @sales_sheet_item.price %>
+  <%= @object.price %>
 </p>
 
 <p>
   <b>Amount:</b>
-  <%= @sales_sheet_item.amount %>
+  <%= @object.amount %>
 </p>
 
-
+<%= link_to '返回', url_for(@object.sales_sheet) %>
