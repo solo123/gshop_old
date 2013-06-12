@@ -11,6 +11,7 @@ Gshop::Application.routes.draw do
   resources :godown_entries do
     resources :godown_items
     get :entering, :on => :member
+    get :calculate, :on => :member
   end
   resources :godown_items
   resources :stocks do

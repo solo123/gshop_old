@@ -1,6 +1,15 @@
 class GodownEntriesController < ResourcesController
+  def calculate
+    load_object
+    if @object.status == 0
+      @object.total_quantity = @object.godown_items.sum(:quantity)
+      @object.save
+    end
+    redirect_to @object
+  end
   def entering
     load_object
+
     if @object.status == 0
       @object.total_quantity = @object.godown_items.sum(:quantity)
       @object.save
