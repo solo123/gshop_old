@@ -48,18 +48,29 @@
     </div>
 
     <div class="page">
-<div class="page-region">
-  <div class="page-region-content">
-      <%= form_tag(quick_gos_path) do %>
-        <div class='input-control text'>
-          <%= text_field_tag :serial_number %>
-          <button class='btn-search'></button>
+      <div class="page-region">
+        <div class="page-region-content">
+          <div class='grid'>
+            <div class='row'>
+              <%= form_tag(quick_gos_path) do %>
+                <div class='span4'>
+                  <div class='input-control text'>
+                    <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
+                    <button class='btn-search'></button>
+                  </div>
+                </div>
+                <div class='span4'>
+                  <div class='input-control text'>
+                    <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
+                    <button class='btn-search'></button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% end %>
-  </div>
-</div>
+      </div>
       <%= yield %>
     </div>
-
   </body>
 </html>
