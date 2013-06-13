@@ -2,7 +2,7 @@
   <%= link_to '打印', '#', :onclick => 'window.print()' %>
 </div>
 
-<%= image_tag  'invoice_title.jpg' %>
+<%= image_tag  'invoice_title.png', :size => '900x155'  %>
 <div id='invoice_number'>
   Invoice# <b><%= "#{'%02d' % @object.created_at.month}#{'%03d' % @object.id}#{@object.created_at.year.to_s[2..4]}8" %></b><br />
   Date: <%= l @object.updated_at, :format => :long %>
