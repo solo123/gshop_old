@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611182551) do
+ActiveRecord::Schema.define(:version => 20130613142636) do
 
   create_table "accessories", :force => true do |t|
     t.string   "short_code"
@@ -57,10 +57,11 @@ ActiveRecord::Schema.define(:version => 20130611182551) do
     t.integer  "godown_entry_id"
     t.string   "product_data_type"
     t.integer  "product_data_id"
-    t.integer  "quantity",          :default => 0
-    t.integer  "status",            :default => 0
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "quantity",                                        :default => 0
+    t.integer  "status",                                          :default => 0
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
+    t.decimal  "cost",              :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "guitars", :force => true do |t|
@@ -155,9 +156,9 @@ ActiveRecord::Schema.define(:version => 20130611182551) do
   create_table "warehouses", :force => true do |t|
     t.string   "name"
     t.string   "pre_code"
-    t.integer  "status",     :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
