@@ -1,0 +1,2 @@
+class ManufactoriesController < ResourcesController
+end

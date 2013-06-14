@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @object.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @object.address %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @object.website %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @object.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @object.email %>
+</p>
+
+<p>
+  <b>Bank account:</b>
+  <%= @object.bank_account %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @object.contact %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @object.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufactory_path(@object) %> |
+<%= link_to 'Back', manufactories_path %>

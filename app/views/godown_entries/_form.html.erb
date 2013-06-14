@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :godown_date %><br />
-    <%= f.date_select :godown_date %>
+    <%= f.text_field :godown_date %>
   </div>
   <div class="field">
     <%= f.label :manufactory_id %><br />
-    <%= f.number_field :manufactory_id %>
+    <%= f.text_field :manufactory_id, :readonly => true %>
   </div>
   <div class="field">
     <%= f.label :from_warehouse_id %><br />

@@ -1,4 +1,7 @@
 Gshop::Application.routes.draw do
+  resources :manufactories
+
+
   resources :accessories do
   	resources :photos
     get :select, :on => :collection
