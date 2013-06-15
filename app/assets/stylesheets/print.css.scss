@@ -16,6 +16,7 @@ table.items{
     &.center {text-align:center;}
     &.right {text-align:right;padding-right: 20px;}
     &.sum {text-align:right;padding-right:20px;border:0;}
+    &.noborder {border:none;}
   }
 
   tbody{

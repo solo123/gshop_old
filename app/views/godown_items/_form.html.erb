@@ -19,6 +19,8 @@
     <%= f.label :product_data_id %><br />
     <%= f.text_field :product_data_id, :id => 'product_data_id' %>
   </div>
+  <%= link_to 'Select guitar', select_guitars_path, :remote => true %> |
+  <%= link_to 'Select accessory', select_accessories_path, :remote => true %> 
   <div class="field">
     <%= f.label :quantity %><br />
     <%= f.text_field :quantity %>

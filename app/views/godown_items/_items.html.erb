@@ -1,28 +1,51 @@
-<div class='bg-color-blueLight border-color-blue'>
-<table>
+<table class='striped bordered'>
   <thead>
   <tr>
     <th>产品</th>
     <th>价格</th>
     <th>数量</th>
+    <th>单价</th>
+    <th>金额</th>
     <th>状态</th>
     <th></th>
   </tr>
 </thead>
 <tbody>
+  <%
+    tot_num = 0
+    tot_amount = 0.0
+  %>
 <% items.each do |godown_item| %>
   <tr>
-    <td><%= godown_item.product_data.full_name if godown_item.product_data %></td>
-    <td><%= godown_item.product_data.price if godown_item.product_data %></td>
-    <td><%= godown_item.quantity %></td>
-    <td><%= godown_item.status %></td>
+    <td><%= link_to godown_item.product_data.full_name, url_for(godown_item.product_data) + '/edit', :target => 'win_edit' if godown_item.product_data %></td>
+    <td class='num'><%= godown_item.product_data.price if godown_item.product_data %></td>
+    <td class='num'><%= godown_item.quantity %></td>
+    <td class='num'><%= godown_item.cost %></td>
+    <td class='num'><%= godown_item.quantity * godown_item.cost %> </td>
+    <td class='num'><%= godown_item.status %></td>
     <td>
       <%= link_to 'Edit', edit_godown_item_path(godown_item) %>
       <%= link_to 'Destroy', godown_entry_godown_item_path(godown_item.godown_entry, godown_item), method: :delete, :confirm => '确认要删除吗？' %>
     </td>
   </tr>
+  <% 
+    tot_num += godown_item.quantity
+    tot_amount += godown_item.quantity * godown_item.cost
+  %>
+
 <% end %>
 </tbody>
+<tfoot>
+  <tr>
+    <th>合计</th>
+    <th></th>
+    <th class='num'><%= tot_num %></th>
+    <th></th>
+    <th class='num'><%= tot_amount %></th>
+    <th></th>
+    <th></th>
+  </tr>
+</tfoot>
 </table>
 </div>
 <br />

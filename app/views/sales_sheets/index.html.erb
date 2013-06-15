@@ -1,6 +1,8 @@
 <h1>Listing sales_sheets</h1>
 
-<table>
+  <%= will_paginate @collection %>
+<table class='striped bordered'>
+  <thead>
   <tr>
     <th>Customer</th>
     <th>Warehouse</th>
@@ -15,7 +17,8 @@
     <th></th>
     <th></th>
   </tr>
-  <%= will_paginate @collection %>
+</thead>
+<tbody>
 <% @collection.each do |sales_sheet| %>
   <tr>
     <td><%= sales_sheet.customer_id %></td>
@@ -32,6 +35,7 @@
     <td><%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />

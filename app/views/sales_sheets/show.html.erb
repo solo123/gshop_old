@@ -1,43 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+<p class='bg-color-greenDark padding10 fg-color-white toolbox'>
+<%= link_to 'Edit', edit_sales_sheet_path(@object) %> |
+<%= link_to 'Back', sales_sheets_path %> |
+<%= link_to '新增项目', new_sales_sheet_sales_sheet_item_path(@object) %> |
+<%= link_to '计算', calculate_sales_sheet_path(@object) %> |
+<%= link_to '完成！', entering_sales_sheet_path(@object) %> |
+<%= link_to '打印', print_sales_sheet_path(@object), :target => 'print_win' %>
+</p>
+
 <p>
   <b>Customer:</b>
-  <%= @object.customer_id %>
+  <% if @object.customer %> <%= @object.customer.title %>
+    <%= @object.customer.name %>, Tel: <%= @object.customer.mobile %>,<%= @object.customer.phone %>
+  <% else %>
+    (no customer)
+  <% end %>
 </p>
 
 <p>
   <b>Warehouse:</b>
-  <%= @object.warehouse_id %>
+  <%= @object.warehouse.name if @object.warehouse %>
 </p>
 
-<p>
-  <b>Operator:</b>
-  <%= @object.operator_id %>
-</p>
+<%= render :partial => '/sales_sheet_items/items', :object => @object.sales_sheet_items %>
 
 <p>
-  <b>Total items:</b>
-  <%= @object.total_items %>
-</p>
-
-<p>
-  <b>Total amount:</b>
-  <%= @object.total_amount %>
-</p>
-
-<p>
-  <b>Additional fee:</b>
-  <%= @object.additional_fee %>
-</p>
-
-<p>
-  <b>Discount:</b>
-  <%= @object.discount %>
-</p>
-
-<p>
-  <b>Actual amount:</b>
-  <%= @object.actual_amount %>
+  <b>Status:</b> <%= @object.status %>
+  <b>Operator:</b><%= @object.operator_id %>
+  <b>Total items:</b><%= @object.total_items %>
+  <b>Amount:</b><%= @object.total_amount %> + <%= @object.additional_fee %>(fee) - <%= @object.discount %>(discount) =
+  <b><%= @object.actual_amount %></b>
 </p>
 
 <p>
@@ -45,16 +38,5 @@
   <%= @object.info %>
 </p>
 <p>
-  <b>Status:</b>
-  <%= @object.status %>
 </p>
 
-
-<%= link_to 'Edit', edit_sales_sheet_path(@object) %> |
-<%= link_to 'Back', sales_sheets_path %> |
-<%= link_to '新增项目', new_sales_sheet_sales_sheet_item_path(@object) %> |
-<%= link_to '计算', calculate_sales_sheet_path(@object) %> |
-<%= link_to '完成！', entering_sales_sheet_path(@object) %> |
-<%= link_to '打印', print_sales_sheet_path(@object), :target => 'print_win' %>
-<br />
-<%= render :partial => '/sales_sheet_items/items', :object => @object.sales_sheet_items %>

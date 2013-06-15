@@ -68,8 +68,9 @@
     <td class='right'><%= @object.additional_fee %></td>
   </tr>
   <tr>
-    <td colspan='4' class='sum'>- Invoice discount(特殊折扣):</td>
-    <td class='right'><%= @object.discount %></td>
+    <td colspan='2' class='noborder'><%= " ** #{@object.info}" unless @object.info.blank? %></td>
+    <td colspan='2' class='noborder sum'>- Invoice discount(特殊折扣):</td>
+    <td class='right'>-<%= @object.discount %></td>
   </tr>
   <tr style='font-size:110%;line-height: 30px;'>
     <td colspan='4' class='sum'><b>Invoice Amount(合計金額):</b></td>

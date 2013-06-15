@@ -18,7 +18,7 @@
 
 <p>
   <b>生产厂家:</b>
-  <%= @object.manufactory_id %>
+  <%= @object.manufactory.name if @object.manufactory %>
 </p>
 
 <p>

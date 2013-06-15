@@ -1,5 +1,10 @@
-<h1>Listing guitars</h1>
-
+<p class='bg-color-greenDark padding10 fg-color-white toolbox'>
+<% if @parent %>
+  <%= link_to 'New Guitar', new_serial_product_guitar_path(@parent) %>
+<% else %>
+  <%= link_to 'New Guitar', new_guitar_path %>
+<% end %>
+</p>
     <%= will_paginate @collection %>
 <table>
   <tr>
@@ -36,10 +41,4 @@
 </table>
 
     <%= will_paginate @collection %>
-<br />
 
-<% if @parent %>
-  <%= link_to 'New Guitar', new_serial_product_guitar_path(@parent) %>
-<% else %>
-  <%= link_to 'New Guitar', new_guitar_path %>
-<% end %>
