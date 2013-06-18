@@ -1,0 +1,16 @@
+<%
+  result = Customer.where('name like :pp or mobile like :pp or phone like :pp or email like :pp', { :pp => "%#{params[:q]}%" }).limit(100)
+%>
+<table>
+<% result.each do |c| %>
+  <tr id=<%= dom_id c %>>
+    <td><%= c.name %> <%= c.title %></td>
+    <td><%= c.mobile %> <%= c.phone %></td>
+    <td><%= c.email %></td>
+    <td><%= link_to 'Select', '#', :onclick => 'autocomplete_selected(this, customer_selected);' %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

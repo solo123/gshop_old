@@ -9,6 +9,9 @@
 <%= link_to '打印', print_sales_sheet_path(@object), :target => 'print_win' %>
 </p>
 
+<div class='grid'>
+  <div class='row'>
+    <div class='span4'>
 <p>
   <b>Customer:</b>
   <% if @object.customer %> <%= @object.customer.title %>
@@ -22,6 +25,54 @@
   <b>Warehouse:</b>
   <%= @object.warehouse.name if @object.warehouse %>
 </p>
+</div>
+<%
+  customer = Customer.new
+%>
+<div class='span4'>
+  <%= form_for(customer) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :qq %><br />
+    <%= f.text_field :qq %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
+  </div>
+    <%= link_to 'customer', select_customers_path, :remote => true %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+
+  </div>
+
+</div>
+</div>
 
 <%= render :partial => '/sales_sheet_items/items', :object => @object.sales_sheet_items %>
 

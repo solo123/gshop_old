@@ -1,3 +1,35 @@
+var autocomplete_global_timeout = null;
+var autocomplete_objects_name = null;
+
+function autocomplete_find(objects_name){
+  autocomplete_objects_name = objects_name;
+  var str = $('#' + objects_name + '_search').val().trim();
+  if (autocomplete_global_timeout !=null) clearTimeout(autocomplete_global_timeout);
+  autocomplete_global_timeout = setTimeout(autocomplete_search, 1000);
+
+}
+function autocomplete_search(){
+  autocomplete_global_timeout = null;
+  $('#search_result').html('');
+
+  var str = $('#' + autocomplete_objects_name + '_search').val().trim();
+  $.get('/' + autocomplete_objects_name + '/search?q=' + str, function(data){
+    $('#search_result').html(data);
+  });
+}
+function autocomplete_selected(node, fn){
+  var result = $(node).closest('tr').attr('id');
+  $.Dialog.close();
+  if (typeof fn == 'undefined') {
+    alert(result);
+  } else {
+    fn(result);
+  }
+}
+
+function customer_selected(cid){
+  $('#customer_id').val(cid.slice(9));
+}
 var find_guitar_global_timeout = null;
 
 function find_guitar(){

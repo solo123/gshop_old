@@ -1,0 +1,6 @@
+<%= text_field_tag :customers_search, '', :onkeyup => 'autocomplete_find("customers")' %>
+<%= button_tag 'Search' %>
+<br />
+
+<div id='search_result' style='width:500px;height:300px;overflow-x:hidden;overflow-y:scroll;'></div>
+

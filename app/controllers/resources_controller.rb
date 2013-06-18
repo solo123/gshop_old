@@ -1,6 +1,12 @@
   class ResourcesController < ApplicationController
     respond_to :html, :js, :json
 
+  def select
+    load_collection
+  end
+  def search
+    render 'search', :layout => nil
+  end
     def index
       return @collection if @collection.present?
       load_collection

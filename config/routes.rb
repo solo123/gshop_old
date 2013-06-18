@@ -16,7 +16,11 @@ Gshop::Application.routes.draw do
     get :print, :on => :member
   end
   resources :sales_sheet_items
-  resources :customers
+  resources :customers do
+    get :select, :on => :collection
+    get :search, :on => :collection
+  end
+
   resources :stock_journals
   resources :godown_entries do
     resources :godown_items

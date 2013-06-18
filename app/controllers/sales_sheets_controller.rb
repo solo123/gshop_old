@@ -35,4 +35,10 @@ class SalesSheetsController < ResourcesController
     load_object
     render 'print', :layout => 'print_layout'
   end
+  def new
+    super
+    @object.warehouse_id = 1
+    @object.save
+    redirect_to @object
+  end
 end
