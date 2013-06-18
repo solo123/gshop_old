@@ -11,6 +11,7 @@ Gshop::Application.routes.draw do
 
   resources :sales_sheets do
     resources :sales_sheet_items
+    resources :customers
     get :calculate, :on => :member
     get :entering, :on => :member
     get :print, :on => :member
