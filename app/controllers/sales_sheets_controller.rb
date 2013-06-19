@@ -27,6 +27,8 @@ class SalesSheetsController < ResourcesController
     if @object.actual_amount && @object.actual_amount > 0
       @object.additional_fee = 0 unless @object.additional_fee
       @object.discount = @object.total_amount + @object.additional_fee - @object.actual_amount
+    else
+      @object.actual_amount = @object.total_amount + @object.additional_fee - @object.actual_amount
     end
     @object.save
     redirect_to @object

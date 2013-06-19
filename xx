@@ -1,0 +1,178 @@
+                    manufactories GET    /manufactories(.:format)                                           manufactories#index
+                                  POST   /manufactories(.:format)                                           manufactories#create
+                  new_manufactory GET    /manufactories/new(.:format)                                       manufactories#new
+                 edit_manufactory GET    /manufactories/:id/edit(.:format)                                  manufactories#edit
+                      manufactory GET    /manufactories/:id(.:format)                                       manufactories#show
+                                  PUT    /manufactories/:id(.:format)                                       manufactories#update
+                                  DELETE /manufactories/:id(.:format)                                       manufactories#destroy
+                 accessory_photos GET    /accessories/:accessory_id/photos(.:format)                        photos#index
+                                  POST   /accessories/:accessory_id/photos(.:format)                        photos#create
+              new_accessory_photo GET    /accessories/:accessory_id/photos/new(.:format)                    photos#new
+             edit_accessory_photo GET    /accessories/:accessory_id/photos/:id/edit(.:format)               photos#edit
+                  accessory_photo GET    /accessories/:accessory_id/photos/:id(.:format)                    photos#show
+                                  PUT    /accessories/:accessory_id/photos/:id(.:format)                    photos#update
+                                  DELETE /accessories/:accessory_id/photos/:id(.:format)                    photos#destroy
+               select_accessories GET    /accessories/select(.:format)                                      accessories#select
+               search_accessories GET    /accessories/search(.:format)                                      accessories#search
+                      accessories GET    /accessories(.:format)                                             accessories#index
+                                  POST   /accessories(.:format)                                             accessories#create
+                    new_accessory GET    /accessories/new(.:format)                                         accessories#new
+                   edit_accessory GET    /accessories/:id/edit(.:format)                                    accessories#edit
+                        accessory GET    /accessories/:id(.:format)                                         accessories#show
+                                  PUT    /accessories/:id(.:format)                                         accessories#update
+                                  DELETE /accessories/:id(.:format)                                         accessories#destroy
+    sales_sheet_sales_sheet_items GET    /sales_sheets/:sales_sheet_id/sales_sheet_items(.:format)          sales_sheet_items#index
+                                  POST   /sales_sheets/:sales_sheet_id/sales_sheet_items(.:format)          sales_sheet_items#create
+ new_sales_sheet_sales_sheet_item GET    /sales_sheets/:sales_sheet_id/sales_sheet_items/new(.:format)      sales_sheet_items#new
+edit_sales_sheet_sales_sheet_item GET    /sales_sheets/:sales_sheet_id/sales_sheet_items/:id/edit(.:format) sales_sheet_items#edit
+     sales_sheet_sales_sheet_item GET    /sales_sheets/:sales_sheet_id/sales_sheet_items/:id(.:format)      sales_sheet_items#show
+                                  PUT    /sales_sheets/:sales_sheet_id/sales_sheet_items/:id(.:format)      sales_sheet_items#update
+                                  DELETE /sales_sheets/:sales_sheet_id/sales_sheet_items/:id(.:format)      sales_sheet_items#destroy
+     select_sales_sheet_customers GET    /sales_sheets/:sales_sheet_id/customers/select(.:format)           customers#select
+     search_sales_sheet_customers GET    /sales_sheets/:sales_sheet_id/customers/search(.:format)           customers#search
+            sales_sheet_customers GET    /sales_sheets/:sales_sheet_id/customers(.:format)                  customers#index
+                                  POST   /sales_sheets/:sales_sheet_id/customers(.:format)                  customers#create
+         new_sales_sheet_customer GET    /sales_sheets/:sales_sheet_id/customers/new(.:format)              customers#new
+        edit_sales_sheet_customer GET    /sales_sheets/:sales_sheet_id/customers/:id/edit(.:format)         customers#edit
+             sales_sheet_customer GET    /sales_sheets/:sales_sheet_id/customers/:id(.:format)              customers#show
+                                  PUT    /sales_sheets/:sales_sheet_id/customers/:id(.:format)              customers#update
+                                  DELETE /sales_sheets/:sales_sheet_id/customers/:id(.:format)              customers#destroy
+            calculate_sales_sheet GET    /sales_sheets/:id/calculate(.:format)                              sales_sheets#calculate
+             entering_sales_sheet GET    /sales_sheets/:id/entering(.:format)                               sales_sheets#entering
+                print_sales_sheet GET    /sales_sheets/:id/print(.:format)                                  sales_sheets#print
+                     sales_sheets GET    /sales_sheets(.:format)                                            sales_sheets#index
+                                  POST   /sales_sheets(.:format)                                            sales_sheets#create
+                  new_sales_sheet GET    /sales_sheets/new(.:format)                                        sales_sheets#new
+                 edit_sales_sheet GET    /sales_sheets/:id/edit(.:format)                                   sales_sheets#edit
+                      sales_sheet GET    /sales_sheets/:id(.:format)                                        sales_sheets#show
+                                  PUT    /sales_sheets/:id(.:format)                                        sales_sheets#update
+                                  DELETE /sales_sheets/:id(.:format)                                        sales_sheets#destroy
+                sales_sheet_items GET    /sales_sheet_items(.:format)                                       sales_sheet_items#index
+                                  POST   /sales_sheet_items(.:format)                                       sales_sheet_items#create
+             new_sales_sheet_item GET    /sales_sheet_items/new(.:format)                                   sales_sheet_items#new
+            edit_sales_sheet_item GET    /sales_sheet_items/:id/edit(.:format)                              sales_sheet_items#edit
+                 sales_sheet_item GET    /sales_sheet_items/:id(.:format)                                   sales_sheet_items#show
+                                  PUT    /sales_sheet_items/:id(.:format)                                   sales_sheet_items#update
+                                  DELETE /sales_sheet_items/:id(.:format)                                   sales_sheet_items#destroy
+                 select_customers GET    /customers/select(.:format)                                        customers#select
+                 search_customers GET    /customers/search(.:format)                                        customers#search
+                        customers GET    /customers(.:format)                                               customers#index
+                                  POST   /customers(.:format)                                               customers#create
+                     new_customer GET    /customers/new(.:format)                                           customers#new
+                    edit_customer GET    /customers/:id/edit(.:format)                                      customers#edit
+                         customer GET    /customers/:id(.:format)                                           customers#show
+                                  PUT    /customers/:id(.:format)                                           customers#update
+                                  DELETE /customers/:id(.:format)                                           customers#destroy
+                   stock_journals GET    /stock_journals(.:format)                                          stock_journals#index
+                                  POST   /stock_journals(.:format)                                          stock_journals#create
+                new_stock_journal GET    /stock_journals/new(.:format)                                      stock_journals#new
+               edit_stock_journal GET    /stock_journals/:id/edit(.:format)                                 stock_journals#edit
+                    stock_journal GET    /stock_journals/:id(.:format)                                      stock_journals#show
+                                  PUT    /stock_journals/:id(.:format)                                      stock_journals#update
+                                  DELETE /stock_journals/:id(.:format)                                      stock_journals#destroy
+        godown_entry_godown_items GET    /godown_entries/:godown_entry_id/godown_items(.:format)            godown_items#index
+                                  POST   /godown_entries/:godown_entry_id/godown_items(.:format)            godown_items#create
+     new_godown_entry_godown_item GET    /godown_entries/:godown_entry_id/godown_items/new(.:format)        godown_items#new
+    edit_godown_entry_godown_item GET    /godown_entries/:godown_entry_id/godown_items/:id/edit(.:format)   godown_items#edit
+         godown_entry_godown_item GET    /godown_entries/:godown_entry_id/godown_items/:id(.:format)        godown_items#show
+                                  PUT    /godown_entries/:godown_entry_id/godown_items/:id(.:format)        godown_items#update
+                                  DELETE /godown_entries/:godown_entry_id/godown_items/:id(.:format)        godown_items#destroy
+            entering_godown_entry GET    /godown_entries/:id/entering(.:format)                             godown_entries#entering
+           calculate_godown_entry GET    /godown_entries/:id/calculate(.:format)                            godown_entries#calculate
+                   godown_entries GET    /godown_entries(.:format)                                          godown_entries#index
+                                  POST   /godown_entries(.:format)                                          godown_entries#create
+                 new_godown_entry GET    /godown_entries/new(.:format)                                      godown_entries#new
+                edit_godown_entry GET    /godown_entries/:id/edit(.:format)                                 godown_entries#edit
+                     godown_entry GET    /godown_entries/:id(.:format)                                      godown_entries#show
+                                  PUT    /godown_entries/:id(.:format)                                      godown_entries#update
+                                  DELETE /godown_entries/:id(.:format)                                      godown_entries#destroy
+                     godown_items GET    /godown_items(.:format)                                            godown_items#index
+                                  POST   /godown_items(.:format)                                            godown_items#create
+                  new_godown_item GET    /godown_items/new(.:format)                                        godown_items#new
+                 edit_godown_item GET    /godown_items/:id/edit(.:format)                                   godown_items#edit
+                      godown_item GET    /godown_items/:id(.:format)                                        godown_items#show
+                                  PUT    /godown_items/:id(.:format)                                        godown_items#update
+                                  DELETE /godown_items/:id(.:format)                                        godown_items#destroy
+                    serials_stock GET    /stocks/:id/serials(.:format)                                      stocks#serials
+                add_serials_stock GET    /stocks/:id/add_serials(.:format)                                  stocks#add_serials
+                           stocks GET    /stocks(.:format)                                                  stocks#index
+                                  POST   /stocks(.:format)                                                  stocks#create
+                        new_stock GET    /stocks/new(.:format)                                              stocks#new
+                       edit_stock GET    /stocks/:id/edit(.:format)                                         stocks#edit
+                            stock GET    /stocks/:id(.:format)                                              stocks#show
+                                  PUT    /stocks/:id(.:format)                                              stocks#update
+                                  DELETE /stocks/:id(.:format)                                              stocks#destroy
+                 warehouse_stocks GET    /warehouses/:warehouse_id/stocks(.:format)                         stocks#index
+                                  POST   /warehouses/:warehouse_id/stocks(.:format)                         stocks#create
+              new_warehouse_stock GET    /warehouses/:warehouse_id/stocks/new(.:format)                     stocks#new
+             edit_warehouse_stock GET    /warehouses/:warehouse_id/stocks/:id/edit(.:format)                stocks#edit
+                  warehouse_stock GET    /warehouses/:warehouse_id/stocks/:id(.:format)                     stocks#show
+                                  PUT    /warehouses/:warehouse_id/stocks/:id(.:format)                     stocks#update
+                                  DELETE /warehouses/:warehouse_id/stocks/:id(.:format)                     stocks#destroy
+                       warehouses GET    /warehouses(.:format)                                              warehouses#index
+                                  POST   /warehouses(.:format)                                              warehouses#create
+                    new_warehouse GET    /warehouses/new(.:format)                                          warehouses#new
+                   edit_warehouse GET    /warehouses/:id/edit(.:format)                                     warehouses#edit
+                        warehouse GET    /warehouses/:id(.:format)                                          warehouses#show
+                                  PUT    /warehouses/:id(.:format)                                          warehouses#update
+                                  DELETE /warehouses/:id(.:format)                                          warehouses#destroy
+                            homes GET    /homes(.:format)                                                   homes#index
+                                  POST   /homes(.:format)                                                   homes#create
+                         new_home GET    /homes/new(.:format)                                               homes#new
+                        edit_home GET    /homes/:id/edit(.:format)                                          homes#edit
+                             home GET    /homes/:id(.:format)                                               homes#show
+                                  PUT    /homes/:id(.:format)                                               homes#update
+                                  DELETE /homes/:id(.:format)                                               homes#destroy
+                        quick_gos GET    /quick_gos(.:format)                                               quick_gos#index
+                                  POST   /quick_gos(.:format)                                               quick_gos#create
+                     new_quick_go GET    /quick_gos/new(.:format)                                           quick_gos#new
+                    edit_quick_go GET    /quick_gos/:id/edit(.:format)                                      quick_gos#edit
+                         quick_go GET    /quick_gos/:id(.:format)                                           quick_gos#show
+                                  PUT    /quick_gos/:id(.:format)                                           quick_gos#update
+                                  DELETE /quick_gos/:id(.:format)                                           quick_gos#destroy
+                           photos GET    /photos(.:format)                                                  photos#index
+                                  POST   /photos(.:format)                                                  photos#create
+                        new_photo GET    /photos/new(.:format)                                              photos#new
+                       edit_photo GET    /photos/:id/edit(.:format)                                         photos#edit
+                            photo GET    /photos/:id(.:format)                                              photos#show
+                                  PUT    /photos/:id(.:format)                                              photos#update
+                                  DELETE /photos/:id(.:format)                                              photos#destroy
+                    guitar_photos GET    /guitars/:guitar_id/photos(.:format)                               photos#index
+                                  POST   /guitars/:guitar_id/photos(.:format)                               photos#create
+                 new_guitar_photo GET    /guitars/:guitar_id/photos/new(.:format)                           photos#new
+                edit_guitar_photo GET    /guitars/:guitar_id/photos/:id/edit(.:format)                      photos#edit
+                     guitar_photo GET    /guitars/:guitar_id/photos/:id(.:format)                           photos#show
+                                  PUT    /guitars/:guitar_id/photos/:id(.:format)                           photos#update
+                                  DELETE /guitars/:guitar_id/photos/:id(.:format)                           photos#destroy
+                   select_guitars GET    /guitars/select(.:format)                                          guitars#select
+                   search_guitars GET    /guitars/search(.:format)                                          guitars#search
+                          guitars GET    /guitars(.:format)                                                 guitars#index
+                                  POST   /guitars(.:format)                                                 guitars#create
+                       new_guitar GET    /guitars/new(.:format)                                             guitars#new
+                      edit_guitar GET    /guitars/:id/edit(.:format)                                        guitars#edit
+                           guitar GET    /guitars/:id(.:format)                                             guitars#show
+                                  PUT    /guitars/:id(.:format)                                             guitars#update
+                                  DELETE /guitars/:id(.:format)                                             guitars#destroy
+        batch_add_serial_products POST   /serial_products/batch_add(.:format)                               serial_products#batch_add
+            serial_product_photos GET    /serial_products/:serial_product_id/photos(.:format)               photos#index
+                                  POST   /serial_products/:serial_product_id/photos(.:format)               photos#create
+         new_serial_product_photo GET    /serial_products/:serial_product_id/photos/new(.:format)           photos#new
+        edit_serial_product_photo GET    /serial_products/:serial_product_id/photos/:id/edit(.:format)      photos#edit
+             serial_product_photo GET    /serial_products/:serial_product_id/photos/:id(.:format)           photos#show
+                                  PUT    /serial_products/:serial_product_id/photos/:id(.:format)           photos#update
+                                  DELETE /serial_products/:serial_product_id/photos/:id(.:format)           photos#destroy
+           serial_product_guitars GET    /serial_products/:serial_product_id/guitars(.:format)              guitars#index
+                                  POST   /serial_products/:serial_product_id/guitars(.:format)              guitars#create
+        new_serial_product_guitar GET    /serial_products/:serial_product_id/guitars/new(.:format)          guitars#new
+       edit_serial_product_guitar GET    /serial_products/:serial_product_id/guitars/:id/edit(.:format)     guitars#edit
+            serial_product_guitar GET    /serial_products/:serial_product_id/guitars/:id(.:format)          guitars#show
+                                  PUT    /serial_products/:serial_product_id/guitars/:id(.:format)          guitars#update
+                                  DELETE /serial_products/:serial_product_id/guitars/:id(.:format)          guitars#destroy
+                  serial_products GET    /serial_products(.:format)                                         serial_products#index
+                                  POST   /serial_products(.:format)                                         serial_products#create
+               new_serial_product GET    /serial_products/new(.:format)                                     serial_products#new
+              edit_serial_product GET    /serial_products/:id/edit(.:format)                                serial_products#edit
+                   serial_product GET    /serial_products/:id(.:format)                                     serial_products#show
+                                  PUT    /serial_products/:id(.:format)                                     serial_products#update
+                                  DELETE /serial_products/:id(.:format)                                     serial_products#destroy
+                             root        /                                                                  homes#index

@@ -3,9 +3,7 @@
 <p class='bg-color-greenDark padding10 fg-color-white toolbox'>
   <%= link_to 'Edit', edit_sales_sheet_path(@object) %> |
   <%= link_to 'Back', sales_sheets_path %> |
-  <%= link_to '新增项目', new_sales_sheet_sales_sheet_item_path(@object) %> |
-  <%= link_to '计算', calculate_sales_sheet_path(@object) %> |
-  <%= link_to '完成！', entering_sales_sheet_path(@object) %> |
+  <%= link_to '完成！', entering_sales_sheet_path(@object), :confirm => "入账后销售单无法更改！\n确定入账吗？" %> |
   <%= link_to '打印', print_sales_sheet_path(@object), :target => 'print_win' %>
 </p>
 
@@ -16,7 +14,12 @@
   <% else %>
     (no customer)
   <% end %>
-  <%= link_to '录入', new_sales_sheet_customer_path(@object) %>
+  <% if @object.customer %>
+    <%= link_to '修改', edit_sales_sheet_customer_path(@object, @object.customer) %> |
+    <%= link_to '查找', search_sales_sheet_customers_path(@object) + "?q=#{@object.customer.mobile}" %>
+  <% else %>
+    <%= link_to '查找', search_sales_sheet_customers_path(@object) %>
+  <% end %>
 </p>
 
 <p>
@@ -24,7 +27,9 @@
   <%= @object.warehouse.name if @object.warehouse %>
 </p>
 
+<%= link_to '新增项目', new_sales_sheet_sales_sheet_item_path(@object) %> 
 <%= render :partial => '/sales_sheet_items/items', :object => @object.sales_sheet_items %>
+<%= link_to '计算', calculate_sales_sheet_path(@object) %> 
 
 <p>
   <b>Status:</b> <%= @object.status %>
