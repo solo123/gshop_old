@@ -21,7 +21,7 @@
     <td><%= sales_sheet_item.amount %></td>
     <td>
       <%= link_to 'Edit', edit_sales_sheet_item_path(sales_sheet_item) %> |
-      <%= link_to 'Destroy', sales_sheet_item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Destroy', sales_sheet_sales_sheet_item_path(sales_sheet_item.sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'  %>
     </td>
   </tr>
 <% end %>

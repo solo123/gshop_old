@@ -25,8 +25,9 @@ class GodownEntriesController < ResourcesController
             end
             journal = stock.stock_journals.build
             journal.stock_before = stock.on_hand
-            journal.stock_godown = item.quantity
-            journal.stock_after = stock.on_hand = journal.stock_before + journal.stock_godown
+            journal.stock_change = item.quantity
+            journal.stock_after = stock.on_hand = journal.stock_before + journal.stock_change
+            journal.stock_order = item
             stock.save
             item.save
           end

@@ -37,6 +37,28 @@ class SalesSheetsController < ResourcesController
     load_object
     render 'print', :layout => 'print_layout'
   end
+  def entering
+    load_object
+    if @object.status == 0
+
+      warehouse = @object.warehouse
+      @object.sales_sheet_items.each do |item|
+        stock = warehouse.stocks.find_product(item.product_data)
+        journal = stock.stock_journals.build
+        journal.stock_before = stock.on_hand
+        journal.stock_change = 0 - item.quantity
+        journal.stock_after = stock.on_hand = journal.stock_before + journal.stock_change
+        journal.stock_order = item
+        stock.save
+        item.save
+      end
+      @object.status = 1
+      @object.save
+    else
+      flash[:error] = 'Wrong status!'
+    end
+    redirect_to @object
+  end
   def new
     super
     @object.warehouse_id = 1

@@ -3,4 +3,8 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @sales_sheet_item %> |
-<%= link_to 'Back', sales_sheet_items_path %>
+<% if @parent %>
+  <%= link_to 'Back', url_for(@parent) %>
+<% else %>
+  <%= link_to 'Back', sales_sheet_items_path %>
+<% end %>
