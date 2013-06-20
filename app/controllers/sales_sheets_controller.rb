@@ -7,13 +7,14 @@ class SalesSheetsController < ResourcesController
         if sp && sp.stock && sp.stock.warehouse_id == @object.warehouse_id
           item.serial_product = sp
           item.serial_number = nil
+          item.product_data = item.serial_product.stock.product_data
+          item.quantity = 1
         end
       end
-      if item.serial_product
-        item.product_data = item.serial_product.stock.product_data
-        item.quantity = 1
-      end
       if item.product_data
+        if item.serial_product && item.product_data != item.serial_product.stock.product_data
+          item.serial_product = nil
+        end
         if item.product_data.price > 0
           item.price = item.product_data.price
           item.description = item.product_data.full_name
@@ -40,10 +41,9 @@ class SalesSheetsController < ResourcesController
   def entering
     load_object
     if @object.status == 0
-
       warehouse = @object.warehouse
       @object.sales_sheet_items.each do |item|
-        stock = warehouse.stocks.find_product(item.product_data)
+        stock = warehouse.stocks.where(:product_data_type => item.product_data.class.name, :product_data_id => item.product_data).first
         journal = stock.stock_journals.build
         journal.stock_before = stock.on_hand
         journal.stock_change = 0 - item.quantity
