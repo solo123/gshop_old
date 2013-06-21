@@ -81,6 +81,19 @@
           </div>
         </div>
       </div>
+
+      <% if flash[:error] %>
+    <div class='span5'>
+      <div class="notices">
+        <div class="bg-color-red">
+          <a href="#" class="close"></a>
+          <div class="notice-image"><span class='icon-cancel' style='font-size:32px;'></span></div>
+          <div class="notice-header">ERROR</div>
+          <div class="notice-text"><%= flash[:error] %></div>
+        </div>
+      </div>
+    </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
