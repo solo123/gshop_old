@@ -30,8 +30,11 @@
     <td><%= sales_sheet.status %></td>
     <td>
       <%= link_to 'Show', sales_sheet %> |
-      <%= link_to 'Edit', edit_sales_sheet_path(sales_sheet) %> |
-      <%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if sales_sheet.status < 1 %>
+        <%= link_to 'Edit', edit_sales_sheet_path(sales_sheet) %> |
+        <%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
     </td>
   </tr>
 <% end %>
