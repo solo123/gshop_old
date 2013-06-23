@@ -1,90 +1,157 @@
 <div class="page-region">
   <div class="page-region-content">
+    <div class='grid'>
+      <div class='row'>
+        <div class='span8'>
+          <div class='hero-unit'>
+            <h2 class='fg-color-darken'>MW吉他 - Management System</h2>
+            <p class='bg-color-pink padding20 fg-color-white'>lots of functions!</p>
+            <h3>To start:
+              <strong>Sales Sheet</strong>
+              in head of page
+            </h3>
+            <p class='tertiary-info-text'>
+              to <%= link_to 'Sales Sheet', sales_sheets_path %>
+              ok?
+            </p>
+            <div class='span3 place-left'>
+              <ul class='unstyled sprite-details'>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Sales Sheet 销售单', sales_sheets_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Guitars 吉他', guitars_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Accessories 配件', accessories_path %>
+                </li>
+              </ul>
+            </div>
+            <div class='span3 place-right'>
+              <ul class='unstyled sprite-details'>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Sales Sheet 销售单', sales_sheets_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Guitars 吉他', guitars_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Accessories 配件', accessories_path %>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class='span4'>
+          <div class='padding30 text-center bg-color-blueLight'>
+              <%= form_tag(quick_gos_path) do %>
+                  <div class='input-control text'>
+                    <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
+                    <button class='btn-search'></button>
+                  </div>
+                  <div class='input-control text'>
+                    <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
+                    <button class='btn-search'></button>
+                  </div>
+              <% end %>
+              <%= image_tag 'matthew.jpg', :height => '138px' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="tile double bg-color-blueDark outline-color-green">
       <a href='serial_products'>
-      <div class="tile-content">
-        <h2>Serial Product</h2>
-        <h5>编号产品</h5>
-        <p>已编号的产品列表</p>
-      </div>
-      <div class='brand'>
-        <div class='badge'>5000</div>
-        <div class='icon'><i class='icon-bookmark-2'></i></div>
-      </div>
-    </a>
+        <div class="tile-content">
+          <h2>Serial Product</h2>
+          <h5>编号产品</h5>
+          <p>已编号的产品列表</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'>5000</div>
+          <div class='icon'><i class='icon-bookmark-2'></i></div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-orangeDark'>
       <a href='guitars'>
-      <div class='tile-content'>
-        <h2>Guitars</h2>
-        <h5>吉他</h5>
-        <p>所有吉他列表</p>
-      </div>
-    </a>
+        <div class='tile-content'>
+          <h2>Guitars</h2>
+          <h5>吉他</h5>
+          <p>所有吉他列表</p>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-red icon'>
       <div class='tile-content'>
         <i class='icon-home'></i>
       </div>
       <a href='warehouses'>
-      <div class='brand'>
-        <span class='name'>仓库</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='brand'>
+          <span class='name'>仓库</span>
+          <div class='badge'>10</div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-red icon'>
       <div class='tile-content'>
         <i class='icon-home'></i>
       </div>
       <a href='godown_entries'>
-      <div class='brand'>
-        <span class='name'>入库单</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='brand'>
+          <span class='name'>入库单</span>
+          <div class='badge'>10</div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-red icon'>
       <div class='tile-content'>
         <i class='icon-home'></i>
       </div>
       <a href='customers'>
-      <div class='brand'>
-        <span class='name'>客户</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='brand'>
+          <span class='name'>客户</span>
+          <div class='badge'>10</div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-red icon'>
       <div class='tile-content'>
         <i class='icon-home'></i>
       </div>
       <a href='sales_sheets'>
-      <div class='brand'>
-        <span class='name'>销售单</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='brand'>
+          <span class='name'>销售单</span>
+          <div class='badge'>10</div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-red icon'>
       <div class='tile-content'>
         <i class='icon-home'></i>
       </div>
       <a href='accessories'>
-      <div class='brand'>
-        <span class='name'>配件</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='brand'>
+          <span class='name'>配件</span>
+          <div class='badge'>10</div>
+        </div>
+      </a>
     </div>
     <div class='tile bg-color-orangeDark'>
       <a href='manufactories'>
-      <div class='tile-content'>
-        <h2>Manufactories</h2>
-        <h5>生成厂家</h5>
-        <p>厂家列表</p>
-      </div>
-    </a>
+        <div class='tile-content'>
+          <h2>Manufactories</h2>
+          <h5>生成厂家</h5>
+          <p>厂家列表</p>
+        </div>
+      </a>
     </div>
 
   </div>

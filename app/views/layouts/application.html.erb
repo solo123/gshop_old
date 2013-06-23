@@ -2,12 +2,12 @@
 <html lang='en'>
   <head>
     <title>Gshop</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link href="/css/Metro-UI/css/modern.css" rel="stylesheet">
     <link href="/css/Metro-UI/css/modern-responsive.css" rel="stylesheet">
 
-    <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
 
     <script src="/css/Metro-UI/javascript/accordion.js"></script>
     <script src="/css/Metro-UI/javascript/buttonset.js"></script>
@@ -28,16 +28,17 @@
     <%= csrf_meta_tags %>
   </head>
   <body class='metrouicss'>
-
     <div class='page'>
       <div class='nav-bar'>
-        <div class='nav-bar-inner'>
+        <div class='nav-bar-inner padding10'>
           <span class='pull-menu'></span>
-          <span class='element'>
+          <a href='/'>
+          <span class='element brand'>
             <%= image_tag  'mw_logo_32.png', :class => 'place-left', :style => 'height:20px;' %>
-            MW吉他-管理系统
-            <small>0.01.1.01</small>
+            MW吉他-Management System
+            <small>0.02.01</small>
           </span>
+        </a>
           <div class='divider'></div>
           <ul class='menu'>
             <li>
@@ -59,29 +60,17 @@
     </div>
 
     <div class="page">
-      <div class="page-region">
-        <div class="page-region-content">
-          <div class='grid'>
-            <div class='row'>
-              <%= form_tag(quick_gos_path) do %>
-                <div class='span4'>
-                  <div class='input-control text'>
-                    <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
-                    <button class='btn-search'></button>
-                  </div>
-                </div>
-                <div class='span4'>
-                  <div class='input-control text'>
-                    <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
-                    <button class='btn-search'></button>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
       <%= yield %>
     </div>
+<div class="page">
+        <div class="nav-bar">
+            <div class="nav-bar-inner padding10">
+                <span class="element">
+                    2012-2013, MW-Guitars © by <a class="fg-color-white" href="mailto:mwguitars@qq.com">Jimmy Liang</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    
   </body>
 </html>
