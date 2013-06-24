@@ -1,90 +1,120 @@
 <div class="page-region">
   <div class="page-region-content">
-    <div class="tile double bg-color-blueDark outline-color-green">
-      <a href='serial_products'>
-      <div class="tile-content">
-        <h2>Serial Product</h2>
-        <h5>编号产品</h5>
-        <p>已编号的产品列表</p>
-      </div>
-      <div class='brand'>
-        <div class='badge'>5000</div>
-        <div class='icon'><i class='icon-bookmark-2'></i></div>
-      </div>
-    </a>
-    </div>
-    <div class='tile bg-color-orangeDark'>
-      <a href='guitars'>
-      <div class='tile-content'>
-        <h2>Guitars</h2>
-        <h5>吉他</h5>
-        <p>所有吉他列表</p>
-      </div>
-    </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
-      <a href='warehouses'>
-      <div class='brand'>
-        <span class='name'>仓库</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
-      <a href='godown_entries'>
-      <div class='brand'>
-        <span class='name'>入库单</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
-      <a href='customers'>
-      <div class='brand'>
-        <span class='name'>客户</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
+    <div class='tile bg-color-red outline-color-green'>
       <a href='sales_sheets'>
-      <div class='brand'>
-        <span class='name'>销售单</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='tile-content'>
+          <h2>Sales Sheet</h2>
+          <h5>销售单</h5>
+          <p>录入打印销售单</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= SalesSheet.count %></div>
+          <div class='icon'><%= image_tag 'icons/order.png', :size => '32x32' %></div>
+        </div>
+      </a>
     </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
+    <div class="tile bg-color-blueDark outline-color-green">
+      <a href='serial_products'>
+        <div class="tile-content">
+          <h2>Serial Product</h2>
+          <h5>编号产品</h5>
+          <p>已编号的产品列表</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= SerialProduct.count %></div>
+          <div class='icon'><%= image_tag 'icons/guitar.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-blue outline-color-yellow'>
+      <a href='guitars'>
+        <div class='tile-content'>
+          <h2>Guitars</h2>
+          <h5>吉他</h5>
+          <p>所有吉他列表</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= Guitar.count %></div>
+          <div class='icon'><%= image_tag 'icons/guitar.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-yellow outline-color-blue'>
       <a href='accessories'>
-      <div class='brand'>
-        <span class='name'>配件</span>
-        <div class='badge'>10</div>
-      </div>
-    </a>
+        <div class='tile-content'>
+          <h2>Accessories</h2>
+          <h5>配件</h5>
+          <p>吉他配件</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= Accessory.count %></div>
+          <div class='icon'><%= image_tag 'icons/guitar-bag.jpg', :size => '32x32' %></div>
+        </div>
+      </a>
     </div>
-    <div class='tile bg-color-orangeDark'>
+    <div class='tile bg-color-teal outline-color-red'>
+      <a href='customers'>
+        <div class='tile-content'>
+          <h2>Customers</h2>
+          <h5>客户</h5>
+          <p>顾客和配件供应商</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= Customer.count %></div>
+          <div class='icon'><%= image_tag 'icons/customer.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-orange outline-color-blue'>
+      <a href='warehouses'>
+        <div class='tile-content'>
+          <h2>Warehouse</h2>
+          <h5>仓库</h5>
+          <p>仓库和店铺</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= Warehouse.count %></div>
+          <div class='icon'><%= image_tag 'icons/shop.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-blueLight outline-color-green'>
+      <a href='godown_entries'>
+        <div class='tile-content'>
+          <h2>Godown Sheet</h2>
+          <h5>入库单</h5>
+          <p>入库清单</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= GodownEntry.count %></div>
+          <div class='icon'><%= image_tag 'icons/sheet.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-pinkDark outline-color-green'>
       <a href='manufactories'>
-      <div class='tile-content'>
-        <h2>Manufactories</h2>
-        <h5>生成厂家</h5>
-        <p>厂家列表</p>
-      </div>
-    </a>
+        <div class='tile-content'>
+          <h2>Manufactories</h2>
+          <h5>工厂</h5>
+          <p>工厂列表</p>
+        </div>
+        <div class='brand'>
+          <div class='badge'><%= Manufactory.count %></div>
+          <div class='icon'><%= image_tag 'icons/factory.png', :size => '32x32' %></div>
+        </div>
+      </a>
+    </div>
+    <div class='tile bg-color-greenDark outline-color-yellow'>
+      <a href='reports'>
+        <div class='tile-content'>
+          <h2>Reports</h2>
+          <h5>报表</h5>
+          <p>统计报表</p>
+        </div>
+        <div class='brand'>
+          <div class='icon'><%= image_tag 'icons/report.png', :size => '32x32' %></div>
+        </div>
+      </a>
     </div>
 
 

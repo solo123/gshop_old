@@ -54,6 +54,11 @@ Gshop::Application.routes.draw do
     resources :photos
     resources :guitars
   end
+  resources :reports do
+    collection do
+      get :sales_monthly
+    end 
+  end
 
   root :to => 'homes#index'
 end
