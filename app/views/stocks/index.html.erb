@@ -21,7 +21,8 @@
     <td><%= stock.sold_out_date %></td>
     <td>
       <%= link_to '编号产品', serials_stock_path(stock), :remote => true %> |
-      <%= link_to '刷新', add_serials_stock_path(stock), :remote => true %>
+      <%= link_to '刷新', add_serials_stock_path(stock), :remote => true %> |
+      <%= link_to '历史', stock_stock_journals_path(stock) %>
     </td>
   </tr>
 <% end %>

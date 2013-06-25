@@ -12,13 +12,15 @@ class SalesSheetsController < ResourcesController
         end
       end
       if item.product_data
-        if item.serial_product && item.product_data != item.serial_product.stock.product_data
+        if item.serial_product && item.product_data != item.serial_product.product_data
           item.serial_product = nil
         end
-        if item.product_data.price > 0
-          item.price = item.product_data.price
-          item.description = item.product_data.full_name
+        if item.product_data.price && item.product_data.price > 0
+          if !item.amount || item.amount == 0
+            item.price = item.product_data.price
+          end
         end
+        item.description = item.product_data.full_name
         item.amount = item.quantity * item.price
         item.save
       end
@@ -44,16 +46,20 @@ class SalesSheetsController < ResourcesController
       warehouse = @object.warehouse
       @object.sales_sheet_items.each do |item|
         stock = warehouse.stocks.where(:product_data_type => item.product_data.class.name, :product_data_id => item.product_data).first
+        unless stock
+          stock = warehouse.stocks.build
+          stock.product_data = item.product_data
+          stock.on_hand = 0
+        end
         journal = stock.stock_journals.build
         journal.stock_before = stock.on_hand
         journal.stock_change = 0 - item.quantity
         journal.stock_after = stock.on_hand = journal.stock_before + journal.stock_change
         journal.stock_order = item
         stock.save
-        item.save
+        @object.status = 1
+        @object.save
       end
-      @object.status = 1
-      @object.save
     else
       flash[:error] = 'Wrong status!'
     end
@@ -64,5 +70,11 @@ class SalesSheetsController < ResourcesController
     @object.warehouse_id = 1
     @object.save
     redirect_to @object
+  end
+  def update
+    load_object
+    @object.attributes = params[object_name.singularize.parameterize('_')]
+    @object.save
+    calculate
   end
 end

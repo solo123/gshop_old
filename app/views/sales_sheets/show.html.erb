@@ -65,6 +65,11 @@
   <b>Total items:</b><%= @object.total_items %>
   <b>Amount:</b><%= @object.total_amount %> + <%= @object.additional_fee %>(fee) - <%= @object.discount %>(discount) =
   <b><%= @object.actual_amount %></b>
+  <%= form_for(@object) do |f| %>
+    <%= f.text_field :actual_amount %>
+    <%= f.submit 'Pay' %><br />
+    info: <%= f.text_field :info, :size => '100' %>
+  <% end %>
 </p>
 
 <p>

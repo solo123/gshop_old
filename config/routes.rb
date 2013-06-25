@@ -36,6 +36,7 @@ Gshop::Application.routes.draw do
   resources :stocks do
     get :serials, :on => :member
     get :add_serials, :on => :member
+    resources :stock_journals
   end
   resources :warehouses do
     resources :stocks

@@ -11,11 +11,11 @@
     <th></th>
   </tr>
 
-<% @stock_journals.each do |stock_journal| %>
+<% @collection.each do |stock_journal| %>
   <tr>
     <td><%= stock_journal.stock_id %></td>
     <td><%= stock_journal.stock_before %></td>
-    <td><%= stock_journal.stock_godown %></td>
+    <td><%= stock_journal.stock_change %></td>
     <td><%= stock_journal.stock_after %></td>
     <td><%= link_to 'Show', stock_journal %></td>
     <td><%= link_to 'Edit', edit_stock_journal_path(stock_journal) %></td>
@@ -26,4 +26,5 @@
 
 <br />
 
-<%= link_to 'New Stock journal', new_stock_journal_path %>
+<%= link_to 'Back', url_for(@parent) %> |
+<%= link_to 'Warehouse', warehouse_stocks_path(@parent.warehouse) %>

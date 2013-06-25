@@ -4,9 +4,9 @@
 <table class='striped bordered hovered'>
   <thead>
   <tr>
+    <th>ID#</th>
+    <th>Date</th>
     <th>Customer</th>
-    <th>Warehouse</th>
-    <th>Operator</th>
     <th>Total items</th>
     <th>Total amount</th>
     <th>Additional fee</th>
@@ -14,25 +14,28 @@
     <th>Actual amount</th>
     <th>Status</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
 <% @collection.each do |sales_sheet| %>
   <tr>
+    <td><%= sales_sheet.id %></td>
+    <td><%= sales_sheet.created_at.strftime("%F") %></td>
     <td><%= sales_sheet.customer_id %></td>
-    <td><%= sales_sheet.warehouse_id %></td>
-    <td><%= sales_sheet.operator_id %></td>
     <td><%= sales_sheet.total_items %></td>
     <td><%= sales_sheet.total_amount %></td>
     <td><%= sales_sheet.additional_fee %></td>
     <td><%= sales_sheet.discount %></td>
     <td><%= sales_sheet.actual_amount %></td>
     <td><%= sales_sheet.status %></td>
-    <td><%= link_to 'Show', sales_sheet %></td>
-    <td><%= link_to 'Edit', edit_sales_sheet_path(sales_sheet) %></td>
-    <td><%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to 'Show', sales_sheet %> |
+      <% if sales_sheet.status < 1 %>
+        <%= link_to 'Edit', edit_sales_sheet_path(sales_sheet) %> |
+        <%= link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+    </td>
   </tr>
 <% end %>
 </tbody>
