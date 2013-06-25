@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  stock_taking_id: 1
+  product_data_type: MyString
+  product_data_id: 1
+  quantity: 1
+  status: 1
+
+two:
+  stock_taking_id: 1
+  product_data_type: MyString
+  product_data_id: 1
+  quantity: 1
+  status: 1

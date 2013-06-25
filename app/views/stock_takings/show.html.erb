@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Warehouse:</b>
+  <%= @object.warehouse_id %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @object.info %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @object.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_stock_taking_path(@object) %> |
+<%= link_to 'Back', stock_takings_path %> |
+<%= link_to 'Get stock', get_stock_stock_taking_path(@object) %>
+  <%= form_tag(save_quantity_stock_taking_path(@object)) do %>
+  <%
+    cat = nil 
+    @object.stock_taking_items.each do |item| 
+      if cat != item.catalog
+        unless cat.nil?
+      %>
+      
+    </tbody>
+    <%= render :partial => 'items_foot' %>
+    </table>
+      <%
+        end
+        cat = item.catalog
+      %>
+      <h2><%= cat %></h2>
+<table class='striped bordered hovered' id='st_table'>
+  <thead>
+  <tr>
+    <th>Stock taking</th>
+    <th>Product#</th>
+    <th>Product</th>
+    <th class='table-grouping-column'>Catalog</th>
+    <th>On hand</th>
+    <th>Quantity</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <% end %>
+  <tr>
+    <td><%= item.stock_taking_id %></td>
+    <td>
+      <%= item.product_data_type %>#
+      <%= item.product_data_id %>
+    </td>
+    <td><%= item.full_name %></td>
+    <td><%= item.on_hand %></td>
+    <td><%= text_field_tag "items[#{item.id}]", item.quantity, :size => '3' %></td>
+    <td><%= item.status %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_stock_taking_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+    <%= render :partial => 'items_foot' %>
+</table>
+<%= submit_tag %>
+<% end %>
+<br />
+
+<%= link_to 'New Stock taking item', new_stock_taking_stock_taking_item_path(@object) %>

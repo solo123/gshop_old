@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619084244) do
+ActiveRecord::Schema.define(:version => 20130624055342) do
 
   create_table "accessories", :force => true do |t|
     t.string   "short_code"
@@ -153,6 +153,27 @@ ActiveRecord::Schema.define(:version => 20130619084244) do
     t.datetime "updated_at",       :null => false
     t.string   "stock_order_type"
     t.integer  "stock_order_id"
+  end
+
+  create_table "stock_taking_items", :force => true do |t|
+    t.integer  "stock_taking_id"
+    t.string   "product_data_type"
+    t.integer  "product_data_id"
+    t.string   "full_name"
+    t.string   "catalog"
+    t.integer  "on_hand",           :default => 0
+    t.integer  "quantity",          :default => 0
+    t.integer  "status",            :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "stock_takings", :force => true do |t|
+    t.integer  "warehouse_id"
+    t.string   "info"
+    t.integer  "status",       :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "stocks", :force => true do |t|

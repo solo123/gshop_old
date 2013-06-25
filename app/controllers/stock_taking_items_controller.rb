@@ -1,0 +1,2 @@
+class StockTakingItemsController < NestedResourcesController
+end

@@ -1,4 +1,14 @@
 Gshop::Application.routes.draw do
+  resources :stock_taking_items
+
+
+  resources :stock_takings do
+    resources :stock_taking_items
+    get :get_stock, :on => :member
+    post :save_quantity, :on => :member
+  end
+
+
   resources :manufactories
 
 

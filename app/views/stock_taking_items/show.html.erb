@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Stock taking:</b>
+  <%= @stock_taking_item.stock_taking_id %>
+</p>
+
+<p>
+  <b>Product data type:</b>
+  <%= @stock_taking_item.product_data_type %>
+</p>
+
+<p>
+  <b>Product data:</b>
+  <%= @stock_taking_item.product_data_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @stock_taking_item.quantity %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @stock_taking_item.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_stock_taking_item_path(@stock_taking_item) %> |
+<%= link_to 'Back', stock_taking_items_path %>
