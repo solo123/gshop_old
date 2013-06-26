@@ -5,6 +5,7 @@ Gshop::Application.routes.draw do
   resources :stock_takings do
     resources :stock_taking_items
     get :get_stock, :on => :member
+    get :entering, :on => :member
     post :save_quantity, :on => :member
   end
 

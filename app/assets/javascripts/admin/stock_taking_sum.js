@@ -22,3 +22,8 @@ function sum_table_field(table, columnIndex) {
   });
   return tot;
 }
+
+$(function(){
+  $('table input').keyup(function(){stock_taking_sum();});
+  stock_taking_sum();
+});

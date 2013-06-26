@@ -3,7 +3,7 @@
     :select => "created_at, sum(actual_amount) amount",
     :group => "strftime('%m', created_at)",
     :order => 'created_at desc')
-  data_list = results.map{|r| ['"' + r.created_at.strftime('%Y.%m')}\"", r.amount]} 
+  data_list = results.map{|r| ['"' + r.created_at.strftime('%Y.%m') + '"', r.amount]} 
 %>
 
 <div class='diagram-container'>
@@ -16,17 +16,10 @@
 	<script language="javascript" type="text/javascript" src="/css/flot/flot.categories.js"></script>
   
   <%= javascript_tag do %>
+  var report_data = <%=raw data_list %>;
 	$(function() {
 
-<table>
-  <tr>
-    <td><%= r.created_at.strftime("%Y.%m") %></td>
-    <td><%= r.amount %></td>
-  </tr>
-  <% end %>
-</table>
-var data = <%= data_list %>;
-		$.plot("#diagram", [ data ], {
+		$.plot("#diagram", report_data, {
 			series: {
 				bars: {
 					show: true,

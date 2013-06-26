@@ -2,29 +2,37 @@
 
 <p>
   <b>Stock taking:</b>
-  <%= @stock_taking_item.stock_taking_id %>
+  <%= @object.stock_taking_id %>
 </p>
 
 <p>
   <b>Product data type:</b>
-  <%= @stock_taking_item.product_data_type %>
+  <%= @object.product_data_type %>
 </p>
 
 <p>
   <b>Product data:</b>
-  <%= @stock_taking_item.product_data_id %>
+  <%= @object.product_data_id %>
 </p>
 
 <p>
+  <b>Full name:</b>
+  <%= @object.full_name %>
+</p>
+<p>
+  <b>Catalog:</b>
+  <%= @object.catalog %>
+</p>
+<p>
   <b>Quantity:</b>
-  <%= @stock_taking_item.quantity %>
+  <%= @object.quantity %>
 </p>
 
 <p>
   <b>Status:</b>
-  <%= @stock_taking_item.status %>
+  <%= @object.status %>
 </p>
 
 
-<%= link_to 'Edit', edit_stock_taking_item_path(@stock_taking_item) %> |
+<%= link_to 'Edit', edit_stock_taking_item_path(@object) %> |
 <%= link_to 'Back', stock_taking_items_path %>
