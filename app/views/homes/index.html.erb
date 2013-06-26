@@ -30,19 +30,35 @@
                 </li>
               </ul>
             </div>
-            <div class='span3 place-right'>
+            <div class='span2 place-left'>
               <ul class='unstyled sprite-details'>
                 <li>
                   <i class='icon-checkmark'></i>
-                  <%= link_to 'Sales Sheet 销售单', sales_sheets_path %>
+                  <%= link_to 'Serials 编号产品', serial_products_path %>
                 </li>
                 <li>
                   <i class='icon-checkmark'></i>
-                  <%= link_to 'Guitars 吉他', guitars_path %>
+                  <%= link_to 'Godown 入库单', godown_entries_path %>
                 </li>
                 <li>
                   <i class='icon-checkmark'></i>
-                  <%= link_to 'Accessories 配件', accessories_path %>
+                  <%= link_to 'Stock taking 盘点', stock_takings_path %>
+                </li>
+              </ul>
+            </div>
+            <div class='span2 place-right'>
+              <ul class='unstyled sprite-details'>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Customers', customers_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Manufactories', accessories_path %>
+                </li>
+                <li>
+                  <i class='icon-checkmark'></i>
+                  <%= link_to 'Warehouses', warehouses_path %>
                 </li>
               </ul>
             </div>
@@ -51,108 +67,124 @@
         </div>
         <div class='span4'>
           <div class='padding30 text-center bg-color-blueLight'>
-              <%= form_tag(quick_gos_path) do %>
-                  <div class='input-control text'>
-                    <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
-                    <button class='btn-search'></button>
-                  </div>
-                  <div class='input-control text'>
-                    <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
-                    <button class='btn-search'></button>
-                  </div>
-              <% end %>
-              <%= image_tag 'matthew.jpg', :height => '138px' %>
+            <%= form_tag(quick_gos_path) do %>
+              <div class='input-control text'>
+                <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
+                <button class='btn-search'></button>
+              </div>
+              <div class='input-control text'>
+                <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
+                <button class='btn-search'></button>
+              </div>
+            <% end %>
+            <%= image_tag 'matthew.jpg', :height => '138px' %>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tile double bg-color-blueDark outline-color-green">
-      <a href='serial_products'>
-        <div class="tile-content">
-          <h2>Serial Product</h2>
-          <h5>编号产品</h5>
-          <p>已编号的产品列表</p>
+    <div class="grid">
+      <div class="row">
+        <div class="span4 bg-color-blue">
+          <%= image_tag 'demo/simple.png', :class => "place-right", :style => "margin: 10px;" %>
+          <h2 class="fg-color-white">&nbsp;Simple</h2>
         </div>
-        <div class='brand'>
-          <div class='badge'>5000</div>
-          <div class='icon'><i class='icon-bookmark-2'></i></div>
+
+        <div class="span4 bg-color-green">
+          <%= image_tag "demo/grid.png", :class => "place-right", :style => "margin: 10px;" %>
+          <h2 class="fg-color-white">&nbsp;Sufficient</h2>
         </div>
-      </a>
-    </div>
-    <div class='tile bg-color-orangeDark'>
-      <a href='guitars'>
-        <div class='tile-content'>
-          <h2>Guitars</h2>
-          <h5>吉他</h5>
-          <p>所有吉他列表</p>
+
+        <div class="span4 bg-color-yellow">
+          <%= image_tag "demo/responsive.png", :class => "place-right", :style => "margin: 10px;" %>
+          <h2 class="fg-color-white">&nbsp;Responsive</h2>
         </div>
-      </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
       </div>
-      <a href='warehouses'>
-        <div class='brand'>
-          <span class='name'>仓库</span>
-          <div class='badge'>10</div>
-        </div>
-      </a>
     </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
+
+    <div class="grid">
+      <div class="row">
+        <div class="span4">
+          <div class="image-container bg-color-lighten" style="width: 100%">
+            <div style="height: 200px; overflow: hidden"><%= image_tag "matthew.jpg" %></div>
+            <div class="overlay">
+              <div class="padding10 fg-color-grayDark tertiary-text">Matthew Wan playing guitar.</div>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="image-container bg-color-lighten" style="width: 100%">
+            <div style="height: 200px; overflow: hidden"><%= image_tag "anna.jpg" %></div>
+            <div class="overlay">
+              <div class="padding10 fg-color-grayDark tertiary-text">Anna Likhacheva.</div>
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="image-container bg-color-lighten" style="width: 100%">
+            <div style="height: 200px; overflow: hidden"><%= image_tag "af.jpg" %></div>
+            <div class="overlay">
+              <div class="padding10 fg-color-grayDark tertiary-text">MW Guitar.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href='godown_entries'>
-        <div class='brand'>
-          <span class='name'>入库单</span>
-          <div class='badge'>10</div>
+      <div class="row">
+        <div class="span8">
+          <h2>Welcome</h2>
+          <p>
+            A Boutique Workshop for Fine Handcrafted Guitar.
+          </p>
+
+          <p class="bg-color-blueLight padding20 tertiary-text1">
+            Address: 深圳乐器城3220
+          </p>
+
+          <p>
+            <strong>淘宝店：mwguitars.taobao.com</strong>
+          </p>
+
+
+          <h2>Browsers</h2>
+          <div class="browsers-icons clearfix">
+            <h2 class="place-left" title="Internet Explorer 9+"><i class="icon-IE"></i> </h2>
+            <h2 class="place-left" title="Chrome"><i class="icon-chrome"></i> </h2>
+            <h2 class="place-left" title="Firefox"><i class="icon-firefox"></i> </h2>
+            <h2 class="place-left" title="Opera"><i class="icon-opera"></i> </h2>
+            <h2 class="place-left" title="Safari"><i class="icon-safari"></i> </h2>
+          </div>
+
+          <blockquote class="tertiary-text">
+            Internet explorer supported from 9 version.
+          </blockquote>
         </div>
-      </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
+        <div class="span4">
+          <h2>Donate</h2>
+          <div class="grid">
+            <div class="row">
+              <div class="span2">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="AVMB2NYSENK3A">
+                  <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;">
+                    PayPal <i class="icon-heart bg-color-greenDark"></i>
+                  </button>
+                </form>
+              </div>
+              <div class="span2">
+                <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;" onclick="window.location.href='https://liqpay.com/?do=clickNbuy&amp;button=i2970090512'">
+                  LiqPay <i class="icon-heart bg-color-greenDark"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href='customers'>
-        <div class='brand'>
-          <span class='name'>客户</span>
-          <div class='badge'>10</div>
-        </div>
-      </a>
-    </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
+      <div class="row">
       </div>
-      <a href='sales_sheets'>
-        <div class='brand'>
-          <span class='name'>销售单</span>
-          <div class='badge'>10</div>
-        </div>
-      </a>
     </div>
-    <div class='tile bg-color-red icon'>
-      <div class='tile-content'>
-        <i class='icon-home'></i>
-      </div>
-      <a href='accessories'>
-        <div class='brand'>
-          <span class='name'>配件</span>
-          <div class='badge'>10</div>
-        </div>
-      </a>
-    </div>
-    <div class='tile bg-color-orangeDark'>
-      <a href='manufactories'>
-        <div class='tile-content'>
-          <h2>Manufactories</h2>
-          <h5>生成厂家</h5>
-          <p>厂家列表</p>
-        </div>
-      </a>
-    </div>
+
+
 
 
 

@@ -1,5 +1,14 @@
-<p id="notice"><%= notice %></p>
-
+<%= content_for :head do  %>
+  <%= javascript_tag do %>
+    $(function(){
+      alert('loaded');
+    });
+    $(function(){
+      alert('ok');
+      $('table input').keyup(function(){stock_taking_sum();});
+    });
+  <% end %>
+<% end %>
 <p>
   <b>Warehouse:</b>
   <%= @object.warehouse_id %>
@@ -35,7 +44,7 @@
         cat = item.catalog
       %>
       <h2><%= cat %></h2>
-<table class='striped bordered hovered' id='st_table'>
+<table class='striped bordered hovered sumary'>
   <thead>
   <tr>
     <th>Stock taking</th>
