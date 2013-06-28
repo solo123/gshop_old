@@ -5,9 +5,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :model
       t.string :full_name
       t.string :catalog
+      t.integer :title_photo_id
       t.integer :status, :default => 0
-      t.string :product_data_type
-      t.integer :product_data_id
 
       t.timestamps
     end

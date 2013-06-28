@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628083005) do
+ActiveRecord::Schema.define(:version => 20130628142511) do
 
   create_table "accessories", :force => true do |t|
     t.string   "short_code"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.integer  "title_photo_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "product_id"
   end
 
   create_table "customers", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "short_code"
+    t.integer  "product_id"
   end
 
   create_table "manufactories", :force => true do |t|
@@ -118,11 +120,10 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.string   "model"
     t.string   "full_name"
     t.string   "catalog"
-    t.integer  "status",            :default => 0
-    t.string   "product_data_type"
-    t.integer  "product_data_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "title_photo_id"
+    t.integer  "status",         :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "sales_sheet_items", :force => true do |t|
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.string   "description"
     t.integer  "serial_product_id"
     t.string   "serial_number"
+    t.integer  "product_id"
   end
 
   create_table "sales_sheets", :force => true do |t|
@@ -166,6 +168,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.integer  "stock_id"
+    t.integer  "product_id"
   end
 
   create_table "stock_journals", :force => true do |t|
@@ -177,6 +180,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.datetime "updated_at",       :null => false
     t.string   "stock_order_type"
     t.integer  "stock_order_id"
+    t.integer  "product_id"
   end
 
   create_table "stock_taking_items", :force => true do |t|
@@ -190,6 +194,7 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.integer  "status",            :default => 0
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "product_id"
   end
 
   create_table "stock_takings", :force => true do |t|
@@ -211,14 +216,15 @@ ActiveRecord::Schema.define(:version => 20130628083005) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.integer  "warehouse_id"
+    t.integer  "product_id"
   end
 
   create_table "warehouses", :force => true do |t|
     t.string   "name"
     t.string   "pre_code"
-    t.integer  "status",     :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
