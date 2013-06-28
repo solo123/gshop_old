@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  brand: MyString
+  model: MyString
+  full_name: MyString
+  catalog: MyString
+  price: 9.99
+  godown_count: 1
+  godown_amount: 9.99
+  godown_fee: 9.99
+  godown_price: 9.99
+  status: 1
+
+two:
+  brand: MyString
+  model: MyString
+  full_name: MyString
+  catalog: MyString
+  price: 9.99
+  godown_count: 1
+  godown_amount: 9.99
+  godown_fee: 9.99
+  godown_price: 9.99
+  status: 1

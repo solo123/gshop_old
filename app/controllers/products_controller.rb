@@ -1,0 +1,2 @@
+class ProductsController < ResourcesController
+end

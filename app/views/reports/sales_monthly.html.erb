@@ -3,13 +3,12 @@
     :select => "created_at, sum(actual_amount) amount",
     :group => "strftime('%m', created_at)",
     :order => 'created_at desc')
-  data_list = results.map{|r| ['"' + r.created_at.strftime('%Y.%m') + '"', r.amount]} 
+  data_list = results.map{|r| [r.created_at.strftime('%Y.%m') , r.amount]} 
 %>
 
 <div class='diagram-container'>
   <div id='diagram' class='diagram-placeholder'></div>
 </div>
-<div id='diagram_footer'></div>
 <% content_for :head do %>
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/css/flot/excanvas.min.js"></script><![endif]-->
 	<script language="javascript" type="text/javascript" src="/css/flot/flot.js"></script>
@@ -17,9 +16,7 @@
   
   <%= javascript_tag do %>
   var report_data = <%=raw data_list %>;
-	$(function() {
-
-		$.plot("#diagram", report_data, {
+  var report_options = {
 			series: {
 				bars: {
 					show: true,
@@ -31,11 +28,9 @@
 				mode: "categories",
 				tickLength: 0
 			}
-		});
-
-		// Add the Flot version string to the footer
-		$("#diagram_footer").prepend("Flot " + $.plot.version + " &ndash; ");
+		};
+	$(function() {
+    $.plot("#diagram", [report_data], report_options);
 	});
-    
 <% end %>
 <% end %>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brand:</b>
+  <%= @product.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @product.model %>
+</p>
+
+<p>
+  <b>Full name:</b>
+  <%= @product.full_name %>
+</p>
+
+<p>
+  <b>Catalog:</b>
+  <%= @product.catalog %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Godown count:</b>
+  <%= @product.godown_count %>
+</p>
+
+<p>
+  <b>Godown amount:</b>
+  <%= @product.godown_amount %>
+</p>
+
+<p>
+  <b>Godown fee:</b>
+  <%= @product.godown_fee %>
+</p>
+
+<p>
+  <b>Godown price:</b>
+  <%= @product.godown_price %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @product.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

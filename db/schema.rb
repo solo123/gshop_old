@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624055342) do
+ActiveRecord::Schema.define(:version => 20130628083005) do
 
   create_table "accessories", :force => true do |t|
     t.string   "short_code"
@@ -99,6 +99,30 @@ ActiveRecord::Schema.define(:version => 20130624055342) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+  end
+
+  create_table "product_prices", :force => true do |t|
+    t.integer  "product_id"
+    t.decimal  "price"
+    t.integer  "godown_count",  :default => 0
+    t.decimal  "godown_amount", :default => 0.0
+    t.decimal  "godown_fee",    :default => 0.0
+    t.decimal  "godown_price",  :default => 0.0
+    t.integer  "status",        :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "brand"
+    t.string   "model"
+    t.string   "full_name"
+    t.string   "catalog"
+    t.integer  "status",            :default => 0
+    t.string   "product_data_type"
+    t.integer  "product_data_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "sales_sheet_items", :force => true do |t|

@@ -1,0 +1,39 @@
+<%
+%>
+
+<% content_for :head do %>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/css/flot/excanvas.min.js"></script><![endif]-->
+  <script language="javascript" type="text/javascript" src="/css/flot/flot.js"></script>
+  <script language="javascript" type="text/javascript" src="/css/flot/flot.pie.js"></script>
+  <script type='text/javascript'>
+		$(function() {
+      var data = [];
+			var series = Math.floor(Math.random() * 6) + 3;
+
+		for (var i = 0; i < series; i++) {
+			data[i] = {
+				label: "Series" + (i + 1),
+				data: Math.floor(Math.random() * 100) + 1
+			}
+		}
+
+		var placeholder = $("#diagram");
+
+  	placeholder.unbind();
+		$.plot(placeholder, data, {
+				series: {
+					pie: { 
+						show: true
+					}
+				}
+			});
+      });
+
+
+
+
+</script>
+<% end %>
+<div class='diagram-container'>
+  <div id='diagram' class='diagram-placeholder'></div>
+</div>
