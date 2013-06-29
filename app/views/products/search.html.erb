@@ -1,5 +1,5 @@
 <%
-  result = Product.where(['catalog like ?', "%#{params[:q]}%"]).limit(100)
+  result = Product.where(['full_name like :q or catalog like :q', :q => "%#{params[:q]}%"]).limit(100)
 %>
 <table>
 <% result.each do |p| %>

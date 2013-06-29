@@ -32,7 +32,11 @@ class NestedResourcesController < ResourcesController
         @no_log = 1
       end
     end
-    redirect_to @parent
+    if @parent
+      redirect_to @parent
+    else
+      redirect_to @object
+    end
   end
   def select
     load_object

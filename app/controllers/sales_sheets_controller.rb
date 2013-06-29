@@ -68,8 +68,6 @@ class SalesSheetsController < ResourcesController
   def new
     super
     @object.warehouse_id = 1
-    @object.save
-    redirect_to @object
   end
   def update
     load_object
