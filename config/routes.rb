@@ -2,7 +2,11 @@ Gshop::Application.routes.draw do
   resources :product_prices
 
 
-  resources :products
+  resources :products do
+    resources :photos
+    get :select, :on => :collection
+    get :search, :on => :collection
+  end
 
 
   resources :stock_taking_items

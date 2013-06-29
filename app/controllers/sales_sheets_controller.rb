@@ -3,24 +3,24 @@ class SalesSheetsController < ResourcesController
     load_object
     @object.sales_sheet_items.each do |item|
       unless item.serial_number.blank?
-        sp = SerialProduct.find_by_serial_number(item.serial_number)
+        sp = SerialProduct.where(:serial_number => item.serial_number).first
         if sp && sp.stock && sp.stock.warehouse_id == @object.warehouse_id
           item.serial_product = sp
           item.serial_number = nil
-          item.product_data = item.serial_product.stock.product_data
+          item.product = item.serial_product.stock.product
           item.quantity = 1
         end
       end
-      if item.product_data
-        if item.serial_product && item.product_data != item.serial_product.product_data
+      if item.product
+        if item.serial_product && item.product != item.serial_product.product
           item.serial_product = nil
         end
-        if item.product_data.price && item.product_data.price > 0
+        if item.product.product_price
           if !item.amount || item.amount == 0
-            item.price = item.product_data.price
+            item.price = item.product.product_price.price
           end
         end
-        item.description = item.product_data.full_name
+        item.description = item.product.full_name
         item.amount = item.quantity * item.price
         item.save
       end
@@ -45,10 +45,10 @@ class SalesSheetsController < ResourcesController
     if @object.status == 0
       warehouse = @object.warehouse
       @object.sales_sheet_items.each do |item|
-        stock = warehouse.stocks.where(:product_data_type => item.product_data.class.name, :product_data_id => item.product_data).first
+        stock = warehouse.stocks.where(:product_id => item.product_id).first
         unless stock
           stock = warehouse.stocks.build
-          stock.product_data = item.product_data
+          stock.product = item.product
           stock.on_hand = 0
         end
         journal = stock.stock_journals.build

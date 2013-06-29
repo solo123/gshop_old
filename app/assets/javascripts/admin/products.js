@@ -30,52 +30,11 @@ function autocomplete_selected(node, fn){
 function customer_selected(cid){
   $('#customer_id').val(cid.slice(9));
 }
-var find_guitar_global_timeout = null;
 
-function find_guitar(){
-  var str = $('#guitar_model').val().trim();
-  if (find_guitar_global_timeout !=null) clearTimeout(find_guitar_global_timeout);
-  find_guitar_global_timeout = setTimeout(search_guitar, 1000);
-
-}
-function search_guitar(){
-  find_guitar_global_timeout = null;
-  $('#search_result').html('');
-
-  var str = $('#guitar_model').val().trim();
-  $.get('/guitars/search?q=' + str, function(data){
-    $('#search_result').html(data);
-  });
-}
-function guitar_selected(node){
-  var guitar = $(node).closest('tr').attr('id');
+function product_selected(result){
   $.Dialog.close();
-  $('#product_data_type').val('Guitar');
-  $('#product_data_id').val(guitar.slice(7));
-}
-
-var find_accessory_global_timeout = null;
-
-function find_accessory(){
-  var str = $('#accessory').val().trim();
-  if (find_accessory_global_timeout !=null) clearTimeout(find_accessory_global_timeout);
-  find_accessory_global_timeout = setTimeout(search_accessory, 1000);
-
-}
-function search_accessory(){
-  find_accessory_global_timeout = null;
-  $('#search_result').html('');
-
-  var str = $('#accessory').val().trim();
-  $.get('/accessories/search?q=' + str, function(data){
-    $('#search_result').html(data);
-  });
-}
-function accessory_selected(node){
-  var accessory = $(node).closest('tr').attr('id');
-  $.Dialog.close();
-  $('#product_data_type').val('Accessory');
-  $('#product_data_id').val(accessory.slice(10));
+  $('#product_id').val(result.slice(8));
+  $('#quantity').val(1);
 }
 
 function goto_find_user(){

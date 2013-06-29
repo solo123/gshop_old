@@ -22,19 +22,14 @@
 
       <div class='span4'>
         <div class="field">
-          <%= f.label :product_data_type %><br />
-          <%= f.text_field :product_data_type, :id => 'product_data_type' %>
-        </div>
-        <div class="field">
-          <%= f.label :product_data_id %><br />
-          <%= f.text_field :product_data_id, :id => 'product_data_id' %>
+          <%= f.label :product_id %><br />
+          <%= f.text_field :product_id, :id => 'product_id' %>
         </div>
         <div class="field">
           <%= f.label :quantity %><br />
-          <%= f.text_field :quantity %>
+          <%= f.text_field :quantity, :id => 'quantity' %>
         </div>
-        <%= link_to 'Select guitar', select_guitars_path, :remote => true %> |
-        <%= link_to 'Select accessory', select_accessories_path, :remote => true %> 
+        <%= link_to 'Select product', select_products_path, :remote => true %> 
       </div>
     </div>
   </div>

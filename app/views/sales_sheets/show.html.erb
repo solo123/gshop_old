@@ -44,7 +44,7 @@
 <% @object.sales_sheet_items.each do |sales_sheet_item| %>
   <tr>
     <td><%= sales_sheet_item.serial_product.serial_number if sales_sheet_item.serial_product %> <%= sales_sheet_item.serial_number %></td>
-    <td><%= sales_sheet_item.product_data_type %>-<%= sales_sheet_item.product_data_id %></td>
+    <td><%= sales_sheet_item.id %># <%= sales_sheet_item.product.full_name if sales_sheet_item.product %></td>
     <td><%= sales_sheet_item.description %></td>
     <td><%= sales_sheet_item.quantity %></td>
     <td><%= sales_sheet_item.price %></td>
