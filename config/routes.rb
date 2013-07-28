@@ -1,4 +1,5 @@
 Gshop::Application.routes.draw do
+
   resources :product_prices
 
 
@@ -78,7 +79,7 @@ Gshop::Application.routes.draw do
   resources :reports do
     collection do
       get :sales_monthly, :catalog_summary
-
+      get ':action'
     end 
   end
 

@@ -1,0 +1,2 @@
+class AccountingSubjectsController < ResourcesController
+end

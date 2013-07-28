@@ -2,6 +2,7 @@ class GodownEntriesController < ResourcesController
   def calculate
     load_object
     if @object.status == 0
+      
       @object.total_quantity = @object.godown_items.sum(:quantity)
       @object.save
     end
@@ -18,10 +19,10 @@ class GodownEntriesController < ResourcesController
         @object.godown_items.each do |item|
           if item.status == 0 && item.quantity > 0
             item.status = 1           
-            stock = @object.to_warehouse.find_product(item.product_data)
+            stock = @object.to_warehouse.stocks.find_by_product_id(item.product_id)
             unless stock
               stock = @object.to_warehouse.stocks.build
-              stock.product_data = item.product_data
+              stock.product = item.product
             end
             journal = stock.stock_journals.build
             journal.stock_before = stock.on_hand

@@ -1,7 +1,8 @@
 <%
   results = SalesSheet.all(
-    :select => "created_at, sum(actual_amount) amount",
+    :select => "created_at, sum(actual_amount) amount, sum(discount) discount",
     :group => "strftime('%m', created_at)",
+    :conditions => {:status => 1},
     :order => 'created_at desc')
   data_list = results.map{|r| [r.created_at.strftime('%Y.%m') , r.amount]} 
 %>
@@ -9,6 +10,26 @@
 <div class='diagram-container'>
   <div id='diagram' class='diagram-placeholder'></div>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>日期</th>
+      <th>营业额</th>
+      <th>折扣额</th>
+  </thead>
+  <tbody>
+    <% results.each do |r| %>
+    <tr>
+      <td><%= r.created_at.strftime('%Y.%m') %></td>
+      <td><%= r.amount %></td>
+      <td><%= r.discount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <% content_for :head do %>
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/css/flot/excanvas.min.js"></script><![endif]-->
 	<script language="javascript" type="text/javascript" src="/css/flot/flot.js"></script>
@@ -27,7 +48,7 @@
 			xaxis: {
 				mode: "categories",
 				tickLength: 0
-			}
+      },
 		};
 	$(function() {
     $.plot("#diagram", [report_data], report_options);

@@ -17,8 +17,8 @@
   %>
 <% items.each do |godown_item| %>
   <tr>
-    <td><%= link_to godown_item.product_data.full_name, url_for(godown_item.product_data) + '/edit', :target => 'win_edit' if godown_item.product_data %></td>
-    <td class='num'><%= godown_item.product_data.price if godown_item.product_data %></td>
+    <td><%= link_to godown_item.product.full_name, edit_product_path(godown_item.product), :target => 'win_edit' if godown_item.product %></td>
+    <td class='num'><%= godown_item.product.product_price.price if godown_item.product.product_price %></td>
     <td class='num'><%= godown_item.quantity %></td>
     <td class='num'><%= godown_item.cost %></td>
     <td class='num'><%= godown_item.quantity * godown_item.cost %> </td>

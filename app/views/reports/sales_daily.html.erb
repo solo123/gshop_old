@@ -1,0 +1,61 @@
+<%
+  results = SalesSheet.all(
+    :select => "created_at, sum(actual_amount) amount, sum(discount) discount",
+    :group => "strftime('%m-%d', created_at)",
+    :conditions => {:status => 1},
+    :order => 'created_at desc')
+  data_list = results.map{|r| [r.created_at.strftime('%Y.%m.%d') , r.amount]} 
+%>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<table>
+  <thead>
+    <tr>
+      <th>日期</th>
+      <th>营业额</th>
+      <th>折扣额</th>
+  </thead>
+  <tbody>
+    <% results.each do |r| %>
+    <tr>
+      <td><%= r.created_at.strftime('%Y.%m.%d') %></td>
+      <td><%= r.amount %></td>
+      <td><%= r.discount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :head do %>
+  <script src="/css/Chart.min.js"></script>
+
+  
+  <%= javascript_tag do %>
+    var ctx = $("#myChart").get(0).getContext("2d");
+var data = {
+	labels : ["January","February","March","April","May","June","July"],
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [65,59,90,81,56,55,40]
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+	]
+  }
+
+  var options = {};
+    new Chart(ctx).Line(data, options);
+
+<% end %>
+<% end %>

@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Catalog</th>
     <th>Product</th>
     <th>On hand</th>
     <th>Info</th>
@@ -13,7 +14,8 @@
 
 <% @collection.each do |stock| %>
   <tr>
-    <td><%= stock.product_data.full_name if stock.product_data %></td>
+    <td><%= stock.catalog %></td>
+    <td><%= stock.full_name %></td>
     <td><%= stock.on_hand %></td>
     <td><%= stock.info %></td>
     <td><%= stock.title_photo_id %></td>

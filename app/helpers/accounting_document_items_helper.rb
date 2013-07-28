@@ -1,0 +1,2 @@
+module AccountingDocumentItemsHelper
+end
