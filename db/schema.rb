@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703064342) do
+ActiveRecord::Schema.define(:version => 20130812041122) do
 
   create_table "accessories", :force => true do |t|
     t.string   "short_code"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(:version => 20130703064342) do
     t.string   "reason"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "customers_manufactories", :id => false, :force => true do |t|
+    t.integer "manufactory_id"
+    t.integer "customer_id"
   end
 
   create_table "godown_entries", :force => true do |t|

@@ -1,5 +1,6 @@
 <p class='bg-color-greenDark padding10 fg-color-white toolbox'>
 <b>Products 产品列表</b> |
+<b><%= link_to '价格表', product_prices_path %></b> |
 <% if @parent %>
   <%= link_to '添加', new_serial_product_guitar_path(@parent) %>
 <% else %>

@@ -1,6 +1,8 @@
 Gshop::Application.routes.draw do
 
-  resources :product_prices
+  resources :product_prices do
+    post :catalog, :on => :collection
+  end
 
 
   resources :products do
@@ -21,7 +23,10 @@ Gshop::Application.routes.draw do
   end
 
 
-  resources :manufactories
+  resources :manufactories do
+    delete :remove_customer, :on => :member
+    post :add_customer, :on => :member
+  end
 
 
   resources :accessories do
