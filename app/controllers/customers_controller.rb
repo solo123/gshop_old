@@ -14,4 +14,8 @@ class CustomersController < NestedResourcesController
     @object.mobile = params[:q] if params[:q]
   end
 
+	private
+		def customer_params
+			params.require(:customer).permit(:address, :email, :info, :level, :mobile, :name, :phone, :qq, :reason, :title)
+		end
 end

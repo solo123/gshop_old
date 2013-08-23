@@ -75,4 +75,9 @@ class SalesSheetsController < ResourcesController
     @object.save
     calculate
   end
+
+	private
+		def sales_sheet_params
+			params.require(:sales_sheet).permit(:actual_amount, :additional_fee, :customer_id, :discount, :operator_id, :status, :total_amount, :total_items, :warehouse_id, :info)
+		end
 end
