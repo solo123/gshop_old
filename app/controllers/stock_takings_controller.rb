@@ -53,4 +53,8 @@ class StockTakingsController < ResourcesController
 
     redirect_to @object
   end
+	private
+		def stock_taking_params
+			params.require(:stock_taking).permit(:info, :status, :warehouse_id)
+    end
 end

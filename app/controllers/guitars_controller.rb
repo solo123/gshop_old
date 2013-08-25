@@ -45,4 +45,8 @@ class GuitarsController < ResourcesController
   def load_parent
     @parent = SerialProduct.find(params[:serial_product_id]) if params[:serial_product_id]
   end
+	private
+		def guitar_params
+			params.require(:guitar).permit(:short_code, :info, :model, :guitar_type, :brand, :price, :title_photo_id, :photos, :product_id)
+    end
 end

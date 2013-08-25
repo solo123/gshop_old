@@ -80,4 +80,8 @@ class AccountingDocumentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+	private
+		def accounting_document_params
+			params.require(:accounting_document).permit(:operator)
+		end
 end

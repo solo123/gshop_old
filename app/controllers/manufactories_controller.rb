@@ -11,4 +11,8 @@ class ManufactoriesController < ResourcesController
     m.customers << c
     redirect_to :action => :show
   end
+	private
+		def manufactory_params
+			params.require(:manufactory).permit(:address, :bank_account, :contact, :email, :name, :phone, :rating, :website)
+    end
 end

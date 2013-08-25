@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "info"
     t.decimal  "price"
     t.integer  "title_photo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "product_id"
   end
 
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "level",      default: 0
     t.string   "info"
     t.string   "reason"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "customers_manufactories", id: false, force: true do |t|
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "total_quantity",    default: 0
     t.integer  "operator"
     t.integer  "status",            default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "godown_items", force: true do |t|
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "product_data_id"
     t.integer  "quantity",                                  default: 0
     t.integer  "status",                                    default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.decimal  "cost",              precision: 8, scale: 2, default: 0.0
     t.integer  "product_id"
   end
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "info"
     t.integer  "title_photo_id"
     t.integer  "status",         default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "short_code"
     t.integer  "product_id"
   end
@@ -94,15 +94,15 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "bank_account"
     t.string   "contact"
     t.decimal  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "photos", force: true do |t|
     t.string   "photo_data_type"
     t.integer  "photo_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.decimal  "godown_fee",    default: 0.0
     t.decimal  "godown_price",  default: 0.0
     t.integer  "status",        default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "products", force: true do |t|
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "catalog"
     t.integer  "title_photo_id"
     t.integer  "status",         default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "sales_sheet_items", force: true do |t|
@@ -139,8 +139,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "quantity",                                  default: 0
     t.decimal  "price",             precision: 8, scale: 2, default: 0.0
     t.decimal  "amount",            precision: 8, scale: 2, default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "description"
     t.integer  "serial_product_id"
     t.string   "serial_number"
@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.decimal  "discount",       precision: 8, scale: 2, default: 0.0
     t.decimal  "actual_amount",  precision: 8, scale: 2, default: 0.0
     t.integer  "status",                                 default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "info"
   end
 
@@ -171,8 +171,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "product_data_type"
     t.integer  "product_data_id"
     t.integer  "status",              default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "stock_id"
     t.integer  "product_id"
   end
@@ -182,8 +182,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "stock_before"
     t.integer  "stock_change"
     t.integer  "stock_after"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "stock_order_type"
     t.integer  "stock_order_id"
     t.integer  "product_id"
@@ -198,8 +198,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "on_hand",           default: 0
     t.integer  "quantity",          default: 0
     t.integer  "status",            default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "product_id"
   end
 
@@ -207,8 +207,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "warehouse_id"
     t.string   "info"
     t.integer  "status",       default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "stocks", force: true do |t|
@@ -219,8 +219,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.integer  "title_photo_id"
     t.date     "last_buy_date"
     t.date     "sold_out_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "warehouse_id"
     t.integer  "product_id"
   end
@@ -229,8 +229,8 @@ ActiveRecord::Schema.define(version: 20130812041122) do
     t.string   "name"
     t.string   "pre_code"
     t.integer  "status",     default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
