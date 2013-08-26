@@ -1,5 +1,6 @@
 Gshop::Application.routes.draw do
 
+  devise_for :employees
   resources :product_prices do
     post :catalog, :on => :collection
   end
