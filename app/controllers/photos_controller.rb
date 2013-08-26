@@ -35,4 +35,8 @@ class PhotosController < ResourcesController
                     Guitar.find(params[:guitar_id])
                   end
       end
+	private
+		def photo_params
+			params.require(:photo).permit(:photo_data_id, :photo_data_type, :pic)
+    end
 end

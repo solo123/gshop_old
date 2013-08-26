@@ -9,4 +9,8 @@ class ProductPricesController < NestedResourcesController
         pages = 20
         @collection = Product.where('catalog like ?', "#{catalog}%").order('catalog, full_name').limit(500)
       end 
+	private
+		def product_price_params
+			params.require(:product_price).permit(:godown_amount, :godown_count, :godown_fee, :godown_price, :price, :product_id, :status)
+    end
 end

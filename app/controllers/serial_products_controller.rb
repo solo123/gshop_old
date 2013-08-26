@@ -12,4 +12,8 @@ class SerialProductsController < ResourcesController
     end
     redirect_to :action => :index
   end
+	private
+		def serial_product_params
+			params.require(:serial_product).permit(:product_data_id, :product_data_type, :product_model, :product_name, :production_batch_id, :serial_number, :title_photo_id, :photos, :product_id)
+    end
 end

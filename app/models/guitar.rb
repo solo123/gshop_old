@@ -1,5 +1,4 @@
 class Guitar < ActiveRecord::Base
-  attr_accessible :short_code, :info, :model, :guitar_type, :brand, :price, :title_photo_id, :photos, :product_id
   belongs_to :product
   has_many :photos, :as => :photo_data, :dependent => :destroy
 

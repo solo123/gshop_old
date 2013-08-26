@@ -41,4 +41,8 @@ class GodownEntriesController < ResourcesController
     end
     redirect_to @object
   end
+	private
+		def godown_entry_params
+			params.require(:godown_entry).permit(:from_warehouse_id, :godown_date, :info, :manufactory_id, :operator, :to_warehouse_id, :total_quantity)
+		end
 end
