@@ -22,6 +22,7 @@
     end
     def update
       load_object
+			params.permit!
       @object.attributes = params[object_name.singularize.parameterize('_')]
       if @object.changed_for_autosave?
         #@changes = @object.all_changes
@@ -38,6 +39,7 @@
       end
     end
     def create
+			params.permit!
       @object = object_name.classify.constantize.new(params[object_name.singularize.parameterize('_')])
       if @object.save
         redirect_to @object

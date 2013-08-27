@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130825104341) do
+ActiveRecord::Schema.define(version: 20130827074909) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20130825104341) do
     t.integer  "status",         default: 0
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "short_name"
   end
 
   create_table "sales_sheet_items", force: true do |t|
@@ -163,6 +164,7 @@ ActiveRecord::Schema.define(version: 20130825104341) do
     t.integer  "serial_product_id"
     t.string   "serial_number"
     t.integer  "product_id"
+    t.decimal  "actual_amount"
   end
 
   create_table "sales_sheets", force: true do |t|
@@ -178,6 +180,7 @@ ActiveRecord::Schema.define(version: 20130825104341) do
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
     t.string   "info"
+    t.decimal  "discount_rate"
   end
 
   create_table "serial_products", force: true do |t|

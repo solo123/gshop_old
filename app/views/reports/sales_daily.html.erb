@@ -4,10 +4,16 @@
     :group => "strftime('%m-%d', created_at)",
     :conditions => {:status => 1},
     :order => 'created_at desc')
-  data_list = results.map{|r| [r.created_at.strftime('%Y.%m.%d') , r.amount]} 
+	labels = results.map {|r| "\"#{r.created_at.strftime('%m.%d')}\""}.join(',')
+  amounts = results.map {|r| r.amount}.join(',')
+	diss = results.map {|r| r.discount}.join(',')
 %>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<div class='diagram-container'>
+	<div id='diagram' class='diagram-placeholder'>
+		<canvas id="myChart" width="840" height="400"></canvas>
+	</div>
+</div>
 
 <table>
   <thead>
@@ -32,30 +38,36 @@
   <script src="/css/Chart.min.js"></script>
 
   
-  <%= javascript_tag do %>
+	<%= javascript_tag do %>
+		var lbs = [<%=raw labels %>];
+		var ams = [<%= amounts %>];
+		var dis = [<%= diss %>];
+$(function(){
     var ctx = $("#myChart").get(0).getContext("2d");
 var data = {
-	labels : ["January","February","March","April","May","June","July"],
+	labels : lbs,
 	datasets : [
 		{
 			fillColor : "rgba(220,220,220,0.5)",
 			strokeColor : "rgba(220,220,220,1)",
 			pointColor : "rgba(220,220,220,1)",
 			pointStrokeColor : "#fff",
-			data : [65,59,90,81,56,55,40]
+			data : dis
 		},
 		{
 			fillColor : "rgba(151,187,205,0.5)",
 			strokeColor : "rgba(151,187,205,1)",
 			pointColor : "rgba(151,187,205,1)",
 			pointStrokeColor : "#fff",
-			data : [28,48,40,19,96,27,100]
+			data : ams
 		}
 	]
   }
 
   var options = {};
-    new Chart(ctx).Line(data, options);
+	new Chart(ctx).Line(data, options);
+
+});
 
 <% end %>
 <% end %>

@@ -4,11 +4,15 @@
     :group => "strftime('%m', created_at)",
     :conditions => {:status => 1},
     :order => 'created_at desc')
-  data_list = results.map{|r| [r.created_at.strftime('%Y.%m') , r.amount]} 
+	labels = results.map {|r| "\"#{r.created_at.strftime('%m')}\""}.join(',')
+  amounts = results.map {|r| r.amount}.join(',')
+	diss = results.map {|r| r.discount}.join(',')
 %>
 
 <div class='diagram-container'>
-  <div id='diagram' class='diagram-placeholder'></div>
+	<div id='diagram' class='diagram-placeholder'>
+		<canvas id="myChart" width="840" height="400"></canvas>
+	</div>
 </div>
 
 <table>
@@ -31,27 +35,37 @@
 
 
 <% content_for :head do %>
-	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/css/flot/excanvas.min.js"></script><![endif]-->
-	<script language="javascript" type="text/javascript" src="/css/flot/flot.js"></script>
-	<script language="javascript" type="text/javascript" src="/css/flot/flot.categories.js"></script>
-  
-  <%= javascript_tag do %>
-  var report_data = <%=raw data_list %>;
-  var report_options = {
-			series: {
-				bars: {
-					show: true,
-					barWidth: 0.6,
-					align: "center"
-				}
-			},
-			xaxis: {
-				mode: "categories",
-				tickLength: 0
-      },
-		};
-	$(function() {
-    $.plot("#diagram", [report_data], report_options);
-	});
+  <script src="/css/Chart.min.js"></script>
+	<%= javascript_tag do %>
+		var lbs = [<%=raw labels %>];
+		var ams = [<%= amounts %>];
+		var dis = [<%= diss %>];
+$(function(){
+    var ctx = $("#myChart").get(0).getContext("2d");
+var data = {
+	labels : lbs,
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : dis
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : ams
+		}
+	]
+  }
+
+  var options = {};
+	new Chart(ctx).Bar(data, options);
+
+});
+
 <% end %>
 <% end %>
