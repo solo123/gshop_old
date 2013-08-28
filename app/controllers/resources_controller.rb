@@ -1,5 +1,5 @@
   class ResourcesController < ApplicationController
-    respond_to :html, :js, :json
+    respond_to :html, :js
 
   def select
     load_collection
@@ -13,6 +13,9 @@
     end
     def show
        load_object
+        respond_to do |format|
+          format.json { render json: @object }
+        end
     end
     def edit
       load_object

@@ -2,6 +2,7 @@
 // listed below.
 //
 //= require jquery
-//= require jquery_ujs
+//= require best_in_place
 //= require jquery/mousewheel
+//= require jquery_ujs
 //= require_tree ./admin/

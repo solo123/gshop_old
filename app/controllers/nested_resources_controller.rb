@@ -8,10 +8,12 @@ class NestedResourcesController < ResourcesController
     if @parent
       if @parent.class.method_defined? object_name.pluralize
         @object = @parent.send(object_name.pluralize).build
+        params.permit!
         @object.update_attributes(params[object_name])
         @object.save
       else
         @object = @parent.send("build_#{object_name}")
+        params.permit!
         @object.update_attributes(params[object_name])
         @object.save
         @parent.save
@@ -23,6 +25,7 @@ class NestedResourcesController < ResourcesController
   end
   def update
     load_object
+    params.permit!
     @object.attributes = params[object_name.singularize.parameterize('_')]
     if @object.changed_for_autosave?
       #@changes = @object.all_changes

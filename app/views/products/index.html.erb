@@ -20,7 +20,8 @@
 <%= will_paginate @collection %>
 <table>
   <thead>
-  <tr>
+    <tr>
+      <th>short name</th>
     <th>Brand</th>
     <th>Model</th>
     <th>Full name</th>
@@ -34,6 +35,7 @@
 <tbody>
 <% @collection.each do |product| %>
   <tr>
+    <td><%= best_in_place product, :short_name, :type => :input %></td>
     <td><%= product.brand %></td>
     <td><%= product.model %></td>
     <td><%= product.full_name %></td>
