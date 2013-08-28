@@ -71,6 +71,7 @@ class SalesSheetsController < ResourcesController
   end
   def update
     load_object
+    params.permit!
     @object.attributes = params[object_name.singularize.parameterize('_')]
     @object.save
     calculate

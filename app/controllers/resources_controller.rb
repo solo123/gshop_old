@@ -14,6 +14,8 @@
     def show
        load_object
         respond_to do |format|
+          format.html
+          format.js
           format.json { render json: @object }
         end
     end
