@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827074909) do
+ActiveRecord::Schema.define(version: 20130830031036) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(version: 20130827074909) do
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
 
+  create_table "employees_issues", force: true do |t|
+    t.integer "employee_id"
+    t.integer "issue_id"
+  end
+
   create_table "godown_entries", force: true do |t|
     t.date     "godown_date"
     t.integer  "manufactory_id"
@@ -103,6 +108,16 @@ ActiveRecord::Schema.define(version: 20130827074909) do
     t.integer  "product_id"
   end
 
+  create_table "issues", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "due_date"
+    t.integer  "employee_id"
+    t.integer  "status",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "manufactories", force: true do |t|
     t.string   "name"
     t.string   "address"
@@ -114,6 +129,16 @@ ActiveRecord::Schema.define(version: 20130827074909) do
     t.decimal  "rating"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "notes", force: true do |t|
+    t.string   "notes_data_type"
+    t.integer  "notes_data_id"
+    t.string   "notes_text"
+    t.integer  "employee_id"
+    t.integer  "status",          default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photos", force: true do |t|
