@@ -1,205 +1,189 @@
-<div class="page-region">
-  <div class="page-region-content">
-    <div class='grid'>
-      <div class='row'>
-        <div class='span8'>
-          <div class='hero-unit'>
-            <h2 class='fg-color-darken'>MW吉他 - Management System</h2>
-            <p class='bg-color-pink padding20 fg-color-white'>lots of functions!</p>
-            <h3>To start:
-              <strong>Sales Sheet</strong>
-              in head of page
-            </h3>
-            <p class='tertiary-info-text'>
-              to <%= link_to 'Sales Sheet', sales_sheets_path %>
-              ok?
-            </p>
-            <div class='span3 place-left'>
-              <ul class='unstyled sprite-details'>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Sales Sheet 销售单', sales_sheets_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Products 产品', products_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Warehouses', warehouses_path %>
-                </li>
-              </ul>
-            </div>
-            <div class='span2 place-left'>
-              <ul class='unstyled sprite-details'>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Serials 编号产品', serial_products_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Customers', customers_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Manufactories', manufactories_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Godown 入库单', godown_entries_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Stock taking 盘点', stock_takings_path %>
-                </li>
-              </ul>
-            </div>
-            <div class='span2 place-right'>
-              <ul class='unstyled sprite-details'>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to '销售月报表', reports_path %>
-                </li>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <%= link_to 'Manufactories', accessories_path %>
-                </li>
-              </ul>
-            </div>
-            <div class='span3 place-left'>
-              <ul class='unstyled sprite-details'>
-                <li>
-                  <i class='icon-checkmark'></i>
-                  <a href='http://money.feidee.com/u07/report_index.do' target='_blank'>现金对账</a>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-        <div class='span4'>
-          <div class='padding30 text-center bg-color-blueLight'>
-            <%= form_tag(quick_gos_path) do %>
-              <div class='input-control text'>
-                <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
-                <button class='btn-search'></button>
-              </div>
-              <div class='input-control text'>
-                <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
-                <button class='btn-search'></button>
-              </div>
-            <% end %>
-            <%= image_tag 'matthew.jpg', :height => '138px' %>
-          </div>
-        </div>
+<div class='row-fluid'>
+  <div class='span8'>
+    <div class='hero-unit'>
+      <div class='span4'>
+        <ul class='unstyled'>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '销售单 Sales Sheet', sales_sheets_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '产品 Products', products_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '厂家 & 供应商', manufactories_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '顾客 Customers', customers_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '仓库 Warehouses', warehouses_path %>
+          </li>
+        </ul>
       </div>
+      <div class='span4'>
+        <ul class='unstyled'>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to 'Serials 编号产品', serial_products_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to 'Godown 入库单', godown_entries_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to 'Stock taking 盘点', stock_takings_path %>
+          </li>
+        </ul>
+      </div>
+      <div class='span4'>
+        <ul class='unstyled'>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to '销售月报表', reports_path %>
+          </li>
+          <li>
+            <i class='icon-star'></i>
+            <%= link_to 'Manufactories', accessories_path %>
+          </li>
+        </ul>
+      </div>
+      <div class='span4'>
+        <ul class='unstyled'>
+          <li>
+            <i class='icon-star'></i>
+            <a href='http://money.feidee.com/u07/report_index.do' target='_blank'>现金对账</a>
+          </li>
+        </ul>
+      </div>
+      <div class='clear'></div>
     </div>
+  </div>
 
-    <div class="grid">
-      <div class="row">
-        <div class="span4 bg-color-blue">
-          <%= image_tag 'demo/simple.png', :class => "place-right", :style => "margin: 10px;" %>
-          <h2 class="fg-color-white">&nbsp;Simple</h2>
-        </div>
 
-        <div class="span4 bg-color-green">
-          <%= image_tag "demo/grid.png", :class => "place-right", :style => "margin: 10px;" %>
-          <h2 class="fg-color-white">&nbsp;Sufficient</h2>
-        </div>
 
-        <div class="span4 bg-color-yellow">
-          <%= image_tag "demo/responsive.png", :class => "place-right", :style => "margin: 10px;" %>
-          <h2 class="fg-color-white">&nbsp;Responsive</h2>
+  <div class='span4'>
+    <div class='padding30 text-center bg-color-blueLight'>
+      <%= form_tag(quick_gos_path) do %>
+        <div class='input-control text'>
+          <%= text_field_tag :serial_number, '', :placeholder => '产品编号' %>
+          <button class='btn-search'></button>
         </div>
-      </div>
+        <div class='input-control text'>
+          <%= text_field_tag :search_text, '', :placeholder => '搜索' %>
+          <button class='btn-search'></button>
+        </div>
+      <% end %>
+      <%= image_tag 'matthew.jpg', :height => '138px' %>
     </div>
-
-    <div class="grid">
-      <div class="row">
-        <div class="span4">
-          <div class="image-container bg-color-lighten" style="width: 100%">
-            <div style="height: 200px; overflow: hidden"><%= image_tag "matthew.jpg" %></div>
-            <div class="overlay">
-              <div class="padding10 fg-color-grayDark tertiary-text">Matthew Wan playing guitar.</div>
-            </div>
-          </div>
-        </div>
-        <div class="span4">
-          <div class="image-container bg-color-lighten" style="width: 100%">
-            <div style="height: 200px; overflow: hidden"><%= image_tag "anna.jpg" %></div>
-            <div class="overlay">
-              <div class="padding10 fg-color-grayDark tertiary-text">Anna Likhacheva.</div>
-            </div>
-          </div>
-        </div>
-        <div class="span4">
-          <div class="image-container bg-color-lighten" style="width: 100%">
-            <div style="height: 200px; overflow: hidden"><%= image_tag "af.jpg" %></div>
-            <div class="overlay">
-              <div class="padding10 fg-color-grayDark tertiary-text">MW Guitar.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span8">
-          <h2>Welcome</h2>
-          <p>
-            A Boutique Workshop for Fine Handcrafted Guitar.
-          </p>
-
-          <p class="bg-color-blueLight padding20 tertiary-text1">
-            Address: 深圳乐器城3220
-          </p>
-
-          <p>
-            <strong>淘宝店：mwguitars.taobao.com</strong>
-          </p>
-
-
-          <h2>Browsers</h2>
-          <div class="browsers-icons clearfix">
-            <h2 class="place-left" title="Internet Explorer 9+"><i class="icon-IE"></i> </h2>
-            <h2 class="place-left" title="Chrome"><i class="icon-chrome"></i> </h2>
-            <h2 class="place-left" title="Firefox"><i class="icon-firefox"></i> </h2>
-            <h2 class="place-left" title="Opera"><i class="icon-opera"></i> </h2>
-            <h2 class="place-left" title="Safari"><i class="icon-safari"></i> </h2>
-          </div>
-
-          <blockquote class="tertiary-text">
-            Internet explorer supported from 9 version.
-          </blockquote>
-        </div>
-        <div class="span4">
-          <h2>Donate</h2>
-          <div class="grid">
-            <div class="row">
-              <div class="span2">
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                  <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="hosted_button_id" value="AVMB2NYSENK3A">
-                  <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;">
-                    PayPal <i class="icon-heart bg-color-greenDark"></i>
-                  </button>
-                </form>
-              </div>
-              <div class="span2">
-                <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;" onclick="window.location.href='https://liqpay.com/?do=clickNbuy&amp;button=i2970090512'">
-                  LiqPay <i class="icon-heart bg-color-greenDark"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-      </div>
-    </div>
-
-
-
-
-
   </div>
 </div>
+
+<div class="grid">
+  <div class="row">
+    <div class="span4 bg-color-blue">
+      <%= image_tag 'demo/simple.png', :class => "place-right", :style => "margin: 10px;" %>
+      <h2 class="fg-color-white">&nbsp;Simple</h2>
+    </div>
+
+    <div class="span4 bg-color-green">
+      <%= image_tag "demo/grid.png", :class => "place-right", :style => "margin: 10px;" %>
+      <h2 class="fg-color-white">&nbsp;Sufficient</h2>
+    </div>
+
+    <div class="span4 bg-color-yellow">
+      <%= image_tag "demo/responsive.png", :class => "place-right", :style => "margin: 10px;" %>
+      <h2 class="fg-color-white">&nbsp;Responsive</h2>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="row">
+    <div class="span4">
+      <div class="image-container bg-color-lighten" style="width: 100%">
+        <div style="height: 200px; overflow: hidden"><%= image_tag "matthew.jpg" %></div>
+        <div class="overlay">
+          <div class="padding10 fg-color-grayDark tertiary-text">Matthew Wan playing guitar.</div>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="image-container bg-color-lighten" style="width: 100%">
+        <div style="height: 200px; overflow: hidden"><%= image_tag "anna.jpg" %></div>
+        <div class="overlay">
+          <div class="padding10 fg-color-grayDark tertiary-text">Anna Likhacheva.</div>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="image-container bg-color-lighten" style="width: 100%">
+        <div style="height: 200px; overflow: hidden"><%= image_tag "af.jpg" %></div>
+        <div class="overlay">
+          <div class="padding10 fg-color-grayDark tertiary-text">MW Guitar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8">
+      <h2>Welcome</h2>
+      <p>
+        A Boutique Workshop for Fine Handcrafted Guitar.
+      </p>
+
+      <p class="bg-color-blueLight padding20 tertiary-text1">
+        Address: 深圳乐器城3220
+      </p>
+
+      <p>
+        <strong>淘宝店：mwguitars.taobao.com</strong>
+      </p>
+
+
+      <h2>Browsers</h2>
+      <div class="browsers-icons clearfix">
+        <h2 class="place-left" title="Internet Explorer 9+"><i class="icon-IE"></i> </h2>
+        <h2 class="place-left" title="Chrome"><i class="icon-chrome"></i> </h2>
+        <h2 class="place-left" title="Firefox"><i class="icon-firefox"></i> </h2>
+        <h2 class="place-left" title="Opera"><i class="icon-opera"></i> </h2>
+        <h2 class="place-left" title="Safari"><i class="icon-safari"></i> </h2>
+      </div>
+
+      <blockquote class="tertiary-text">
+        Internet explorer supported from 9 version.
+      </blockquote>
+    </div>
+    <div class="span4">
+      <h2>Donate</h2>
+      <div class="grid">
+        <div class="row">
+          <div class="span2">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="AVMB2NYSENK3A">
+              <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;">
+                PayPal <i class="icon-heart bg-color-greenDark"></i>
+              </button>
+            </form>
+          </div>
+          <div class="span2">
+            <button type="submit" class="image-button bg-color-green fg-color-white" style="width: 100%;" onclick="window.location.href='https://liqpay.com/?do=clickNbuy&amp;button=i2970090512'">
+              LiqPay <i class="icon-heart bg-color-greenDark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+</div>
+
+
 

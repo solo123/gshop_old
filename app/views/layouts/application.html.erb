@@ -16,62 +16,24 @@
     <%= render 'shared/main_menu' %>
 
     <div class='container'>
-      <div class='nav-bar'>
-        <div class='nav-bar-inner padding10'>
-          <span class='pull-menu'></span>
-          <a href='/'>
-          <span class='element brand'>
-            <%= image_tag  'mw_logo_32.png', :class => 'place-left', :style => 'height:20px;' %>
-            MW吉他-Management System
-            <small>0.02.01</small>
-          </span>
-        </a>
-          <div class='divider'></div>
-          <ul class='menu'>
-            <li>
-              <a href='/'>首页</a>
-            </li>
-            <li data-role='dropdown'>
-              <a href='#'>Functions</a>
-              <ul class='dropdown-menu'>
-                <li><a href="/serial_products">Serial Products</a></li>
-                <li><a href="/guitars">Guitars</a></li>
-                <li><a href="/photos">Photos</a></li>
-                <li class='divider'></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </li>
-          </ul>
+      <% if flash[:error] || flash[:notice] %>
+        <div class='notices'>
+          <% if flash[:error] %>
+            <div class="notice-header">ERROR</div>
+            <div class="notice-text"><%= flash[:error] %></div>
+          <% end -%>
+          <% if flash[:notice] %>
+            <div class="notice-header">Notice</div>
+            <div class="notice-text"><%= flash[:notice] %></div>
+          <% end %>
         </div>
-      </div>
-    </div>
-
-      <% if flash[:error] %>
-    <div class='span5'>
-      <div class="notices">
-        <div class="bg-color-red">
-          <a href="#" class="close"></a>
-          <div class="notice-image"><span class='icon-cancel' style='font-size:32px;'></span></div>
-          <div class="notice-header">ERROR</div>
-          <div class="notice-text"><%= flash[:error] %></div>
-        </div>
-      </div>
-    </div>
       <% end %>
-    <div class="page">
-      <%= yield %>
-    </div>
-<div class="page">
-        <div class="nav-bar">
-            <div class="nav-bar-inner padding10">
-                <span class="element">
-                    2012-2013, MW-Guitars © by <a class="fg-color-white" href="mailto:mwguitars@qq.com">Jimmy Liang</a>
-                </span>
-            </div>
-        </div>
+
+      <div>
+        <%= yield %>
       </div>
 
+      <%= render 'shared/footer' %>
     </div>
-    
   </body>
 </html>
