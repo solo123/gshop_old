@@ -1,0 +1,38 @@
+.btn-group
+  = link_to '价格表', product_prices_path, :class => 'btn'
+  - if @parent
+    = link_to '添加', new_serial_product_guitar_path(@parent), :class => 'btn'
+  - else
+    = link_to '添加产品', new_product_path, :class => 'btn'
+  = link_to 'All', products_path, :class => 'btn'
+  = link_to 'Guitars', '?search[catalog_starts_with]=guitar', :class => 'btn'
+  \#{link_to 'Accessories', '?search[catalog_starts_with]=accessory'}
+  \#{link_to 'Strings', '?search[catalog_starts_with]=accessory/string'}
+  \#{link_to 'Bags', '?search[catalog_starts_with]=accessory/bag'}
+
+= will_paginate @collection
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th short name
+      %th Brand
+      %th Model
+      %th Full name
+      %th Catalog
+      %th Status
+      %th
+  %tbody
+    - @collection.each do |product|
+      %tr
+        %td= best_in_place product, :short_name, :type => :input
+        %td= product.brand
+        %td= product.model
+        %td= product.full_name
+        %td= product.catalog
+        %td= product.status
+        %td
+          .btn-group
+            = link_to 'Show', product, :class => 'btn btn-mini'
+            = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
+            = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini'
+= will_paginate @collection

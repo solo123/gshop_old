@@ -1,0 +1,36 @@
+.btn-group
+  =link_to '开新单', new_sales_sheet_path, :class => 'btn'
+
+= will_paginate @collection
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th ID#
+      %th Date
+      %th Customer
+      %th Total items
+      %th Total amount
+      %th Additional fee
+      %th Discount
+      %th Actual amount
+      %th Status
+      %th
+  %tbody
+    - @collection.each do |sales_sheet|
+      %tr
+        %td= sales_sheet.id
+        %td= sales_sheet.created_at.strftime("%F")
+        %td= sales_sheet.customer_id
+        %td= sales_sheet.total_items
+        %td= sales_sheet.total_amount
+        %td= sales_sheet.additional_fee
+        %td= sales_sheet.discount
+        %td= sales_sheet.actual_amount
+        %td= sales_sheet.status
+        %td
+          = link_to 'Show', sales_sheet
+          |
+          - unless sales_sheet.status == 1
+            = link_to 'Edit', edit_sales_sheet_path(sales_sheet)
+            |
+            = link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' }

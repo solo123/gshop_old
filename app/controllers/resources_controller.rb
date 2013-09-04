@@ -60,9 +60,10 @@
       if @object.status && @object.status > 0
         @object.status = 0
       else
-        @object.status = 1
+        @object.status = 7
       end
       @object.save
+      redirect_to :action => :index
     end
     
     protected
