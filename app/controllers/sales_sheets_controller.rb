@@ -1,4 +1,6 @@
 class SalesSheetsController < ResourcesController
+  autocomplete :customer, :phone, :extra_data => [:name, :title], :display_value => :customer_phone_name
+  autocomplete :product, :short_name, :extra_data => [:catalog, :full_name], :display_value => :product_short_name_fullname, :full => true
   def calculate
     load_object
     @object.sales_sheet_items.each do |item|
@@ -66,8 +68,16 @@ class SalesSheetsController < ResourcesController
     redirect_to @object
   end
   def new
-    super
-    @object.warehouse_id = 1
+    @object = SalesSheet.first
+    if @object.status == 0 && @object.total_amount == 0
+      @object.created_at = DateTime.now
+      @object.save
+    else
+      @object = SalesSheet.new
+      @object.warehouse_id = 1
+      @object.save
+    end
+    redirect_to @object
   end
   def update
     load_object

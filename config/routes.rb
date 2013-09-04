@@ -42,6 +42,11 @@ Gshop::Application.routes.draw do
 
 
   resources :sales_sheets do
+    get :autocomplete_customer_phone, :on => :collection
+    get :autocomplete_product_short_name, :on => :collection
+    post :add_product, :on => :member 
+    post :add_customer, :on => :member
+    get :reset_customer, :on => :member
     resources :sales_sheet_items
     resources :customers do
       get :select, :on => :member
