@@ -1,0 +1,29 @@
+.btn-group
+  = link_to '新增厂家', new_manufactory_path, class: 'btn'
+%p
+%table.table.table-bordered.table-striped.table-hover
+  %tr
+    %th Name
+    %th Address
+    %th Website
+    %th Phone
+    %th Email
+    %th Bank account
+    %th Contact
+    %th Rating
+    %th
+  - @collection.each do |manufactory|
+    %tr
+      %td= manufactory.name
+      %td= manufactory.address
+      %td= manufactory.website
+      %td= manufactory.phone
+      %td= manufactory.email
+      %td= manufactory.bank_account
+      %td= manufactory.contact
+      %td= manufactory.rating
+      %td
+        .btn-group
+          = link_to 'Show', manufactory, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_manufactory_path(manufactory), :class => 'btn btn-mini'
+          = link_to 'Destroy', manufactory, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini'
