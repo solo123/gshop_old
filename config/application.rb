@@ -5,5 +5,6 @@ Bundler.require(:default, Rails.env)
 
 module Gshop
   class Application < Rails::Application
+    config.assets.precompile += ['application.js', 'application.css', 'print.css', 'print_view.css']
   end
 end
