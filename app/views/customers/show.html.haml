@@ -1,0 +1,34 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @object.name
+%p
+  %b Title:
+  = @object.title
+%p
+  %b Mobile:
+  = @object.mobile
+%p
+  %b Phone:
+  = @object.phone
+%p
+  %b Email:
+  = @object.email
+%p
+  %b Qq:
+  = @object.qq
+%p
+  %b Address:
+  = @object.address
+%p
+  %b Level:
+  = @object.level
+%p
+  %b Info:
+  = @object.info
+%p
+  %b Reason:
+  = @object.reason
+= link_to 'Edit', edit_customer_path(@object)
+|
+\#{link_to 'Back', customers_path}

@@ -50,3 +50,7 @@ gem 'devise'
 gem 'best_in_place', :git => 'git://github.com/bernat/best_in_place.git', :branch => 'rails-4'
 gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquery-autocomplete'
 gem "haml-rails"
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails',
+                              :branch => '3.0.0'
+

@@ -1,0 +1,25 @@
+%h1 Listing issues
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Due date
+      %th Employee
+      %th Status
+      %th
+      %th
+      %th
+  %tbody
+    - @issues.each do |issue|
+      %tr
+        %td= issue.title
+        %td= issue.description
+        %td= issue.due_date
+        %td= issue.employee_id
+        %td= issue.status
+        %td= link_to 'Show', issue
+        %td= link_to 'Edit', edit_issue_path(issue)
+        %td= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+  = link_to 'New Issue', new_issue_path

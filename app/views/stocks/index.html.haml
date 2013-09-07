@@ -1,0 +1,26 @@
+%h1 Listing stocks
+%table
+  %tr
+    %th Catalog
+    %th Product
+    %th On hand
+    %th Info
+    %th Title photo
+    %th Last buy date
+    %th Sold out date
+    %th
+  - @collection.each do |stock|
+    %tr
+      %td= stock.catalog
+      %td= stock.full_name
+      %td= stock.on_hand
+      %td= stock.info
+      %td= stock.title_photo_id
+      %td= stock.last_buy_date
+      %td= stock.sold_out_date
+      %td
+        = link_to '编号产品', serials_stock_path(stock), :remote => true
+        |
+        \#{link_to '刷新', add_serials_stock_path(stock), :remote => true} |
+        \#{link_to '历史', stock_stock_journals_path(stock)}
+= link_to '返回', url_for(@parent)  if @parent

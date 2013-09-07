@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @issue.title
+%p
+  %strong Description:
+  = @issue.description
+%p
+  %strong Due date:
+  = @issue.due_date
+%p
+  %strong Employee:
+  = @issue.employee_id
+%p
+  %strong Status:
+  = @issue.status
+= link_to 'Edit', edit_issue_path(@issue)
+|
+\#{link_to 'Back', issues_path}

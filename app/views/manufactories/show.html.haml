@@ -1,0 +1,62 @@
+= link_to 'Edit', edit_manufactory_path(@object)
+|
+\#{link_to 'Back', manufactories_path}
+%p#notice= notice
+%p
+  %b Name:
+  = @object.name
+%p
+  %b Address:
+  = @object.address
+%p
+  %b Website:
+  = @object.website
+%p
+  %b Phone:
+  = @object.phone
+%p
+  %b Email:
+  = @object.email
+%p
+  %b Bank account:
+  = @object.bank_account
+%p
+  %b Rating:
+  = @object.rating
+%p
+  %b Contact:
+  = @object.contact
+%table
+  %tr
+    %th Name
+    %th Title
+    %th Mobile
+    %th Phone
+    %th Email
+    %th Qq
+    %th Address
+    %th Level
+    %th Info
+    %th Reason
+    %th
+    %th
+    %th
+  - @object.customers.each do |customer|
+    %tr
+      %td= customer.name
+      %td= customer.title
+      %td= customer.mobile
+      %td= customer.phone
+      %td= customer.email
+      %td= customer.qq
+      %td= customer.address
+      %td= customer.level
+      %td= customer.info
+      %td= customer.reason
+      %td
+        = link_to 'Edit', edit_customer_path(customer)
+        |
+        \#{link_to 'Remove', remove_customer_manufactory_path(@object, :customer => customer.id), method: :delete, confirm: 'Are you sure?'}
+= form_tag(add_customer_manufactory_path(@object)) do
+  Contact: #{text_field_tag :customer,  '', :placeholder => 'Search by name and tel', :list => 'search_customer'}
+  \#{submit_tag}

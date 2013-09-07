@@ -1,0 +1,26 @@
+= form_for([@parent, @object]) do |f|
+  - if @object.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@object.errors.count, "error")
+        prohibited this godown_item from being saved:
+      %ul
+        - @object.errors.full_messages.each do |msg|
+          %li= msg
+  %div
+    .field
+      = f.label :product_id
+      = link_to 'Select product', select_products_path, :remote => true
+      %br/
+      = f.text_field :product_id, :id => 'product_id'
+  .field
+    = f.label :quantity
+    %br/
+    = f.text_field :quantity
+  .field
+    = f.label :cost
+    %br/
+    = f.text_field :cost
+  .actions
+    = f.submit
+= link_to 'Select guitar', select_guitars_path, :remote => true

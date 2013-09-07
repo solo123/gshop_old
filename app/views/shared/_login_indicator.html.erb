@@ -1,9 +1,0 @@
-<div class='login-div'>
-  <% if current_employee %>
-    Welcome: <%= current_employee.email %>
-    |
-    <%= link_to 'Sign out', destroy_employee_session_path, method: 'delete' %>
-  <% else %>
-    <%= link_to 'Sign in', new_employee_session_path %>
-  <% end %>
-</div>
