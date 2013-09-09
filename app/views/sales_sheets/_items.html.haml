@@ -23,7 +23,7 @@
         %td= sales_sheet_item.amount
         %td
           - unless sales_sheet.status == 1
-            = link_to 'Edit', edit_sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item)
+            = row_icon_link 'Edit', edit_sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item)
             |
-            = link_to 'Destroy', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
+            = row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
 

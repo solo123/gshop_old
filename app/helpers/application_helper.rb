@@ -19,12 +19,26 @@ module ApplicationHelper
 
       Array(message).each do |msg|
         text = content_tag(:div,
-                           content_tag(:button, raw("&times;"), :class => "close", "data-dismiss" => "alert") +
-                           msg.html_safe, :class => "alert fade in alert-#{type}")
+                 content_tag(:button, raw("&times;"), :class => "close", "data-dismiss" => "alert") + msg.html_safe, :class => "alert fade in alert-#{type}")
         flash_messages << text if msg
       end
     end
     flash_messages.join("\n").html_safe
+  end
+
+  def icon_link(link_text, icon, link_url, options = {})
+    link_to(raw("<i class='glyphicon glyphicon-#{icon}'></i> #{link_text}"), link_url, options)
+  end
+  def row_icon_link(link_text, link_url, options = {})
+    icon = nil
+    if link_text == 'Show'
+      icon = 'eye-open'
+    elsif link_text == 'Edit'
+      icon = 'edit'
+    elsif link_text == 'Del'
+      icon = 'remove'
+    end
+    icon_link(link_text, icon, link_url, options)
   end
 
 end

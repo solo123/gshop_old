@@ -1,39 +1,40 @@
-.btn-group
-  = link_to 'Back', sales_sheets_path, :class => 'btn'
-  - unless @object.status == 1
-    = link_to 'Edit', edit_sales_sheet_path(@object), :class => 'btn'
-    = link_to '完成！', entering_sales_sheet_path(@object), :confirm => "入账后销售单无法更改！\n确定入账吗？", :class => 'btn'
-  = link_to '打印', print_sales_sheet_path(@object), :target => 'print_win', :class => 'btn'
+.btn-toolbar
+  .btn-group
+    = link_to 'Back', sales_sheets_path, :class => 'btn btn-default'
+    - unless @object.status == 1
+      = link_to 'Edit', edit_sales_sheet_path(@object), :class => 'btn btn-info'
+      = link_to '完成！', entering_sales_sheet_path(@object), :confirm => "入账后销售单无法更改！\n确定入账吗？", :class => 'btn btn-danger'
+    = link_to '打印', print_sales_sheet_path(@object), :target => 'print_win', :class => 'btn btn-success'
 %p
 %p
   %b Warehouse:
   = @object.warehouse.name if @object.warehouse
 
 - unless @object.status == 1
-  = form_tag(add_product_sales_sheet_path(@object), :remote => true, :class => 'form-inline') do
-    Product 产品名称:
-    = autocomplete_field_tag 'find_product', '', autocomplete_product_short_name_sales_sheets_path, :update_elements => {:id => '#product_id'}
-    ID:
-    = text_field_tag 'product_id', '', :class => 'span1',  :readonly => true
-    Quantity 数量:
-    = text_field_tag 'quantity', '1', :class => 'span1'
-    = submit_tag  'add product', :class => 'btn btn-primary'
+  = form_tag(add_product_sales_sheet_path(@object), :remote => true, :class => 'form-inline', :role => 'form') do
+    .form-group
+      .label.sr-only Product 产品名称:
+      = autocomplete_field_tag 'find_product', '', autocomplete_product_short_name_sales_sheets_path, :update_elements => {:id => '#product_id'}, :class => 'form-control', :placeholder => '产品名称快速查找', style: "width:300px;"
+    .form-group
+      .label.sr-only ID:
+      = text_field_tag 'product_id', '', :class => 'form-control',  :readonly => true, :placeholder => '产品ID#', style: 'width: 80px'
+    .form-group
+      .label.sr-only Quantity 数量:
+      = text_field_tag 'quantity', '1', :class => 'form-control', style: "width:80px"
+    = submit_tag  'add product', :class => 'btn btn-info'
 
+%p
 = render partial: 'items', locals: {sales_sheet: @object} 
 
 - unless @object.status == 1
-  = form_for(@object, html: {class: 'form-horizontal', style: 'float:right;'}) do |f|
-    .control-group
-      %label.control-label Amount:
-      .controls
-        = f.text_field :actual_amount
-    .control-group
-      %label.control-label info: 
-      .controls
-        = f.text_field :info, :size => '100'
-    .control-group
-      .controls
-        = f.submit 'Caculate 计算金额'
+  = form_for(@object, html: {class: 'form-horizontal', style: 'float:right;', role: 'form'}) do |f|
+    .form-group
+      %label Amount:
+      = f.text_field :actual_amount, class: 'form-control'
+    .form-group
+      %label info: 
+      = f.text_area :info, class: 'form-control'
+    = f.submit 'Caculate 计算金额', class: 'btn btn-primary'
 
 %p
   %b Info:
@@ -46,9 +47,11 @@
   = @object.operator_id
   %b Total items:
   = @object.total_items
-  %b Amount:
-  = "#{@object.total_amount} + #{@object.additional_fee}(fee) - #{@object.discount}(discount) = "
-  %b= @object.actual_amount
+  %br/
+  .code
+    = "#{@object.total_amount} + #{@object.additional_fee}(fee) - #{@object.discount}(discount) = "
+    %b= @object.actual_amount
+    (Total 实收金额)
 
 = render partial: 'customer_info', locals: { sales_sheet: @object }
 .clear

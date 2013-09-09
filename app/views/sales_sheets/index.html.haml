@@ -1,5 +1,5 @@
-.btn-group
-  =link_to '开新单', new_sales_sheet_path, :class => 'btn'
+.btn-toolbar
+  =link_to '开新单', new_sales_sheet_path, :class => 'btn btn-primary'
 
 = will_paginate @collection
 %table.table.table-bordered.table-striped.table-hover
@@ -28,9 +28,12 @@
         %td= sales_sheet.actual_amount
         %td= sales_sheet.status
         %td
-          = link_to 'Show', sales_sheet
-          |
-          - unless sales_sheet.status == 1
-            = link_to 'Edit', edit_sales_sheet_path(sales_sheet)
+          .btn-group
+            = row_icon_link 'Show', object_url(sales_sheet)
             |
-            = link_to 'Destroy', sales_sheet, method: :delete, data: { confirm: 'Are you sure?' }
+            - if sales_sheet.status == 1
+              = row_icon_link '打印', print_sales_sheet_path(sales_sheet), :target => 'print_win'
+            - else
+              = row_icon_link 'Edit', edit_sales_sheet_path(sales_sheet)
+              |
+              = row_icon_link 'Del', object_url(sales_sheet), method: :delete, data: { confirm: 'Are you sure?' }
