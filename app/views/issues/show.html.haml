@@ -1,19 +1,19 @@
 %p#notice= notice
 %p
   %strong Title:
-  = @issue.title
+  = @object.title
 %p
   %strong Description:
-  = @issue.description
+  = @object.description
 %p
   %strong Due date:
-  = @issue.due_date
+  = @object.due_date
 %p
   %strong Employee:
-  = @issue.employee_id
+  = @object.employee_id
 %p
   %strong Status:
-  = @issue.status
-= link_to 'Edit', edit_issue_path(@issue)
+  = @object.status
+= link_to 'Edit', edit_issue_path(@object)
 |
 \#{link_to 'Back', issues_path}

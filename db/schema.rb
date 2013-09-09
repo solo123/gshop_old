@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830031036) do
+ActiveRecord::Schema.define(version: 20130909104634) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20130830031036) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
+    t.string   "roles"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true
@@ -113,9 +115,10 @@ ActiveRecord::Schema.define(version: 20130830031036) do
     t.string   "description"
     t.datetime "due_date"
     t.integer  "employee_id"
-    t.integer  "status",      default: 0
+    t.integer  "status",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "manufactory_id"
   end
 
   create_table "manufactories", force: true do |t|
@@ -222,6 +225,16 @@ ActiveRecord::Schema.define(version: 20130830031036) do
     t.integer  "stock_id"
     t.integer  "product_id"
   end
+
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "stock_journals", force: true do |t|
     t.integer  "stock_id"

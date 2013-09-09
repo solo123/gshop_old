@@ -5,6 +5,12 @@ Gshop::Application.routes.draw do
   resources :issues
 
   devise_for :employees
+
+  resources :employees do
+    get :myaccount, :on => :collection
+    patch 'update_password', :on => :collection
+  end
+
   resources :product_prices do
     post :catalog, :on => :collection
     get :add_price, :on => :member

@@ -1,5 +1,5 @@
   class ResourcesController < ApplicationController
-    respond_to :html, :js
+    respond_to :html, :js, :json
 
   def select
     load_collection
@@ -39,7 +39,7 @@
       end
       respond_to do |format|
        format.html { redirect_to :action => :show }
-       #format.json { render json: @board } # avoid this output
+       format.json { render json: @object } # avoid this output
        format.js
       end
     end
