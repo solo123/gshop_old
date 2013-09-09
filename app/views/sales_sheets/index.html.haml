@@ -14,6 +14,7 @@
       %th Discount
       %th Actual amount
       %th Status
+      %th Operator
       %th
   %tbody
     - @collection.each do |sales_sheet|
@@ -27,6 +28,7 @@
         %td= sales_sheet.discount
         %td= sales_sheet.actual_amount
         %td= sales_sheet.status
+        %td= sales_sheet.operator.nickname if sales_sheet.operator
         %td
           .btn-group
             = row_icon_link 'Show', object_url(sales_sheet)

@@ -10,11 +10,14 @@ class NestedResourcesController < ResourcesController
         @object = @parent.send(object_name.pluralize).build
         params.permit!
         @object.update_attributes(params[object_name])
+        @object.employee = current_employee if @object.attributes.has_key? 'employee_id'
         @object.save
       else
         @object = @parent.send("build_#{object_name}")
         params.permit!
         @object.update_attributes(params[object_name])
+        @object.employee = current_employee if @object.attributes.has_key? 'employee_id'
+        @object.creator = current_employee if @object.attributes.has_key? 'creator_id'
         @object.save
         @parent.save
       end

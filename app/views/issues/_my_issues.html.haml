@@ -1,27 +1,28 @@
+- issues = current_employee.issues
 = link_to 'New Issue', new_issue_path
-
-= will_paginate @collection
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
-      %th Employee
+      %th Creator
       %th 厂家
       %th Title
       %th Description
       %th Due date
+      %th Related Employees
       %th Status
       %th
   %tbody
-    - @collection.each do |issue|
+    - issues.each do |issue|
       %tr
         %td= issue.employee.nickname if issue.employee
         %td= issue.manufactory.name if issue.manufactory
         %td= issue.title
         %td= issue.description
         %td= issue.due_date
+        %td= issue.employees.where.not(id: current_employee.id).map{|e| e.nickname}.join(',')
         %td= issue.status
         %td
           = link_to 'Show', issue
-          = link_to 'Edit', edit_issue_path(issue)
-          = link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }
-= will_paginate @collection
+          |
+          = link_to 'Edit', edit_issue_path(issue) if issue.employee == current_employee
+

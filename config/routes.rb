@@ -2,7 +2,10 @@ Gshop::Application.routes.draw do
 
   resources :notes
 
-  resources :issues
+  resources :issues do
+    get :autocomplete_manufactory_name, :on => :collection
+    resources :notes
+  end
 
   devise_for :employees
 

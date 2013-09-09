@@ -46,6 +46,8 @@
     def create
 			params.permit!
       @object = object_name.classify.constantize.new(params[object_name.singularize.parameterize('_')])
+      @object.employee = current_employee if @object.attributes.has_key? 'employee_id'
+      @object.creator = current_employee if @object.attributes.has_key? 'creator_id'
       if @object.save
         redirect_to @object
         return

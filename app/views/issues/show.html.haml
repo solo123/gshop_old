@@ -1,19 +1,40 @@
-%p#notice= notice
-%p
-  %strong Title:
-  = @object.title
-%p
-  %strong Description:
-  = @object.description
-%p
-  %strong Due date:
-  = @object.due_date
-%p
-  %strong Employee:
-  = @object.employee_id
-%p
-  %strong Status:
-  = @object.status
-= link_to 'Edit', edit_issue_path(@object)
-|
-\#{link_to 'Back', issues_path}
+
+%b Title:
+%br
+.well= @object.title
+
+%b Description:
+%br
+.well= @object.description
+
+%b Due date:
+%br
+.well= @object.due_date
+
+- if @object.manufactory
+  %b Related Factory:
+  %br
+  .well
+    = link_to @object.manufactory.name, @object.manufactory
+
+%b Related Employees:
+%br
+.well
+  - @object.employees.each do |emp|
+    = emp.nickname
+    ,
+
+%b Notes:
+%br
+- @object.notes.each do |n|
+  .well
+    n.notes_text
+    %br
+    By:
+    = n.employee.nickname if n.employee
+    At:
+    %time{datetime: "#{n.created_at}" }= n.created_at.in_time_zone('Beijing')
+= link_to 'Add notes', new_issue_note_path(@object)
+
+= link_to 'List', issues_path
+

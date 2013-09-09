@@ -15,7 +15,7 @@ class EmployeesController < ResourcesController
 
   private
     def check_is_admin
-      unless current_employee.roles.index('admin')
+      unless current_employee.roles && current_employee.roles.index('admin')
         redirect_to root_path
       end
     end

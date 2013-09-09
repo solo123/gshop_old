@@ -75,6 +75,7 @@ class SalesSheetsController < ResourcesController
     else
       @object = SalesSheet.new
       @object.warehouse_id = 1
+      @object.operator = current_employee
       @object.save
     end
     redirect_to @object
@@ -89,6 +90,6 @@ class SalesSheetsController < ResourcesController
 
 	private
 		def sales_sheet_params
-			params.require('sales_sheet').permit(:actual_amount, :additional_fee, :customer_id, :discount, :operator_id, :status, :total_amount, :total_items, :warehouse_id, :info)
+			params.require('sales_sheet').permit(:actual_amount, :additional_fee, :customer_id, :discount, :operator_id, :status, :total_amount, :total_items, :warehouse_id, :info, :employee_id)
 		end
 end
