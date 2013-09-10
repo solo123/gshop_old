@@ -26,7 +26,13 @@
 %p
   %b Contact:
   = @object.contact
-%table
+%p
+  %b Biz type:
+  = @object.biz_type
+%p
+  %b Factory type:
+  = @object.factory_type
+%table.table.table-bordered.table-striped.table-hover
   %tr
     %th Name
     %th Title
@@ -38,8 +44,6 @@
     %th Level
     %th Info
     %th Reason
-    %th
-    %th
     %th
   - @object.customers.each do |customer|
     %tr

@@ -42,7 +42,7 @@ end
 # To use debugger
 #gem 'debugger'
 
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'ransack'
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 3.0'

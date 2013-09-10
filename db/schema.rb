@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909104634) do
+ActiveRecord::Schema.define(version: 20130910094353) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 20130909104634) do
     t.decimal  "rating"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "biz_type"
+    t.string   "factory_type"
   end
 
   create_table "notes", force: true do |t|

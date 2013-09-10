@@ -14,6 +14,6 @@ class ManufactoriesController < ResourcesController
   end
 	private
 		def manufactory_params
-			params.require(:manufactory).permit(:address, :bank_account, :contact, :email, :name, :phone, :rating, :website)
+			params.require(:manufactory).permit(:address, :bank_account, :contact, :email, :name, :phone, :rating, :website, :biz_type, :factory_type)
     end
 end

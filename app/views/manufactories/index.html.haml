@@ -1,10 +1,7 @@
-.btn-group
-  = link_to '新增厂家', new_manufactory_path, class: 'btn'
-%p
-
 = search_form_for @q do |f|
   = f.text_field :name_or_address_or_contact_cont, :placeholder => 'Search by name / contacts / address'
   = f.submit
+  = link_to '新增厂家', new_manufactory_path
 
 = will_paginate @collection
 %ul.name-cards
@@ -18,8 +15,14 @@
         = link_to 'Del', m, method: :delete, data: { confirm: 'Are you sure?' }
       .title= m.name
       .name= m.contact
-      .phone= m.phone
-      .url= m.website
+      .phone
+        = m.biz_type
+        |
+        = m.phone
+      .url
+        = m.factory_type
+        |
+        = m.website
       .address= m.address
   .clear
 
