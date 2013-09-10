@@ -1,5 +1,5 @@
 class IssuesController < ResourcesController
-  autocomplete :manufactory, :name
+  autocomplete :manufactory, :name, :full => true
 
   def create
     params.permit!
