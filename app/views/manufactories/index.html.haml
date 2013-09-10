@@ -1,29 +1,26 @@
 .btn-group
   = link_to '新增厂家', new_manufactory_path, class: 'btn'
 %p
-%table.table.table-bordered.table-striped.table-hover
-  %tr
-    %th Name
-    %th Address
-    %th Website
-    %th Phone
-    %th Email
-    %th Bank account
-    %th Contact
-    %th Rating
-    %th
-  - @collection.each do |manufactory|
-    %tr
-      %td= manufactory.name
-      %td= manufactory.address
-      %td= manufactory.website
-      %td= manufactory.phone
-      %td= manufactory.email
-      %td= manufactory.bank_account
-      %td= manufactory.contact
-      %td= manufactory.rating
-      %td
-        .btn-group
-          = link_to 'Show', manufactory, :class => 'btn btn-mini'
-          = link_to 'Edit', edit_manufactory_path(manufactory), :class => 'btn btn-mini'
-          = link_to 'Destroy', manufactory, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini'
+
+= search_form_for @q do |f|
+  = f.text_field :name_or_address_or_contact_cont, :placeholder => 'Search by name / contacts / address'
+  = f.submit
+
+= will_paginate @collection
+%ul.name-cards
+  - @collection.each do |m|
+    %li.well
+      .links 
+        = link_to 'Show', m
+        |
+        = link_to 'Edit', edit_manufactory_path(m)
+        |
+        = link_to 'Del', m, method: :delete, data: { confirm: 'Are you sure?' }
+      .title= m.name
+      .name= m.contact
+      .phone= m.phone
+      .url= m.website
+      .address= m.address
+  .clear
+
+= will_paginate @collection

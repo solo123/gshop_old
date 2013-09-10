@@ -1,4 +1,5 @@
 class ManufactoriesController < ResourcesController
+	autocomplete :customer, :name
   def remove_customer
     m = Manufactory.find(params[:id])
     c = Customer.find(params[:customer])

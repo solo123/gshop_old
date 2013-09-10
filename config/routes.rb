@@ -41,6 +41,7 @@ Gshop::Application.routes.draw do
   resources :manufactories do
     delete :remove_customer, :on => :member
     post :add_customer, :on => :member
+		get :autocomplete_customer_name, :on => :collection
   end
 
 
