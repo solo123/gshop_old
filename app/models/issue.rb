@@ -5,4 +5,6 @@ class Issue < ActiveRecord::Base
   has_and_belongs_to_many :employees
 
   validates_presence_of :title, :description
+
+  scope :active_issues, -> { where(status: 1) } 
 end

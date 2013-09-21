@@ -1,39 +1,44 @@
 
-%b Title:
-%br
-.well= @object.title
+.row
+  .col-md-6
+    %h2= @object.title
+    .well= @object.description
 
-%b Description:
-%br
-.well= @object.description
+    %p
+      Due date:
+      %strong= @object.due_date
 
-%b Due date:
-%br
-.well= @object.due_date
+      Created at:
+      %strong= @object.created_at
+      by:
+      %strong= @object.employee.nickname if @object.employee
+      %br
+      Last updated at:
+      %strong= @object.updated_at
 
-- if @object.manufactory
-  %b Related Factory:
-  %br
-  .well
-    = link_to @object.manufactory.name, @object.manufactory
+    - if @object.manufactory
+      %p 
+        Related Factory:
+        %strong= link_to @object.manufactory.name, @object.manufactory
 
-%b Related Employees:
-%br
-.well
-  - @object.employees.each do |emp|
-    = emp.nickname
-    ,
+    %p
+      %b Related Employees:
+      %br
+      .well
+        - @object.employees.each do |emp|
+          = emp.nickname
+          ,
+  .col-md-6
+    %h3 Notes:
+    - @object.notes.each do |n|
+      .well
+        = n.notes_text
+        %br
+        By:
+        = n.employee.nickname if n.employee
+        At:
+        %time{datetime: "#{n.created_at}" }= n.created_at.in_time_zone('Beijing')
 
-%b Notes:
-%br
-- @object.notes.each do |n|
-  .well
-    n.notes_text
-    %br
-    By:
-    = n.employee.nickname if n.employee
-    At:
-    %time{datetime: "#{n.created_at}" }= n.created_at.in_time_zone('Beijing')
-= link_to 'Add notes', new_issue_note_path(@object)
+    = link_to 'Add notes', new_issue_note_path(@object)
 
 
