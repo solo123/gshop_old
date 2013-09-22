@@ -42,6 +42,7 @@ Gshop::Application.routes.draw do
     delete :remove_customer, :on => :member
     post :add_customer, :on => :member
 		get :autocomplete_customer_name, :on => :collection
+    get :print, :on => :member
   end
 
 
