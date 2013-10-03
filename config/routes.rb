@@ -24,6 +24,7 @@ Gshop::Application.routes.draw do
     resources :photos
     get :select, :on => :collection
     get :search, :on => :collection
+    post :merge, :on => :member
   end
 
 

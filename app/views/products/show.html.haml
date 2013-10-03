@@ -1,3 +1,13 @@
+.well
+  = link_to 'Back', products_path, class: 'btn btn-default'
+  = link_to 'Edit', edit_product_path(@object), class: 'btn btn-default'
+  = form_tag merge_product_path(@object), style: 'float:right;' do
+    Merge to:
+    = text_field_tag :merge_to, ''
+    = submit_tag '合并到指定产品', :confirm => '合并后不能撤销，确认吗？'
+
+
+
 %p#notice= notice
 %p
   %b Brand:
@@ -31,6 +41,4 @@
 %p
   %b Status:
   = @object.status
-= link_to 'Edit', edit_product_path(@object)
-|
-\#{link_to 'Back', products_path}
+
