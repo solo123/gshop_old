@@ -1,6 +1,6 @@
 class SalesSheetsController < ResourcesController
   autocomplete :customer, :phone, :extra_data => [:name, :title], :display_value => :customer_phone_name
-  autocomplete :product, :short_name, :extra_data => [:catalog, :full_name], :display_value => :product_short_name_fullname, :full => true
+  autocomplete :product, :name, :extra_data => [:catalog, :full_name], :full => true, :column_name => "full_name"
   def calculate
     load_object
     @object.sales_sheet_items.each do |item|

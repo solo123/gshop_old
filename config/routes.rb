@@ -25,6 +25,8 @@ Gshop::Application.routes.draw do
     get :select, :on => :collection
     get :search, :on => :collection
     post :merge, :on => :member
+    get :concat, :on => :collection
+
   end
 
 
@@ -56,7 +58,7 @@ Gshop::Application.routes.draw do
 
   resources :sales_sheets do
     get :autocomplete_customer_phone, :on => :collection
-    get :autocomplete_product_short_name, :on => :collection
+    get :autocomplete_product_name, :on => :collection
     post :add_product, :on => :member 
     post :add_customer, :on => :member
     get :reset_customer, :on => :member

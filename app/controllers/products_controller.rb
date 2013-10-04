@@ -16,6 +16,13 @@ class ProductsController < NestedResourcesController
     @object.delete
     redirect_to target_product
   end
+  def concat
+    Product.all.each do |p|
+      p.full_name = p.catalog.split('/').last + '| ' + p.full_name.split('| ').last
+      p.save
+    end
+    redirect_to action: :index
+  end
 	private
 		def product_params
 			params.require(:product).permit(:brand, :catalog, :full_name, :godown_amount, :godown_count, :godown_fee, :godown_price, :model, :price, :status)

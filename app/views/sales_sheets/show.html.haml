@@ -14,7 +14,7 @@
   = form_tag(add_product_sales_sheet_path(@object), :remote => true, :class => 'form-inline', :role => 'form') do
     .form-group
       .label.sr-only Product 产品名称:
-      = autocomplete_field_tag 'find_product', '', autocomplete_product_short_name_sales_sheets_path, :update_elements => {:id => '#product_id'}, :class => 'form-control', :placeholder => '产品名称快速查找', style: "width:300px;"
+      = autocomplete_field_tag 'find_product', '', autocomplete_product_name_sales_sheets_path, :update_elements => {:id => '#product_id'}, :class => 'form-control', :placeholder => '产品名称快速查找', style: "width:300px;"
     .form-group
       .label.sr-only ID:
       = text_field_tag 'product_id', '', :class => 'form-control',  :readonly => true, :placeholder => '产品ID#', style: 'width: 80px'
