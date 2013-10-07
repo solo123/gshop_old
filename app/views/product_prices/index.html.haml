@@ -1,22 +1,20 @@
-.well.btn-group
-  - if @parent
-    = link_to '添加', new_serial_product_guitar_path(@parent), :class => 'btn btn-default'
-  - else
-    = link_to '添加产品', new_product_path, :class => 'btn btn-default'
-  = link_to 'All', products_path, class: 'btn btn-default'
-  = link_to 'Guitars', '?search[catalog_starts_with]=guitar', class: 'btn btn-default'
-  = link_to 'Accessories', '?search[catalog_starts_with]=accessory', class: 'btn btn-default'
-  = link_to 'Strings', '?search[catalog_starts_with]=accessory/string', class: 'btn btn-default'
-  = link_to 'Bags', '?search[catalog_starts_with]=accessory/bag', class: 'btn btn-default'
+.well
   .btn-group
-    %button.btn.btn-default.dropdown-toggle{type: "button", 'data-toggle' => "dropdown"}
-      选择分类
-      %span.caret
-    %ul.dropdown-menu
-      %li= link_to 'ALL', product_prices_path
-      - @catalogs.each do |cat|
-        %li= link_to "#{cat.catalog} (#{cat.count})", product_prices_path(:cat => cat.catalog)
+    - if @parent
+      = link_to '添加', new_serial_product_guitar_path(@parent), :class => 'btn btn-default'
+    - else
+      = link_to '添加产品', new_product_path, :class => 'btn btn-default'
+    .btn-group
+      %button.btn.btn-default.dropdown-toggle{type: "button", 'data-toggle' => "dropdown"}
+        选择分类
+        %span.caret
+      %ul.dropdown-menu
+        %li= link_to 'ALL', product_prices_path
+        - @catalogs.each do |cat|
+          %li= link_to "#{cat.catalog} (#{cat.count})", product_prices_path(:cat => cat.catalog)
+  = link_to '计算成本', calculate_product_prices_path, class: 'btn btn-default'
 
+= will_paginate @collection
 %table.table.table-bordered.table-striped.table-hover
   %tr
     %th ID
@@ -30,4 +28,4 @@
     %th
   - @collection.each do |p|
     = render partial: 'row', locals: {p: p}
-%br/
+= will_paginate @collection

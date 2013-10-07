@@ -52,4 +52,4 @@ gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquer
 gem "haml-rails"
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
-gem 'simple_form'
+gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'

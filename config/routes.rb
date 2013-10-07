@@ -17,6 +17,7 @@ Gshop::Application.routes.draw do
   resources :product_prices do
     post :catalog, :on => :collection
     get :add_price, :on => :member
+    get :calculate, :on => :collection
   end
 
 
