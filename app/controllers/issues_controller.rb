@@ -21,6 +21,15 @@ class IssuesController < ResourcesController
     end
     redirect_to :action => :new
   end
+  def update
+    if params[:emp]
+		  load_object
+      params[:emp].each do |para|
+        @object.employees << Employee.find(para[0])
+      end
+    end
+    super
+  end
 
   private
   def issue_params

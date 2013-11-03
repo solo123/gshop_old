@@ -59,6 +59,7 @@ class SalesSheetsController < ResourcesController
         journal.stock_after = stock.on_hand = journal.stock_before + journal.stock_change
         journal.stock_order = item
         stock.save
+        @object.operator = current_employee
         @object.status = 1
         @object.save
       end

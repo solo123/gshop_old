@@ -37,11 +37,11 @@ class ResourcesController < ApplicationController
 				@no_log = 1
 			end
 		end
-		respond_to do |format|
-			format.html { redirect_to :action => :show }
-			format.json { render json: @object } # avoid this output
-			format.js
-		end
+    respond_to do |format|
+      format.html { redirect_to :action => :show }
+      format.json { render json: @object } # avoid this output
+      format.js
+    end
 	end
 	def create
 		params.permit!
