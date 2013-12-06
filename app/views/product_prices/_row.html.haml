@@ -4,10 +4,11 @@
     = p.full_name
     - if p.product_price
       %td= best_in_place p.product_price, :price, :type => :input
+      %td= number_with_precision p.product_price.godown_price, precision: 2
+      %td #{number_with_precision(p.product_price.godown_price * 100 / p.product_price.price, precision: 2)}%
       %td= p.product_price.godown_count
       %td= p.product_price.godown_amount
       %td= p.product_price.godown_fee
-      %td= p.product_price.godown_price
       %td= p.product_price.status
       %td
         .btn-group
