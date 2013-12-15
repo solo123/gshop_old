@@ -1,3 +1,8 @@
+.tool-bar
+  = link_to 'Edit', edit_customer_path(@object)
+  |
+  \#{link_to 'Back', customers_path}
+
 %p#notice= notice
 %p
   %b Name:
@@ -29,6 +34,22 @@
 %p
   %b Reason:
   = @object.reason
-= link_to 'Edit', edit_customer_path(@object)
-|
-\#{link_to 'Back', customers_path}
+
+.relative-data
+  %table.table.table-bordered.table-striped.table-hover
+    %thead
+      %tr
+        %th ID
+        %th 下单日期
+        %th 数量
+        %th 合计金额
+        %th 折扣
+        %th 实际金额
+    - @object.sales_sheets.each do |s|
+      %tr
+        %td= link_to s.id, object_url(s)
+        %td= s.created_at
+        %td= s.total_items
+        %td= s.total_amount
+        %td= s.discount
+        %td= s.actual_amount
