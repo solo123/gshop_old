@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130910094353) do
+ActiveRecord::Schema.define(version: 20140122061335) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20130910094353) do
     t.datetime "updated_at"
     t.string   "nickname"
     t.string   "roles"
+    t.integer  "default_shop_id"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true

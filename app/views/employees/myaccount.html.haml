@@ -13,3 +13,21 @@
   .action_container
     = f.submit 'Change password!', class: 'btn btn-danger'
 
+= simple_form_for @object do |f|
+  = f.input :nickname
+  = f.input :email
+  = f.input :roles
+  = f.association :default_shop
+  .action_container
+    = f.button :submit
+
+.info
+  .row
+    登录次数：#{@object.sign_in_count}
+  .row
+    当前登录时间：#{@object.current_sign_in_at} @ #{@object.current_sign_in_ip}
+  .row
+    上次登录时间：#{@object.last_sign_in_at} @ #{@object.last_sign_in_ip}
+  .row
+    创建于：#{@object.created_at}, 更新于：#{@object.updated_at}
+
