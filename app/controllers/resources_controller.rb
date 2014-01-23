@@ -39,7 +39,7 @@ class ResourcesController < ApplicationController
 		end
     respond_to do |format|
       format.html { redirect_to :action => :show }
-      format.json { render json: @object } # avoid this output
+      format.json { respond_with_bip(@object) }
       format.js
     end
 	end

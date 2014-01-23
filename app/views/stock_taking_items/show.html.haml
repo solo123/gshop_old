@@ -22,4 +22,4 @@
   = @object.status
 = link_to 'Edit', edit_stock_taking_item_path(@object)
 |
-\#{link_to 'Back', stock_taking_items_path}
+= link_to 'Back', stock_taking_path(@object.stock_taking)

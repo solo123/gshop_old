@@ -12,6 +12,7 @@
           %a{:href => "/"} Home
         %li= link_to '销售单', sales_sheets_path
         %li= link_to '产品', product_prices_path
+        %li= link_to '库存', warehouse_stocks_path(1)
         %li= link_to '报表', reports_path
         - if current_employee && current_employee.roles && current_employee.roles.index('admin')
           %li= link_to 'Employees', employees_path

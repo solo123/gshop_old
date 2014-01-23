@@ -93,6 +93,7 @@ Gshop::Application.routes.draw do
   end
   resources :warehouses do
     resources :stocks
+		get :correct, :on => :member
   end
   resources :homes, :quick_gos
   resources :photos

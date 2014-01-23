@@ -3,6 +3,8 @@
   cnt = stock.serial_products.count
   ss = stock.serial_products.map{|s| s.serial_number}.join(',')
 %>
+alert('ooo');
+return;
 $.Dialog({ 
   'title':   '编号产品共<%= cnt %>个', 
   'content': '<%= ss %>', 

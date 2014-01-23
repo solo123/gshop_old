@@ -1,29 +1,37 @@
 %table{:class => 'table table-striped table-bordered table-hover', :id => 'sales_sheet_items_list'}
   %thead
     %tr
-      %th Serial
+      %th 序列号
       %th Product#
-      %th Description
-      %th Quantity
-      %th Price
-      %th Amount
+      %th 打印名称
+      %th 数量
+      %th 价格
+      %th 金额
       %th
   %tbody
     - sales_sheet.sales_sheet_items.each do |sales_sheet_item| 
-      %tr
-        %td
-          = sales_sheet_item.serial_product.serial_number if sales_sheet_item.serial_product
-          = sales_sheet_item.serial_number
-        %td
-          = "#{sales_sheet_item.id}#"
-          = sales_sheet_item.product.full_name if sales_sheet_item.product
-        %td= sales_sheet_item.description
-        %td= sales_sheet_item.quantity
-        %td= sales_sheet_item.price
-        %td= sales_sheet_item.amount
-        %td
-          - unless sales_sheet.status == 1
-            = row_icon_link 'Edit', edit_sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item)
-            |
-            = row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
+      - if sales_sheet.status == 1
+        %tr{id: "#{dom_id(sales_sheet_item)}"}
+          %td= sales_sheet_item.serial_number
+          %td
+            = "#{sales_sheet_item.id}#"
+            = sales_sheet_item.product.full_name if sales_sheet_item.product
+          %td= sales_sheet_item.description
+          %td= sales_sheet_item.quantity
+          %td= sales_sheet_item.price
+          %td= sales_sheet_item.amount
+          %td
+      - else
+        %tr{id: "#{dom_id(sales_sheet_item)}"}
+          %td
+            = best_in_place sales_sheet_item, :serial_number, :type => :input
+          %td
+            = "#{sales_sheet_item.id}#"
+            = sales_sheet_item.product.full_name if sales_sheet_item.product
+          %td= best_in_place sales_sheet_item, :description, :type => :input
+          %td= best_in_place sales_sheet_item, :quantity, :type => :input
+          %td= best_in_place sales_sheet_item, :price, :type => :input
+          %td= sales_sheet_item.amount
+          %td= row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
+
 
