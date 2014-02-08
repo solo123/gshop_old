@@ -31,11 +31,11 @@
         %td= sales_sheet.id
         %td= sales_sheet.created_at.strftime("%F")
         %td= sales_sheet.customer_id
-        %td= sales_sheet.total_items
-        %td= sales_sheet.total_amount
-        %td= sales_sheet.additional_fee
-        %td= sales_sheet.discount
-        %td= sales_sheet.actual_amount
+        %td.num= sales_sheet.total_items
+        %td.num= sales_sheet.total_amount
+        %td.num= sales_sheet.additional_fee
+        %td.num= sales_sheet.discount
+        %td.num= sales_sheet.actual_amount
         %td= sales_sheet.status
         %td= sales_sheet.operator.nickname if sales_sheet.operator
         %td
