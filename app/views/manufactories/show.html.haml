@@ -67,3 +67,5 @@
   = autocomplete_field_tag 'find_customer', '', autocomplete_customer_name_manufactories_path, :update_elements => {:id => '#customer-id'}, :class => 'form-control', :placeholder => 'Search by name / tel', style: "width:300px;"
   = text_field_tag 'customer_id', '', :class => 'form-control',  :readonly => true, :placeholder => '联系人ID#', style: 'width: 80px'
   = submit_tag  'add contact', :class => 'btn btn-info'
+
+= render 'issues/related_issues', issues: @object.issues
