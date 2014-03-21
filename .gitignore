@@ -18,5 +18,4 @@
 *.gz
 *.swp
 *~
-Gemfile
 Gemfile.lock

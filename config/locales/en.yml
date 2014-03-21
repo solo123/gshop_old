@@ -10,3 +10,4 @@ en:
     formats:
       default: "%Y-%m-%d  %H:%m"
       long: "%Y-%m-%d  %H:%m"
+      date: "%Y-%m-%d"

@@ -40,5 +40,14 @@ module ApplicationHelper
     end
     icon_link(link_text, icon, link_url, options)
   end
+  def issue_date_class(dt)
+    if dt < Time.now
+      'danger'
+    elsif dt < -7.days.ago
+      'warning'
+    else
+      ''
+    end
+  end
 
 end

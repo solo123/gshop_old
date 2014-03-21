@@ -21,7 +21,8 @@
         %td= issue.manufactory.name if issue.manufactory
         %td= issue.title
         %td= issue.description
-        %td= issue.due_date
+        %td{class: "#{issue_date_class(issue.due_date)}"}
+          = l issue.due_date, format: :date
         %td= issue.employees.where.not(id: current_employee.id).map{|e| e.nickname}.join(',')
         %td= issue.status
         %td

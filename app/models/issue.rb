@@ -6,6 +6,6 @@ class Issue < ActiveRecord::Base
 
   validates_presence_of :title, :description
 
-  scope :active_issues, -> { where(status: 1) } 
+  scope :active_issues, -> { where(status: 1).reorder('due_date') } 
   default_scope { order('created_at DESC') }
 end
