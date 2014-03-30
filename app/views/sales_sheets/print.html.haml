@@ -59,21 +59,27 @@
       %td
       %td.right= @object.total_amount
     %tr
-      %td.sum{:colspan => "4"} + Additional(其他費用):
+      %td.noborder{colspan: "2", rowspan: '3'}
+        = " ** #{@object.info}" unless @object.info.blank?
+        %p.small
+          ** 吉他免费维护和补差价升级期限（不包括配件和其他品牌或特价吉他）：
+          %br/
+          MW手工吉他2年，MW工厂制各型号吉他1年，Butterfly各型号6个月。
+      %td.sum{colspan: "2"} + Additional(其他費用):
       %td.right= @object.additional_fee
     - if @object.discount && @object.discount != 0
       %tr
-        %td.noborder{:colspan => "2"}= " ** #{@object.info}" unless @object.info.blank?
-        %td.noborder.sum{:colspan => "2"} - Invoice discount(特殊折扣):
+        %td.noborder.sum{:colspan => "2", nowrap: 'nowrap'} - Invoice discount(折扣):
         %td.right
           \-#{@object.discount}
     %tr{:style => "font-size:110%;line-height: 30px;"}
-      %td.sum{:colspan => "4"}
-        %b Invoice Amount(合計金額):
+      %td.sum{:colspan => "2"}
+        %b Invoice Amount(合計):
       %td.right
         %b= @object.actual_amount
 %p{:style => "text-align:center"}
   ** THANK YOU! WE APPRECIATE YOUR BUSINESS **
   %br/
   多謝惠顧！
+  %br/
 

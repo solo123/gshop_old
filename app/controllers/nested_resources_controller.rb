@@ -1,4 +1,5 @@
 class NestedResourcesController < ResourcesController
+  respond_to :html, :js, :json
   def new
     load_parent
     @object = object_name.classify.constantize.new
@@ -21,7 +22,6 @@ class NestedResourcesController < ResourcesController
         @object.save
         @parent.save
       end
-      redirect_to @parent
     else
       super
     end
@@ -37,11 +37,6 @@ class NestedResourcesController < ResourcesController
         flash[:error] = @object.errors.full_messages.to_sentence
         @no_log = 1
       end
-    end
-    if @parent
-      redirect_to @parent
-    else
-      redirect_to @object
     end
   end
   def select

@@ -41,4 +41,5 @@
             = link_to 'Show', product, :class => 'btn btn-mini'
             = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
             = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini'
+
 = will_paginate @collection
