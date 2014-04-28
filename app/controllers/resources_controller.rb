@@ -49,13 +49,11 @@ class ResourcesController < ApplicationController
 		@object.employee = current_employee if @object.attributes.has_key? 'employee_id'
 		@object.creator = current_employee if @object.attributes.has_key? 'creator_id'
 		if @object.save
-			redirect_to @object
 			return
 		else
 			flash[:error] = @object.errors.full_messages.to_sentence
 			@no_log = 1
 		end
-		redirect_to :action => :new
 	end
 	def destroy
 		load_object
