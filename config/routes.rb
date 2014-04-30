@@ -1,5 +1,9 @@
 Gshop::Application.routes.draw do
 
+  resources :product_specifications
+
+  resources :specifications
+
   resources :notes
 
   resources :issues do

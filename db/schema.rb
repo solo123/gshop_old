@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122061335) do
+ActiveRecord::Schema.define(version: 20140428142831) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -170,6 +170,14 @@ ActiveRecord::Schema.define(version: 20140122061335) do
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "product_specifications", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "specification_id"
+    t.string   "spec_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "brand"
     t.string   "model"
@@ -238,6 +246,14 @@ ActiveRecord::Schema.define(version: 20140122061335) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "specifications", force: true do |t|
+    t.integer  "show_order"
+    t.string   "spec_title"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stock_journals", force: true do |t|
     t.integer  "stock_id"
