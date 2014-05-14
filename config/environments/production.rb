@@ -79,4 +79,6 @@ Gshop::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { :host => 'sz.mwguitars.com' }
+
+  config.ember.variant = :production
 end

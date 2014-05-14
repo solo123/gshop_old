@@ -46,3 +46,9 @@
 .container
   .well
     = render 'issues/my_issues'
+
+.container
+  .well
+    %script{ type: 'text/x-handlebars'}
+      {{ outlet }}
+    this is line break-----------
