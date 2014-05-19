@@ -1,4 +1,4 @@
-App.IssuesRoute = Ember.Route.extend
+App.ApplicationRoute = Ember.Route.extend
   model: ->
     @store.find "issue"
 

@@ -47,8 +47,15 @@
   .well
     = render 'issues/my_issues'
 
-.container
+#ember_app.container
+
+%script{ type: 'text/x-handlebars'}
   .well
-    %script{ type: 'text/x-handlebars'}
-      {{ outlet }}
-    this is line break-----------
+    %ul#issues-list
+      {{#each}}
+      %li
+        %input{ type: "checkbox", class: "toggle"}
+          %label {{title}}
+        %button.destroy
+          {{{description}}}
+      {{/each}}
