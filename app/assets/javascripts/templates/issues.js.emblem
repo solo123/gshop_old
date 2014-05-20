@@ -1,10 +1,26 @@
-| This is ISSUES!!!
-
-ul id="issues-list"
-  = each
-    li
-      input type="checkbox" class="toggle"
-      label= title
-      button.destroy
-      | {{{description}}}
+.well
+  table.table.table-bordered.table-striped.table-hover#issues_list
+    thead
+      tr
+        th Creator
+        th 厂家factory
+        th Title
+        th Description
+        th Due date
+        th Related Employees
+        th Status
+        th
+    tbody
+      = each
+        tr
+          td= employee
+          td
+          td= title
+          td
+            | {{{description}}}
+          td= due_date
+          td= related_employee
+          td= status
+          td
+            button.destroy
 

@@ -49,13 +49,3 @@
 
 #ember_app.container
 
-%script{ type: 'text/x-handlebars'}
-  .well
-    %ul#issues-list
-      {{#each}}
-      %li
-        %input{ type: "checkbox", class: "toggle"}
-          %label {{title}}
-        %button.destroy
-          {{{description}}}
-      {{/each}}
