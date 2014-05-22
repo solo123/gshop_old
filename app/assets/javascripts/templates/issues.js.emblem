@@ -14,7 +14,7 @@
       = each
         tr
           td= employee
-          td
+          td= related_company
           td= title
           td
             | {{{description}}}
@@ -22,5 +22,7 @@
           td= related_employee
           td= status
           td
-            button.destroy
+            .btn-group
+              button.btn.btn-info.btn-xs View
+              button.btn.btn-primary.btn-xs Edit
 
