@@ -23,6 +23,6 @@
           td= status
           td
             .btn-group
-              button.btn.btn-info.btn-xs View
-              button.btn.btn-primary.btn-xs Edit
+              button.btn.btn-info.btn-xs click="view" View
+              button.btn.btn-primary.btn-xs click="edit" Edit
 
