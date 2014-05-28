@@ -1,11 +1,19 @@
 .well
+
+  a href="/issues" All
+  ||
+  a href="/issues/new" New
+
+  input type="text" id="new-issue" placeholder="What issue need to be done?" valueBinding="newIssue" action="createIssue"
+
+  button.btn.btn-info.btn-xs click="createIssue" Save
+
   table.table.table-bordered.table-striped.table-hover#issues_list
     thead
       tr
         th Creator
         th 厂家factory
-        th Title
-        th Description
+        th Info
         th Due date
         th Related Employees
         th Status
@@ -15,9 +23,7 @@
         tr
           td= employee
           td= related_company
-          td= title
-          td
-            | {{{description}}}
+          td= description
           td= due_date
           td= related_employee
           td= status
