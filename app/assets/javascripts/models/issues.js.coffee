@@ -3,10 +3,10 @@ App.Issue = DS.Model.extend
   description: DS.attr('string')
   due_date: DS.attr('string')
   employee: DS.attr('string')
-  employee_id: DS.attr('integer')
+  employee_id: DS.attr()
   related_employee: DS.attr('string')
   related_company: DS.attr('string')
-  status: DS.attr('integer')
+  status: DS.attr()
 
 
 App.Issue.FIXTURES = [

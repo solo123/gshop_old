@@ -4,7 +4,7 @@
   ||
   a href="/issues/new" New
 
-  input type="text" id="new-issue" placeholder="What issue need to be done?" valueBinding="newIssue" action="createIssue"
+  = input type="text" placeholder="What issue need to be done?" value=newIssue 
 
   button.btn.btn-info.btn-xs click="createIssue" Save
 
