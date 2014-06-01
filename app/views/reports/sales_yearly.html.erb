@@ -1,6 +1,6 @@
 <%
-  results = SalesSheet.select("created_at, sum(actual_amount) amount, sum(discount) discount").group("strftime('%Y-%m', created_at)").where(status: 1).order('created_at desc')
-	labels = results.map {|r| "\"#{r.created_at.strftime('%Y-%m')}\""}.join(',')
+  results = SalesSheet.select("created_at, sum(actual_amount) amount, sum(discount) discount").group("strftime('%Y', created_at)").where(status: 1).order('created_at desc')
+	labels = results.map {|r| "\"#{r.created_at.strftime('%Y')}\""}.join(',')
   amounts = results.map {|r| r.amount}.join(',')
 	diss = results.map {|r| r.discount}.join(',')
 %>
@@ -65,3 +65,4 @@ var data = {
 
 <% end %>
 <% end %>
+
