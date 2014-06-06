@@ -4,13 +4,8 @@
 #= require_tree ./views
 #= require_tree ./helpers
 #= require_tree ./components
-#= require_tree ./templates
+#= require_tree ../templates
 #= require_tree ./routes
 #= require ./router
 #= require_self
 
-window.App = Ember.Application.create({
-  rootElement: '#ember_app'
-});
-
-App.ApplicationAdapter = DS.FixtureAdapter.extend();
