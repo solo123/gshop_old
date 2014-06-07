@@ -9,8 +9,3 @@
 #= require ./router
 #= require_self
 
-window.App = Ember.Application.create({
-  rootElement: '#ember_app'
-});
-
-App.ApplicationAdapter = DS.FixtureAdapter.extend();
