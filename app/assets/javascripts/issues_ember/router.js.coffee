@@ -1,6 +1,9 @@
 # For more information see: http://emberjs.com/guides/routing/
 
 App.Router.map ()->
-  @resource 'issues', {path: '/'}
+  @resource 'issues', 
+    path: '/'
+  , ->
+    @route "edit"
 
 
