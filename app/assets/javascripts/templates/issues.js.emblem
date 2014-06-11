@@ -1,3 +1,4 @@
+h2 issues
 .well
   .row
     .col-lg-6
@@ -30,5 +31,6 @@
             .btn-group
               button.btn.btn-info.btn-xs click="view" View
               button.btn.btn-primary.btn-xs click="edit" Edit
+
 
 

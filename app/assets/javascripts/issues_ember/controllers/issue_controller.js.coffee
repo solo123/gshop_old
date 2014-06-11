@@ -4,7 +4,7 @@ App.IssuesController = Ember.ArrayController.extend(
     view: ->
       alert "VIEW!!"
     edit: ->
-       @transitionToRoute('issue.edit')
+       @transitionToRoute('issues.edit')
     createIssue: ->
       info = @get('newIssue')
       return unless info.trim()
