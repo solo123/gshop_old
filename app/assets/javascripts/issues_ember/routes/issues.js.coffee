@@ -3,8 +3,8 @@ App.ApplicationRoute = Ember.Route.extend
     @store.find "issue"
 
   events:
-    openModal: (modal) ->
-      @render modal,
+    openModal: (modalName) ->
+      return @render modalName,
         into: "application"
         outlet: "modal"
 
@@ -16,6 +16,8 @@ App.ApplicationRoute = Ember.Route.extend
       ).bind(this)
 
 App.IssuesRoute = Em.Route.extend
+  model: ->
+    @store.find "issue"
   events: 
     edit: ->
       @controllerFor('widgets.modal').edit widget

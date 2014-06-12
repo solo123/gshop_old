@@ -7,6 +7,7 @@ h2 issues
         span.input-group-btn
           button.btn.btn-default click="createIssue" Save
           a.btn.btn-info href='/issues' ALL
+          button.btn.btn-default click="openModal myModal" Open modal
 
   table.table.table-bordered.table-striped.table-hover#issues_list
     thead
