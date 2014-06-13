@@ -1,5 +1,0 @@
-h2 Application template
-.application_div
-  = outlet 
-  = outlet modal
-h2 end--

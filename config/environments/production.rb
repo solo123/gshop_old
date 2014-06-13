@@ -80,5 +80,4 @@ Gshop::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'sz.mwguitars.com' }
 
-  config.ember.variant = :production
 end
