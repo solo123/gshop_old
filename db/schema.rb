@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428142831) do
+ActiveRecord::Schema.define(version: 20140617042900) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20140428142831) do
   end
 
   create_table "issues", force: true do |t|
-    t.string   "title"
     t.string   "description"
     t.datetime "due_date"
     t.integer  "employee_id"

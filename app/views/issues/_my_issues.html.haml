@@ -1,14 +1,18 @@
 - issues = current_employee.issues.active_issues
-= link_to 'All', issues_path
-|
-= link_to 'New', new_issue_path
+- new_issue = Issue.new
+= form_for new_issue, remote: true do |f|
+  .col-lg-6
+    .input-group
+      = f.text_field :description, class: 'form-control'
+      %span.input-group-btn
+        = f.submit 'Add', class: 'btn.btn-default'
+        = link_to 'All', issues_path, class: 'btn btn-info'
 
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
       %th Creator
       %th 厂家
-      %th Title
       %th Description
       %th Due date
       %th Related Employees
@@ -19,7 +23,6 @@
       %tr
         %td= issue.employee.nickname if issue.employee
         %td= issue.manufactory.name if issue.manufactory
-        %td= issue.title
         %td= issue.description
         %td{class: "#{issue_date_class(issue.due_date)}"}
           = l issue.due_date, format: :date
