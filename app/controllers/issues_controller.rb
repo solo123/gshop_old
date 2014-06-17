@@ -5,6 +5,7 @@ class IssuesController < ResourcesController
     params.permit!
     @object = Issue.new(params[:issue])
     @object.employee = current_employee
+    @object.due_date = Date.today unless @object.due_date
     @object.status = 1
     if @object.save
       if params[:emp]
@@ -14,16 +15,22 @@ class IssuesController < ResourcesController
       end
       @object.employees << current_employee
       @object.save
-      redirect_to @object
+      respond_to do |format|
+        format.html { redirect_to @object }
+        format.js
+      end
       return
     else
       flash[:error] = @object.errors.full_messages.to_sentence
     end
-    redirect_to :action => :new
+    respond_to do |format|
+      format.html { redirect_to :action => :new }
+    end
   end
   def update
     if params[:emp]
 		  load_object
+      @object.employees.clear
       params[:emp].each do |para|
         @object.employees << Employee.find(para[0])
       end

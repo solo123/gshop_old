@@ -25,6 +25,7 @@ class NestedResourcesController < ResourcesController
     else
       super
     end
+    redirect_to @parent
   end
   def update
     load_object

@@ -1,12 +1,11 @@
 
 .row
   .col-md-6
-    %h2= @object.title
     .well= @object.description
 
     %p
       Due date:
-      %strong=l @object.due_date
+      %strong=l @object.due_date if @object.due_date
 
       Created at:
       %strong=l @object.created_at

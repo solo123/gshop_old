@@ -13,7 +13,7 @@
       %td
         .btn-group
           = link_to 'Edit', edit_product_path(p), class: 'btn btn-mini btn-default', remote: :true
-          = link_to 'price', edit_product_price_path(p.product_price), :class => 'btn btn-mini'
+          = link_to 'price', edit_product_price_path(p.product_price), :class => 'btn btn-mini btn-default'
     - else
-      %td{:colspan => "7"}= link_to 'Add', add_price_product_price_path(p), :class => 'btn btn-mini', :remote => true
+      %td{:colspan => "7"}= link_to 'Add', add_price_product_price_path(p), :class => 'btn btn-mini btn-default', :remote => true
 

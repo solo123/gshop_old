@@ -3,7 +3,6 @@
     .row
       .col-sm-9
         = f.error_notification
-        = f.input :title 
         = f.input :description, :as => :text, :input_html => { :rows => 5, :cols => 52 } 
         = f.input :due_date, :as => :string, :input_html => {:class => 'datepicker col-span-3'}  
         = f.input :status, :collection => [["TODO", 1], ['Done', 8]]
