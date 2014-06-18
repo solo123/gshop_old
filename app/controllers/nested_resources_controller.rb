@@ -25,7 +25,10 @@ class NestedResourcesController < ResourcesController
     else
       super
     end
-    redirect_to @parent
+    respond_to do |format|
+      format.html { redirect_to @parent if @parent }
+      format.js
+    end
   end
   def update
     load_object
