@@ -21,10 +21,7 @@
           - if issue.updated_at
             %strong= l issue.updated_at, format: :long
         %td= issue.manufactory.name if issue.manufactory
-        %td
-          %strong= issue.title
-          %br/
-          = issue.description
+        %td= issue.description
         %td= issue.status
         %td
           = link_to 'Show', issue
