@@ -48,11 +48,13 @@ class ResourcesController < ApplicationController
 		@object = object_name.classify.constantize.new(params[object_name.singularize.parameterize('_')])
 		@object.employee = current_employee if @object.attributes.has_key? 'employee_id'
 		@object.creator = current_employee if @object.attributes.has_key? 'creator_id'
-		if @object.save
-			return
-		else
+		unless @object.save
 			flash[:error] = @object.errors.full_messages.to_sentence
 			@no_log = 1
+		end
+		respond_to do |format|
+			format.html { redirect_to @object}
+			format.js
 		end
 	end
 	def destroy
