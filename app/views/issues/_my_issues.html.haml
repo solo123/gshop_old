@@ -1,4 +1,4 @@
-- issues = current_employee.issues.active_issues
+- issues = Issue.active_issues
 - new_issue = Issue.new
 #my_issues_list
   = form_for new_issue, remote: true do |f|
