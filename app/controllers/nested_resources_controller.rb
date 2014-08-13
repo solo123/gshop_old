@@ -42,6 +42,11 @@ class NestedResourcesController < ResourcesController
         @no_log = 1
       end
     end
+    respond_to do |format|
+      format.html { redirect_to :action => :show }
+      format.json { respond_with_bip(@object) }
+      format.js
+    end
   end
   def select
     load_object

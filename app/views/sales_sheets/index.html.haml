@@ -9,6 +9,7 @@
         %li= link_to 'ALL', sales_sheets_path
         - Warehouse.all.each do |shop|
           %li= link_to "#{shop.name} (#{shop.id})", sales_sheets_path(:shop => shop.id)
+    =link_to '重算折扣', calc_discount_sales_sheets_path, class: 'btn btn-primary'
 
 = will_paginate @collection
 %table.table.table-bordered.table-striped.table-hover
@@ -21,6 +22,7 @@
       %th Total amount
       %th Additional fee
       %th Discount
+      %th 折扣
       %th Actual amount
       %th Status
       %th Operator
@@ -35,6 +37,7 @@
         %td.num= sales_sheet.total_amount
         %td.num= sales_sheet.additional_fee
         %td.num= sales_sheet.discount
+        %td.num= number_to_percentage(sales_sheet.discount_rate * 100, precision: 2) if sales_sheet.discount_rate
         %td.num= sales_sheet.actual_amount
         %td= sales_sheet.status
         %td= sales_sheet.operator.nickname if sales_sheet.operator

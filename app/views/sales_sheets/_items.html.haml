@@ -8,6 +8,7 @@
       %th 价格
       %th 金额
       %th
+      %th
   %tbody
     - sales_sheet.sales_sheet_items.each do |sales_sheet_item| 
       - if sales_sheet.status == 1
@@ -20,6 +21,7 @@
           %td= sales_sheet_item.quantity
           %td= sales_sheet_item.price
           %td= sales_sheet_item.amount
+          %td= sales_sheet_item.actual_amount
           %td
       - else
         %tr{id: "#{dom_id(sales_sheet_item)}"}
@@ -32,6 +34,7 @@
           %td= best_in_place sales_sheet_item, :quantity, :type => :input
           %td= best_in_place sales_sheet_item, :price, :type => :input
           %td= sales_sheet_item.amount
+          %td= sales_sheet_item.actual_amount
           %td= row_icon_link 'Del', sales_sheet_sales_sheet_item_path(sales_sheet, sales_sheet_item), method: :delete, :confirm => 'Are you sure?'
 
 

@@ -1,0 +1,52 @@
+.well
+  = form_tag sales_summary_reports_path, method: :get do
+    .col-md-2
+      = text_field_tag :year, @year
+    .col-md-2
+      = text_field_tag :month, @month
+    .btn-group
+      = submit_tag
+
+%table.table.table-bordered.table-striped.table-hover
+  %thead
+    %tr
+      %th Product
+      %th Quantity
+      %th Sale Amount
+      %th Sale Price
+      %th List Price
+      %th Godown Price
+      %th Discount
+      %th Cost1
+      %th Cost2
+      %th Profit
+  %tbody
+    - tot_amount = 0.00
+    - tot_quantity = 0
+    - @collection.each do |s|
+      - tot_amount += s.actual_amount
+      - tot_quantity += s.quantity
+      - p = s.actual_amount
+      - p = p / s.quantity if s.quantity > 0
+      %tr
+        %td= s.product.full_name
+        %td= s.quantity
+        %td.num= number_with_precision s.actual_amount, precision: 2, delimiter: ','
+        %td.num= number_with_precision p
+        %td.num= s.product.product_price.price
+        %td.num= number_with_precision s.product.product_price.godown_price, precision: 2
+        %td.num= number_to_percentage p / s.product.product_price.price * 100 if s.product.product_price && s.product.product_price.price > 0
+        %td.num
+          = number_with_precision s.product.product_price.godown_price * s.quantity, precision: 2 if s.product.status == 1
+        %td.num
+          = number_with_precision s.actual_amount * 0.4, precision: 2 if s.product.status == 2
+        %td.num
+          - if s.product.status == 2
+            = number_with_precision s.actual_amount * 0.6, precision: 2
+          - elsif s.product.status == 1
+            = number_with_precision s.actual_amount - s.product.product_price.godown_price * s.quantity, precision: 2
+  %tfoot
+    %tr
+      %td 合计：
+      %td.num= tot_quantity
+      %td.num= number_with_precision tot_amount, precision: 2, delimiter: ','

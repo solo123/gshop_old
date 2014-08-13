@@ -88,6 +88,12 @@ class SalesSheetsController < ResourcesController
     @object.save
     calculate
   end
+  def calc_discount
+    SalesSheet.where('discount_rate is null').each do |ss|
+      ss.calc_discount
+    end
+    redirect_to action: :index
+  end
 
 	private
 		def sales_sheet_params

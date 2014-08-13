@@ -76,6 +76,9 @@ Gshop::Application.routes.draw do
     get :calculate, :on => :member
     get :entering, :on => :member
     get :print, :on => :member
+    collection do
+      get :calc_discount
+    end
   end
   resources :sales_sheet_items
   resources :customers do
@@ -114,7 +117,7 @@ Gshop::Application.routes.draw do
   end
   resources :reports do
     collection do
-      get :sales_monthly, :catalog_summary
+      get :sales_monthly, :catalog_summary, :sales_summary
       get ':action'
     end 
   end

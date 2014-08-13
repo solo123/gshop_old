@@ -51,7 +51,9 @@
   .code
     = "#{@object.total_amount} + #{@object.additional_fee}(fee) - #{@object.discount}(discount) = "
     %b= @object.actual_amount
-    (Total 实收金额)
+    (Total 实收金额
+    = number_to_percentage @object.discount_rate * 100 if @object.discount_rate
+    )
 
 = render partial: 'customer_info', locals: { sales_sheet: @object }
 .clear
