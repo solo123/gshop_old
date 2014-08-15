@@ -21,7 +21,7 @@
       %th Cost2
       %th Profit
   %tbody
-    - tot_amount = 0.00
+    - tot_amount = cost1 = cost2 = profit = 0.00
     - tot_quantity = 0
     - @collection.each do |s|
       - tot_amount += s.actual_amount
@@ -32,21 +32,32 @@
         %td= s.product.full_name
         %td= s.quantity
         %td.num= number_with_precision s.actual_amount, precision: 2, delimiter: ','
-        %td.num= number_with_precision p
-        %td.num= s.product.product_price.price
-        %td.num= number_with_precision s.product.product_price.godown_price, precision: 2
+        %td.num= number_with_precision p, precision: 2, delimiter: ','
+        %td.num= number_with_precision s.product.product_price.price, precision: 2, delimiter: ','
+        %td.num= number_with_precision s.product.product_price.godown_price, precision: 2, delimiter: ','
         %td.num= number_to_percentage p / s.product.product_price.price * 100 if s.product.product_price && s.product.product_price.price > 0
         %td.num
-          = number_with_precision s.product.product_price.godown_price * s.quantity, precision: 2 if s.product.status == 1
-        %td.num
-          = number_with_precision s.actual_amount * 0.4, precision: 2 if s.product.status == 2
+          - if s.product.status == 1
+            = number_with_precision s.product.product_price.godown_price * s.quantity, precision: 2, delimiter: ','
+            - cost1 += s.product.product_price.godown_price * s.quantity
         %td.num
           - if s.product.status == 2
-            = number_with_precision s.actual_amount * 0.6, precision: 2
+            = number_with_precision s.actual_amount * 0.4, precision: 2, delimiter: ','
+            - cost2 += s.actual_amount * 0.4
+        %td.num
+          - if s.product.status == 2
+            = number_with_precision s.actual_amount * 0.6, precision: 2, delimiter: ','
+            - profit += s.actual_amount * 0.6
           - elsif s.product.status == 1
-            = number_with_precision s.actual_amount - s.product.product_price.godown_price * s.quantity, precision: 2
+            = number_with_precision s.actual_amount - s.product.product_price.godown_price * s.quantity, precision: 2, delimiter: ','
+            - profit += s.actual_amount - s.product.product_price.godown_price * s.quantity
   %tfoot
     %tr
       %td 合计：
       %td.num= tot_quantity
       %td.num= number_with_precision tot_amount, precision: 2, delimiter: ','
+      %td{colspan: 4}
+      %td.num= number_with_precision cost1, precision: 2, delimiter: ','
+      %td.num= number_with_precision cost2, precision: 2, delimiter: ','
+      %td.num= number_with_precision profit, precision: 2, delimiter: ','
+
