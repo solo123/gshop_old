@@ -117,7 +117,7 @@ Gshop::Application.routes.draw do
   end
   resources :reports do
     collection do
-      get :sales_monthly, :catalog_summary, :sales_summary
+      get :sales_monthly, :catalog_summary, :sales_summary, :sales_employee
       get ':action'
     end 
   end
