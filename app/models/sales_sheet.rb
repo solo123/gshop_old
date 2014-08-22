@@ -9,7 +9,7 @@ class SalesSheet < ActiveRecord::Base
   def calc_discount
     return false unless self.total_amount > 0 
     if self.discount > 0
-      self.discount_rate = 1 - self.discount / self.total_amount
+      self.discount_rate = 1 - (self.discount + self.additional_fee) / self.total_amount
       self.save
       self.sales_sheet_items.each do |item|
         item.actual_amount = item.amount * self.discount_rate

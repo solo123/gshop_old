@@ -49,11 +49,16 @@
   = @object.total_items
   %br/
   .code
-    = "#{@object.total_amount} + #{@object.additional_fee}(fee) - #{@object.discount}(discount) = "
+    = "#{@object.total_amount} - #{@object.discount}(discount) = "
     %b= @object.actual_amount
-    (Total 实收金额
+    (Discount:
     = number_to_percentage @object.discount_rate * 100 if @object.discount_rate
     )
 
 = render partial: 'customer_info', locals: { sales_sheet: @object }
+%p
+  = form_for(@object, html: {class: 'form-inline'}) do |f|
+    %label Other fee:
+    = f.text_field :additional_fee, class: 'form-control', style: 'width: 100px;'
+    = f.submit 'Save', class: 'btn btn-info'
 .clear

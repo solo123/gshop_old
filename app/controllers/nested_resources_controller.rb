@@ -24,6 +24,7 @@ class NestedResourcesController < ResourcesController
       end
     else
       super
+      return
     end
     respond_to do |format|
       format.html { redirect_to @parent if @parent }

@@ -29,11 +29,11 @@ class SalesSheetsController < ResourcesController
     end
     @object.total_items = @object.sales_sheet_items.sum(:quantity)
     @object.total_amount = @object.sales_sheet_items.sum(:amount)
+    @object.additional_fee = 0 unless @object.additional_fee
     if @object.actual_amount && @object.actual_amount > 0
-      @object.additional_fee = 0 unless @object.additional_fee
-      @object.discount = @object.total_amount + @object.additional_fee - @object.actual_amount
+      @object.discount = @object.total_amount  - @object.actual_amount
     else
-      @object.actual_amount = @object.total_amount + @object.additional_fee - @object.actual_amount
+      @object.actual_amount = @object.total_amount - @object.additional_fee
     end
     @object.save
     redirect_to @object

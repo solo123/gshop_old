@@ -65,8 +65,8 @@
           ** 吉他免费维护和补差价升级期限（不包括配件和其他品牌或特价吉他）：
           %br/
           MW手工吉他2年，MW工厂制各型号吉他1年，Butterfly各型号6个月。
-      %td.sum{colspan: "2"} + Additional(其他費用):
-      %td.right= @object.additional_fee
+      %td.sum{colspan: "2"}
+      %td.right
     - if @object.discount && @object.discount != 0
       %tr
         %td.noborder.sum{:colspan => "2", nowrap: 'nowrap'} - Invoice discount(折扣):
