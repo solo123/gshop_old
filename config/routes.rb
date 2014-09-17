@@ -122,5 +122,7 @@ Gshop::Application.routes.draw do
     end 
   end
 
+  resource :catalog
+
   root :to => 'homes#index'
 end
