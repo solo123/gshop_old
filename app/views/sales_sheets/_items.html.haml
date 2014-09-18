@@ -15,7 +15,6 @@
         %tr{id: "#{dom_id(sales_sheet_item)}"}
           %td= sales_sheet_item.serial_number
           %td
-            = "#{sales_sheet_item.id}#"
             = sales_sheet_item.product.full_name if sales_sheet_item.product
           %td= sales_sheet_item.description
           %td= sales_sheet_item.quantity
@@ -28,7 +27,6 @@
           %td
             = best_in_place sales_sheet_item, :serial_number, :type => :input
           %td
-            = "#{sales_sheet_item.id}#"
             = sales_sheet_item.product.full_name if sales_sheet_item.product
           %td= best_in_place sales_sheet_item, :description, :type => :input
           %td= best_in_place sales_sheet_item, :quantity, :type => :input
