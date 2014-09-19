@@ -22,7 +22,7 @@ class SalesSheetsController < ResourcesController
             item.price = item.product.product_price.price
           end
         end
-        item.description = item.product.full_name
+        item.description = item.product.full_name if !item.description || item.description.empty?
         item.amount = item.quantity * item.price
         item.save
       end
