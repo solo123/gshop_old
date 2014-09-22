@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617042900) do
+ActiveRecord::Schema.define(version: 20140919022412) do
 
   create_table "accessories", force: true do |t|
     t.string   "short_code"
@@ -250,6 +250,17 @@ ActiveRecord::Schema.define(version: 20140617042900) do
     t.integer  "show_order"
     t.string   "spec_title"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "static_reports", force: true do |t|
+    t.integer  "report_num"
+    t.integer  "row"
+    t.integer  "col"
+    t.string   "val"
+    t.integer  "report_type", default: 0
+    t.integer  "status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

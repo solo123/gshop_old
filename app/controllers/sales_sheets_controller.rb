@@ -1,6 +1,6 @@
 class SalesSheetsController < ResourcesController
   autocomplete :customer, :phone, :extra_data => [:name, :title], :display_value => :customer_phone_name
-  autocomplete :product, :name, :extra_data => [:catalog, :full_name], :full => true, :column_name => "full_name", limit: 80
+  autocomplete :product, :name, scopes: [:on_sale], :extra_data => [:catalog, :full_name], :full => true, :column_name => "full_name", limit: 80
   def calculate
     load_object
     @object.sales_sheet_items.each do |item|
