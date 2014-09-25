@@ -1,9 +1,10 @@
 module Biz
   class CostReport < BizBase
-    def find_report(year_txt, month_txt)
-      y = year_txt.to_i
-      m = month_txt.to_i
-      sr = StaticReport.where('report_type=1 and status=8 and col=0 and row=0').first
+    def find_report(year, month)
+      @year = year.to_i
+      @month = month.to_i
+      d = '%04i' % @year << '%02i' % @month
+      sr = StaticReport.where('report_type=1 and status=8 and col=0 and row=0 and val=?', d).first
       if sr
         @report_num = sr.id
       else
@@ -31,13 +32,18 @@ module Biz
 
     def set_val(col, val)
       st = StaticReport.new
-      st.report_number = @report_num
+      st.report_num = @report_num
       st.row = @current_row_index
       st.col = col
       st.val = val
       st.report_type = 1
       st.status = 0
       st.save!
+    end
+
+    def get_val(col)
+      v = StaticReport.where(report_num: @report_num).where(status: 0).where(row: @current_row_index).where(col: col).first
+      v.val if v
     end
 
     def recaculate

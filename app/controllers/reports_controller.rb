@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     d2 = d1 + 1.month
 
     @report = Biz::CostReport.new
-    if @report.find_report(@year, @month)
+    if @report.find_report(@year, @month) > 0
       render :show_report
     elsif params[:commit] == 'gen'
       @report.new_report(@year, @month)
@@ -23,14 +23,15 @@ class ReportsController < ApplicationController
         c1 = c2 = 0.0
         p = 0.00
         p = s.actual_amount / s.quantity if s.actual_amount > 0 && s.quantity > 0
+        price = s.product.product_price.price.to_d
         @report.new_row
         @report.set_val(0, s.product.full_name)
         @report.set_val(1, s.quantity)
         @report.set_val(2, s.actual_amount)
         @report.set_val(3, p)
-        @report.set_val(4, s.product.product_price.price)
+        @report.set_val(4, price)
         @report.set_val(5, s.product.product_price.godown_price)
-        @report.set_val(6, p / s.product.product_price * 100) if s.product.product_price && s.product.product_price.price > 0
+        @report.set_val(6, p / price * 100)
         if s.product.status == 1
           c1 = s.product.product_price.godown_price * s.quantity
           @report.set_val(7, c1)
