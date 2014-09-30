@@ -49,5 +49,18 @@ module Biz
     def recaculate
     end
 
+    def get_report
+      if StaticReport.where(report_num: @report_num).count > 0
+        rows = StaticReport.where(report_num: @report_num).last.row
+        report_data = Array.new(rows + 1) { Array.new(12) }
+        StaticReport.where(report_num: @report_num).each do |dt|
+          report_data[dt.row][dt.col] = dt
+        end
+        report_data
+      else
+        []
+      end
+    end
+
   end
 end

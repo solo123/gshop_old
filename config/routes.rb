@@ -117,9 +117,11 @@ Gshop::Application.routes.draw do
   end
   resources :reports do
     collection do
-      get :sales_monthly, :catalog_summary, :sales_summary, :sales_employee
+      get :sales_monthly, :catalog_summary, :sales_summary, :sales_employee, :new_cost_report_col
       get ':action'
     end 
+  end
+  resources :static_reports do
   end
 
   resource :catalog
