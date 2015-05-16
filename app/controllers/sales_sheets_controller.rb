@@ -18,7 +18,7 @@ class SalesSheetsController < ResourcesController
           item.serial_product = nil
         end
         if item.product.product_price
-          if !item.amount || item.amount == 0
+					if !item.price || item.price == 0 
             item.price = item.product.product_price.price
           end
         end
@@ -84,7 +84,7 @@ class SalesSheetsController < ResourcesController
   def update
     load_object
     params.permit!
-    @object.attributes = params[object_name.singularize.parameterize('_')]
+    @object.attributes = params[:sales_sheet]
     @object.save
     calculate
   end
@@ -97,6 +97,6 @@ class SalesSheetsController < ResourcesController
 
 	private
 		def sales_sheet_params
-			params.require('sales_sheet').permit(:actual_amount, :additional_fee, :customer_id, :discount, :operator_id, :status, :total_amount, :total_items, :warehouse_id, :info, :employee_id)
+			params.require(:sales_sheet).permit(:actual_amount, :additional_fee, :customer_id, :info)
 		end
 end
