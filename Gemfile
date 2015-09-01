@@ -45,10 +45,11 @@ gem 'ransack'
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 3.0'
 gem 'devise'
-gem 'best_in_place', :git => 'git://github.com/bernat/best_in_place.git', :branch => 'rails-4'
+gem 'best_in_place'
 gem 'rails4-autocomplete'
 gem "haml-rails"
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
-gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'
+gem 'simple_form'
 
+gem 'airbrake'
