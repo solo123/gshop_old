@@ -4,6 +4,8 @@ class SalesSheetItem < ActiveRecord::Base
   belongs_to :product_data, :polymorphic => true
   belongs_to :serial_product
 	before_save :caculate_amount
+	attr_accessible :price, :description
+
 
 	private 
 	  def caculate_amount

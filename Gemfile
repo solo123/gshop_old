@@ -1,7 +1,7 @@
 source 'http://ruby.taobao.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -42,14 +42,13 @@ gem 'protected_attributes'
 
 gem 'therubyracer'
 gem 'ransack'
-gem 'will_paginate', '~> 3.0'
-gem 'paperclip', '~> 3.0'
+gem 'will_paginate'
+gem 'paperclip'
 gem 'devise'
 gem 'best_in_place'
 gem 'rails4-autocomplete'
 gem "haml-rails"
 
-gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'simple_form'
 
 gem 'airbrake'
