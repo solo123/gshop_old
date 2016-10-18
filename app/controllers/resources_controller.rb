@@ -73,7 +73,7 @@ class ResourcesController < ApplicationController
 		@q = object_name.classify.constantize.search(params[:q])
 		pages = 20
 		@collection = @q.result(distinct: true).paginate(:page => params[:page], :per_page => pages)
-	end 
+	end
 	def load_object
 		@object = object_name.classify.constantize.find_by_id(params[:id])
 	end
@@ -134,4 +134,3 @@ class ResourcesController < ApplicationController
 
 
 end
-

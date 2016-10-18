@@ -5,10 +5,9 @@ class SalesSheet < ActiveRecord::Base
   belongs_to :operator, :class_name => 'Employee', :foreign_key => 'operator_id'
 
   default_scope {order('created_at desc')}
-	attr_accessible :actual_amount, :info, :additional_fee
 
   def calc_discount
-    return false unless self.total_amount > 0 
+    return false unless self.total_amount > 0
     if self.discount > 0
       self.discount_rate = 1 - (self.discount + self.additional_fee) / self.total_amount
       self.save
