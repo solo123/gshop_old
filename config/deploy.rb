@@ -31,7 +31,7 @@ set :work_path, '/home/rb/work'
 # `mina deploy` or `mina rake`.
 task :environment do
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.3.1@default]'
+  #invoke :'rvm:use[ruby-2.3.1@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -49,9 +49,7 @@ task :pull => :environment do
   queue! %{git reset --hard}
   queue! %{git pull origin deploy}
 
-  queue  %{echo "app_name = 'gshop'" > config/puma.rb && cat ../puma/pgate.rb >> config/puma.rb}
-  queue  %{cp ../database.yml config}
-  queue  %{cp ../secrets.yml config}
+  queue  %{echo "app_name = 'gshop'" > config/puma.rb && cat ../puma/default.rb >> config/puma.rb}
 
   queue! %{bundle install --without development test}
   queue! %{RAILS_ENV=production rails assets:precompile}

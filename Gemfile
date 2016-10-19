@@ -62,4 +62,4 @@ gem 'rails4-autocomplete'
 gem "haml-rails"
 gem 'simple_form'
 
-gem 'airbrake'
+#gem 'airbrake'

@@ -38,9 +38,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    airbrake (5.5.0)
-      airbrake-ruby (~> 1.5)
-    airbrake-ruby (1.5.0)
     arel (7.1.4)
     autoprefixer-rails (6.5.1)
       execjs
@@ -233,7 +230,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake
   best_in_place
   bootstrap
   byebug
